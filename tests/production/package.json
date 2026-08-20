@@ -1,0 +1,15 @@
+{
+  "name": "hanna-forward-production-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible renderer for Hanna's forward-production fixture",
+  "scripts": {
+    "render": "node render-forward-static.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

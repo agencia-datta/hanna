@@ -1,0 +1,25 @@
+{
+  "id": "hanna-forward-static-v1",
+  "status": "approved-for-test-only",
+  "canvas": { "width": 1080, "height": 1350 },
+  "phonePreviewScale": 0.4,
+  "copy": {
+    "label": "SINAL / DECISÃO OPERACIONAL",
+    "headline": "Mais dados não significam melhores decisões.",
+    "support": "Sem uma pergunta, uma definição e uma fonte confiável, o relatório pode aumentar o ruído.",
+    "nodes": ["DADO", "CONTEXTO", "DECISÃO"],
+    "fixtureNote": "MODELO CONCEITUAL / SEM DADOS DE CLIENTE"
+  },
+  "cta": null,
+  "claims": {
+    "client": false,
+    "performance": false,
+    "platformTechnical": false
+  },
+  "assets": {
+    "symbol": "../../assets/datta/datta-simbolo-branco.png",
+    "symbolWidth": 64,
+    "displayFont": "../../assets/datta/fonts/clash-display-700.woff2",
+    "bodyFont": "../../assets/datta/fonts/general-sans-500.woff2"
+  }
+}

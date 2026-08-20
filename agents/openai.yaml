@@ -1,0 +1,9 @@
+interface:
+  display_name: "Hanna"
+  short_description: "Copy e design para o Instagram da Datta"
+  icon_small: "./assets/datta/datta-favicon-32.png"
+  icon_large: "./assets/datta/datta-favicon-512.png"
+  brand_color: "#091105"
+  default_prompt: "Use $hanna para criar um carrossel completo e original para o Instagram da Agência Datta."
+policy:
+  allow_implicit_invocation: true
