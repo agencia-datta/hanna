@@ -1,0 +1,82 @@
+{
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "width": 1080,
+      "height": 1440,
+      "scrollWidth": 1080,
+      "scrollHeight": 1440,
+      "violations": [],
+      "sha256": "16f5217010651ac4b5f381eb9e8c8de85c107d16f3a6bf63e5be99ef49eccbac"
+    },
+    {
+      "slide": 2,
+      "width": 1080,
+      "height": 1440,
+      "scrollWidth": 1080,
+      "scrollHeight": 1440,
+      "violations": [],
+      "sha256": "92acfcf9514f234ab05c5031921fd4c02ca96cd38dcaadffee994ac444f6b589"
+    },
+    {
+      "slide": 3,
+      "width": 1080,
+      "height": 1440,
+      "scrollWidth": 1080,
+      "scrollHeight": 1440,
+      "violations": [],
+      "sha256": "746573e7db3ffa1c2fd6dc70f495f50c7c7e1b69bd38e068701b97e133a24101"
+    },
+    {
+      "slide": 4,
+      "width": 1080,
+      "height": 1440,
+      "scrollWidth": 1080,
+      "scrollHeight": 1440,
+      "violations": [],
+      "sha256": "099529fef8880bd772079ea4454ec229bd00c659bbbf59612ca732a3c59fdd53"
+    },
+    {
+      "slide": 5,
+      "width": 1080,
+      "height": 1440,
+      "scrollWidth": 1080,
+      "scrollHeight": 1440,
+      "violations": [],
+      "sha256": "a8c2855fb3b05c5a1e6dc34e730693df62af1f9640afe0d8264c5450733b0d5f"
+    },
+    {
+      "slide": 6,
+      "width": 1080,
+      "height": 1440,
+      "scrollWidth": 1080,
+      "scrollHeight": 1440,
+      "violations": [],
+      "sha256": "6a14a68f84acb32dff8e32df9174e8f109d3faae83e0b31738ada63a199bc46e"
+    },
+    {
+      "slide": 7,
+      "width": 1080,
+      "height": 1440,
+      "scrollWidth": 1080,
+      "scrollHeight": 1440,
+      "violations": [],
+      "sha256": "86e3f9ca9f1aae1ec506519026bcaac6ff921fe8b16f06b7291cb053d9586d05"
+    }
+  ],
+  "preview": {
+    "file": "previa-carrossel.png",
+    "width": 1236,
+    "height": 820,
+    "sha256": "8e54cd0f1a01df7454c0be9c748b7846030370b5a534e1f19742ad54ca56c338"
+  },
+  "fonts": {
+    "clash": true,
+    "general": true
+  }
+}

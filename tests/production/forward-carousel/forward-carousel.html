@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hanna — clinic handoff forward carousel</title>
+  <style>
+    :root {
+      --ink: #171A20;
+      --porcelain: #F3F0E7;
+      --cobalt: #2847D7;
+      --coral: #E45D4F;
+      --sage: #B6C9B6;
+      --display-condensed: "Bahnschrift SemiCondensed", "Bahnschrift", sans-serif;
+      --display: "Bahnschrift", "Segoe UI", sans-serif;
+      --body: "Segoe UI", sans-serif;
+      --mono: "Cascadia Mono", "Consolas", monospace;
+      --preview-scale: .4;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-width: 100%; min-height: 100%; }
+    body {
+      padding: 40px;
+      overflow: auto;
+      color: var(--porcelain);
+      background: #0E1014;
+      font-family: var(--body);
+      text-rendering: geometricPrecision;
+    }
+    img { display: block; }
+    h1, h2, p { margin: 0; }
+    .production-page { display: flex; align-items: flex-start; gap: 40px; }
+    .slides-source { display: flex; width: 1080px; flex: 0 0 1080px; flex-direction: column; gap: 40px; }
+    .canvas {
+      position: relative;
+      width: 1080px;
+      height: 1350px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .slide { flex: 0 0 1350px; }
+    .media-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .display-primary { font-family: var(--display-condensed); font-weight: 600; letter-spacing: -.035em; }
+    .display-secondary { font-family: var(--display); font-weight: 600; letter-spacing: -.025em; }
+    .body-copy { font-family: var(--body); font-weight: 400; }
+    .evidence-label {
+      font-family: var(--mono);
+      font-size: 19px;
+      line-height: 1.25;
+      letter-spacing: .045em;
+      text-transform: uppercase;
+    }
+    .paper-ticket {
+      position: relative;
+      background: var(--cobalt);
+    }
+    .paper-ticket::before,
+    .paper-ticket::after {
+      position: absolute;
+      top: 42%;
+      width: 9%;
+      height: 16%;
+      content: "";
+      background: var(--ticket-cutout, var(--porcelain));
+    }
+    .paper-ticket::before { left: -1px; }
+    .paper-ticket::after { right: -1px; }
+
+    /* S01 — full-bleed image / negative-space headline */
+    .s01 { color: var(--ink); background: var(--porcelain); }
+    .s01::after {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      content: "";
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(243, 240, 231, .92) 0%, rgba(243, 240, 231, .58) 45%, rgba(243, 240, 231, 0) 72%);
+    }
+    .s01-photo { object-position: center; }
+    .s01-state {
+      position: absolute;
+      z-index: 2;
+      left: 80px;
+      top: 96px;
+      width: 560px;
+      color: var(--ink);
+    }
+    .s01-headline {
+      position: absolute;
+      z-index: 2;
+      left: 80px;
+      top: 188px;
+      width: 640px;
+      font-size: 118px;
+      line-height: .9;
+    }
+    .s01-observation {
+      position: absolute;
+      z-index: 2;
+      left: 80px;
+      bottom: 164px;
+      width: 555px;
+      padding-top: 18px;
+      border-top: 3px solid var(--coral);
+      color: var(--ink);
+    }
+    .s01-symbol {
+      position: absolute;
+      z-index: 2;
+      left: 80px;
+      bottom: 96px;
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+    .s01-ticket-point {
+      position: absolute;
+      z-index: 2;
+      right: 162px;
+      bottom: 206px;
+      width: 118px;
+      height: 56px;
+      border-right: 3px solid var(--coral);
+      border-bottom: 3px solid var(--coral);
+    }
+
+    /* S02 — asymmetric split */
+    .s02 { color: var(--porcelain); background: var(--ink); }
+    .s02-image-panel { position: absolute; inset: 0 auto 0 0; width: 390px; overflow: hidden; }
+    .s02-image-panel::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(180deg, transparent 52%, rgba(23, 26, 32, .72));
+    }
+    .s02-photo { width: 100%; height: 100%; object-fit: cover; object-position: 78% center; }
+    .s02-copy {
+      position: absolute;
+      left: 470px;
+      top: 96px;
+      width: 530px;
+      height: 1158px;
+    }
+    .s02-label { color: var(--coral); }
+    .s02-headline { position: absolute; left: 0; top: 80px; width: 520px; font-size: 82px; line-height: .96; }
+    .s02-support { position: absolute; left: 4px; top: 390px; width: 470px; font-size: 34px; line-height: 1.35; color: var(--sage); }
+    .s02-route {
+      position: absolute;
+      left: 0;
+      top: 585px;
+      width: 490px;
+      padding-left: 54px;
+      font: 600 37px/1.58 var(--display);
+      color: var(--porcelain);
+    }
+    .s02-route-line { position: absolute; left: 19px; top: 604px; width: 3px; height: 235px; background: var(--sage); }
+    .s02-route-ticket {
+      --ticket-cutout: var(--ink);
+      position: absolute;
+      left: -4px;
+      top: 676px;
+      width: 48px;
+      height: 72px;
+    }
+    .s02-interval { position: absolute; left: 0; top: 900px; width: 380px; color: var(--coral); }
+    .s02-state { position: absolute; right: 0; bottom: 0; width: 250px; text-align: right; color: var(--sage); }
+
+    /* S03 — overhead paper artifact */
+    .s03 { color: var(--ink); background: var(--sage); }
+    .s03::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      opacity: .18;
+      background-image: linear-gradient(rgba(23, 26, 32, .2) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 26, 32, .2) 1px, transparent 1px);
+      background-size: 54px 54px;
+    }
+    .handoff-sheet {
+      position: absolute;
+      left: 112px;
+      top: 126px;
+      width: 856px;
+      height: 1090px;
+      padding: 76px 72px;
+      transform: rotate(-1.5deg);
+      transform-origin: center;
+      background: var(--porcelain);
+      box-shadow: 28px 32px 0 rgba(23, 26, 32, .16);
+    }
+    .s03-state { width: 610px; color: var(--coral); }
+    .s03-headline { width: 660px; margin-top: 44px; font-size: 84px; line-height: .94; }
+    .sheet-ticket-field {
+      --ticket-cutout: var(--porcelain);
+      position: absolute;
+      top: 60px;
+      right: 68px;
+      width: 86px;
+      height: 54px;
+      transform: rotate(4deg);
+    }
+    .handoff-fields { display: grid; margin-top: 66px; border-top: 2px solid var(--ink); }
+    .handoff-row {
+      display: grid;
+      min-height: 112px;
+      grid-template-columns: 300px 1fr;
+      align-items: center;
+      border-bottom: 1px solid rgba(23, 26, 32, .38);
+    }
+    .handoff-row [data-copy-key] { font: 500 23px/1.2 var(--mono); letter-spacing: .035em; }
+    .handoff-blank { height: 2px; background: rgba(23, 26, 32, .22); }
+    .s03-note { position: absolute; left: 72px; bottom: 62px; width: 540px; color: var(--coral); }
+
+    /* S04 — owned CSS extreme macro artifact */
+    .s04 { color: var(--ink); background: var(--porcelain); }
+    .s04::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      opacity: .25;
+      background: repeating-linear-gradient(3deg, rgba(23, 26, 32, .055) 0 1px, transparent 1px 16px);
+    }
+    .s04-headline { position: absolute; left: 80px; top: 102px; width: 720px; font-size: 84px; line-height: .94; }
+    .s04-state { position: absolute; left: 82px; top: 372px; width: 790px; color: var(--coral); }
+    .stopped-ticket-artifact {
+      position: absolute;
+      left: 130px;
+      top: 520px;
+      width: 760px;
+      height: 530px;
+    }
+    .ticket-shape {
+      position: absolute;
+      left: 80px;
+      top: 140px;
+      width: 600px;
+      height: 330px;
+      border-radius: 3px;
+      background: var(--cobalt);
+      box-shadow: 0 28px 48px rgba(23, 26, 32, .18);
+    }
+    .ticket-notch {
+      position: absolute;
+      top: 138px;
+      width: 42px;
+      height: 54px;
+      background: var(--porcelain);
+    }
+    .ticket-notch.left { left: 0; }
+    .ticket-notch.right { right: 0; }
+    .ticket-clamp {
+      position: absolute;
+      z-index: 3;
+      left: 38px;
+      top: 102px;
+      width: 684px;
+      height: 106px;
+      border: 2px solid rgba(255, 255, 255, .7);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .34);
+      box-shadow: 0 16px 22px rgba(23, 26, 32, .16), inset 0 0 0 1px rgba(23, 26, 32, .08);
+      backdrop-filter: blur(1px);
+    }
+    .clock-cue {
+      position: absolute;
+      right: 64px;
+      top: -150px;
+      width: 210px;
+      height: 210px;
+      border: 18px solid rgba(23, 26, 32, .5);
+      border-radius: 50%;
+      opacity: .48;
+      filter: blur(7px);
+    }
+    .clock-cue::before,
+    .clock-cue::after {
+      position: absolute;
+      left: 88px;
+      top: 40px;
+      width: 8px;
+      height: 70px;
+      content: "";
+      transform-origin: bottom;
+      background: rgba(23, 26, 32, .55);
+    }
+    .clock-cue::after { transform: rotate(112deg); height: 58px; }
+    .s04-edge {
+      position: absolute;
+      right: 80px;
+      top: 530px;
+      width: 30px;
+      height: 620px;
+      color: var(--coral);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* S05 — environmental contact strip */
+    .s05 { color: var(--porcelain); background: var(--ink); }
+    .s05-headline { position: absolute; left: 80px; top: 102px; width: 700px; font-size: 86px; line-height: .92; }
+    .s05-state { position: absolute; right: 80px; top: 106px; width: 260px; text-align: right; color: var(--sage); }
+    .contact-strip {
+      position: absolute;
+      left: 80px;
+      top: 360px;
+      width: 920px;
+      height: 720px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      overflow: hidden;
+    }
+    .contact-open { position: relative; overflow: hidden; }
+    .contact-open img { width: 100%; height: 100%; object-fit: cover; object-position: 78% 70%; }
+    .contact-open::after { position: absolute; left: 50%; top: 0; width: 14px; height: 100%; content: ""; transform: translateX(-7px); background: var(--ink); }
+    .contact-resolved { position: relative; overflow: hidden; }
+    .contact-resolved img { width: 100%; height: 100%; object-fit: cover; object-position: 78% 70%; }
+    .strip-marker {
+      position: absolute;
+      z-index: 2;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow: 0 0 0 9px rgba(228, 93, 79, .2);
+    }
+    .strip-marker.one { left: 27%; bottom: 90px; }
+    .strip-marker.two { left: 61%; bottom: 250px; }
+    .strip-marker.three { right: 12%; bottom: 92px; }
+    .s05-caption {
+      position: absolute;
+      top: 1120px;
+      width: 280px;
+      padding-top: 14px;
+      border-top: 2px solid var(--coral);
+      color: var(--porcelain);
+    }
+    .s05-caption.one { left: 80px; }
+    .s05-caption.two { left: 400px; }
+    .s05-caption.three { left: 720px; }
+
+    /* S06 — vertical route */
+    .s06 { color: var(--porcelain); background: var(--cobalt); }
+    .s06-copy { position: absolute; left: 80px; top: 96px; width: 430px; height: 1158px; }
+    .s06-label { color: var(--ink); }
+    .s06-headline { position: absolute; left: 0; top: 86px; width: 420px; font-size: 94px; line-height: .9; }
+    .s06-state { position: absolute; left: 0; bottom: 0; width: 400px; color: var(--ink); }
+    .vertical-route {
+      position: absolute;
+      right: 80px;
+      top: 112px;
+      width: 430px;
+      height: 1100px;
+    }
+    .vertical-route::before { position: absolute; left: 54px; top: 45px; width: 3px; height: 920px; content: ""; background: rgba(243, 240, 231, .5); }
+    .route-station { position: absolute; left: 0; width: 430px; height: 138px; }
+    .route-station.one { top: 0; }
+    .route-station.two { top: 280px; }
+    .route-station.three { top: 560px; }
+    .route-station.four { top: 840px; }
+    .route-node {
+      --ticket-cutout: var(--cobalt);
+      position: absolute;
+      left: 14px;
+      top: 20px;
+      width: 82px;
+      height: 106px;
+      border: 3px solid var(--porcelain);
+      background: transparent;
+    }
+    .route-station.active .route-node { background: var(--coral); border-color: var(--coral); }
+    .route-station [data-copy-key] { position: absolute; left: 126px; top: 49px; width: 290px; font: 600 30px/1.25 var(--display); }
+
+    /* S07 — transformed full-bleed return */
+    .s07 { color: var(--ink); background: var(--porcelain); }
+    .s07::after {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      content: "";
+      pointer-events: none;
+      background: linear-gradient(90deg, rgba(243, 240, 231, .94) 0%, rgba(243, 240, 231, .66) 48%, transparent 74%);
+    }
+    .s07-photo { object-position: center; }
+    .s07-state { position: absolute; z-index: 2; left: 80px; top: 96px; width: 470px; color: var(--coral); }
+    .s07-headline { position: absolute; z-index: 2; left: 80px; top: 176px; width: 630px; font-size: 82px; line-height: .93; }
+    .s07-support { position: absolute; z-index: 2; left: 82px; top: 520px; width: 510px; font-size: 33px; line-height: 1.34; }
+    .s07-endpoint {
+      position: absolute;
+      z-index: 2;
+      right: 80px;
+      top: 850px;
+      width: 210px;
+      padding: 13px 16px;
+      text-align: center;
+      color: var(--porcelain);
+      background: var(--coral);
+    }
+    .s07-cta {
+      position: absolute;
+      z-index: 2;
+      left: 80px;
+      top: 1010px;
+      width: 590px;
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      text-transform: none;
+    }
+    .s07-lockup-panel {
+      position: absolute;
+      z-index: 2;
+      left: 80px;
+      bottom: 96px;
+      width: 260px;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--porcelain);
+    }
+    .s07-lockup { width: 220px; height: auto; object-fit: contain; }
+
+    .preview-surface {
+      position: sticky;
+      top: 40px;
+      width: 1836px;
+      display: grid;
+      grid-template-columns: repeat(4, 432px);
+      grid-auto-rows: 540px;
+      gap: 20px;
+      flex: 0 0 1836px;
+      padding: 24px;
+      align-self: flex-start;
+      background: #0A0C10;
+    }
+    .preview-card { width: 432px; height: 540px; overflow: hidden; background: var(--ink); box-shadow: 0 0 0 1px rgba(243, 240, 231, .18); }
+    .preview-slide { transform: scale(var(--preview-scale)); transform-origin: 0 0; }
+  </style>
+</head>
+<body>
+  <main class="production-page" aria-label="Regressão visual do carrossel Hanna sobre handoff de leads em clínica">
+    <section class="slides-source" aria-label="Sete slides em resolução integral">
+      <article class="slide canvas s01" data-slide-id="S01" data-mode="image-led" data-composition="full-bleed-negative-space-headline" data-anchor="image-led">
+        <img class="media-fill s01-photo" data-asset-key="s1-open" src="assets/reception-open.jpg" alt="Recepção de clínica vazia com telefone e ticket azul sobre o balcão.">
+        <p class="s01-state evidence-label" data-copy-key="state" data-font-role="evidence-label">CENA ILUSTRATIVA / SEM DADOS DE CLIENTE</p>
+        <h1 class="s01-headline display-primary" data-copy-key="headline" data-font-role="display-primary" data-overflow-check="s01-headline">O lead<br>chegou.<br>A resposta, não.</h1>
+        <p class="s01-observation evidence-label" data-copy-key="observation">OBSERVAÇÃO / TICKET PRESENTE · CADEIRA VAZIA</p>
+        <div class="s01-ticket-point" aria-hidden="true"></div>
+        <img class="s01-symbol" data-asset-key="s1-symbol" src="../../../assets/datta/datta-simbolo.svg" alt="">
+      </article>
+
+      <article class="slide canvas s02" data-slide-id="S02" data-mode="image-led" data-composition="asymmetric-split-route">
+        <div class="s02-image-panel" aria-hidden="true">
+          <img class="s02-photo" data-asset-key="s2-open-crop" src="assets/reception-open.jpg" alt="Recorte da recepção vazia destacando o balcão, o telefone e a cadeira sem responsável.">
+        </div>
+        <div class="s02-copy" data-safe="s02-copy" data-overflow-check="s02-copy">
+          <p class="s02-label evidence-label" data-copy-key="label">DISTINÇÃO</p>
+          <h2 class="s02-headline display-secondary" data-copy-key="headline" data-font-role="display-secondary">Lead gerado não é lead atendido.</h2>
+          <p class="s02-support body-copy" data-copy-key="support" data-font-role="body">Entre os dois existe uma operação.</p>
+          <div class="s02-route-line" aria-hidden="true"></div>
+          <div class="s02-route-ticket paper-ticket" aria-hidden="true"></div>
+          <p class="s02-route" data-copy-key="route">FORMULÁRIO →<br>DISTRIBUIÇÃO →<br>1ª TENTATIVA</p>
+          <p class="s02-interval evidence-label" data-copy-key="interval">INTERVALO NÃO MEDIDO</p>
+          <p class="s02-state evidence-label" data-copy-key="state">MODELO CONCEITUAL</p>
+        </div>
+      </article>
+
+      <article class="slide canvas s03" data-slide-id="S03" data-mode="artifact/evidence-led" data-composition="overhead-paper-artifact" data-anchor="artifact-evidence-led">
+        <section class="handoff-sheet" data-safe="handoff-sheet" data-overflow-check="handoff-sheet" aria-label="Modelo ilustrativo de folha de handoff">
+          <p class="s03-state evidence-label" data-copy-key="state">MODELO ILUSTRATIVO / SEM DADOS DE CLIENTE</p>
+          <h2 class="s03-headline display-primary" data-copy-key="headline">O handoff precisa deixar rastro.</h2>
+          <div class="sheet-ticket-field paper-ticket" aria-hidden="true"></div>
+          <div class="handoff-fields">
+            <div class="handoff-row"><span data-copy-key="entry">ENTRADA</span><i class="handoff-blank"></i></div>
+            <div class="handoff-row"><span data-copy-key="owner">RESPONSÁVEL</span><i class="handoff-blank"></i></div>
+            <div class="handoff-row"><span data-copy-key="attempt">1ª TENTATIVA</span><i class="handoff-blank"></i></div>
+            <div class="handoff-row"><span data-copy-key="response">RESPOSTA</span><i class="handoff-blank"></i></div>
+            <div class="handoff-row"><span data-copy-key="status">STATUS</span><i class="handoff-blank"></i></div>
+          </div>
+          <p class="s03-note evidence-label" data-copy-key="note">CAMPOS EM BRANCO / NÃO É UM CRM</p>
+        </section>
+      </article>
+
+      <article class="slide canvas s04" data-slide-id="S04" data-mode="artifact/evidence-led" data-composition="extreme-macro-edge-annotation">
+        <h2 class="s04-headline display-primary" data-copy-key="headline" data-overflow-check="s04-headline">Sem horário e responsável, o gargalo vira opinião.</h2>
+        <p class="s04-state evidence-label" data-copy-key="state">HIPÓTESE — CONFIRMAR COM CRM E REGISTROS DE CONTATO</p>
+        <div class="stopped-ticket-artifact" data-artifact-key="s4-ticket-stopped-css" data-provenance-status="owned · illustrative" aria-label="Ticket azul ilustrativo preso sob uma barra acrílica">
+          <div class="clock-cue" aria-hidden="true"></div>
+          <div class="ticket-shape">
+            <i class="ticket-notch left" aria-hidden="true"></i>
+            <i class="ticket-notch right" aria-hidden="true"></i>
+          </div>
+          <div class="ticket-clamp" aria-hidden="true"></div>
+        </div>
+        <p class="s04-edge evidence-label" data-copy-key="annotation">TICKET PARADO / INTERVALO SEM DURAÇÃO INVENTADA</p>
+      </article>
+
+      <article class="slide canvas s05" data-slide-id="S05" data-mode="image-led" data-composition="horizontal-environment-contact-strip">
+        <h2 class="s05-headline display-primary" data-copy-key="headline" data-overflow-check="s05-headline">Descubra onde a conversa para.</h2>
+        <p class="s05-state evidence-label" data-copy-key="state">CENAS ILUSTRATIVAS / CONTEXTOS DE AUDITORIA</p>
+        <div class="contact-strip" aria-label="Três recortes ambientais da rota do ticket">
+          <div class="contact-open">
+            <img data-asset-key="s5-open-strip" src="assets/reception-open.jpg" alt="Recorte horizontal da recepção vazia mostrando balcão, telefone e cadeira.">
+            <i class="strip-marker one" aria-hidden="true"></i>
+            <i class="strip-marker two" aria-hidden="true"></i>
+          </div>
+          <div class="contact-resolved">
+            <img data-asset-key="s5-resolved-strip" src="assets/reception-resolved.jpg" alt="Recorte da mesma recepção com uma mão recebendo o ticket azul.">
+            <i class="strip-marker three" aria-hidden="true"></i>
+          </div>
+        </div>
+        <p class="s05-caption one evidence-label" data-copy-key="beforeDistribution">ANTES DA DISTRIBUIÇÃO</p>
+        <p class="s05-caption two evidence-label" data-copy-key="beforeAttempt">ANTES DA TENTATIVA</p>
+        <p class="s05-caption three evidence-label" data-copy-key="afterResponse">DEPOIS DA RESPOSTA</p>
+      </article>
+
+      <article class="slide canvas s06" data-slide-id="S06" data-mode="artifact/evidence-led" data-composition="vertical-ticket-route">
+        <div class="s06-copy" data-safe="s06-copy" data-overflow-check="s06-copy">
+          <p class="s06-label evidence-label" data-copy-key="label">MÉTODO</p>
+          <h2 class="s06-headline display-primary" data-copy-key="headline" data-overflow-check="s06-headline">Audite quatro passagens.</h2>
+          <p class="s06-state evidence-label" data-copy-key="state">SEM DURAÇÕES, SCORES OU DADOS DE CLIENTE</p>
+        </div>
+        <div class="vertical-route" data-safe="vertical-route" aria-label="Rota vertical do ticket por quatro etapas">
+          <div class="route-station one"><i class="route-node paper-ticket"></i><span data-copy-key="route01">entrada → distribuição</span></div>
+          <div class="route-station two"><i class="route-node paper-ticket"></i><span data-copy-key="route02">distribuição → tentativa</span></div>
+          <div class="route-station three"><i class="route-node paper-ticket"></i><span data-copy-key="route03">tentativa → resposta</span></div>
+          <div class="route-station four active"><i class="route-node paper-ticket"></i><span data-copy-key="route04">resposta → agendamento</span></div>
+        </div>
+      </article>
+
+      <article class="slide canvas s07" data-slide-id="S07" data-mode="image-led" data-composition="full-bleed-transformed-return" data-anchor="contextual-transformation">
+        <img class="media-fill s07-photo" data-asset-key="s7-resolved" src="assets/reception-resolved.jpg" alt="Mesma recepção da abertura, agora com uma mão recebendo o ticket azul.">
+        <p class="s07-state evidence-label" data-copy-key="state">DECISÃO / CENA ILUSTRATIVA</p>
+        <h2 class="s07-headline display-primary" data-copy-key="headline" data-overflow-check="s07-headline">Antes de mudar a campanha, localize o handoff.</h2>
+        <p class="s07-support body-copy" data-copy-key="support">O ticket só termina a rota quando chega a um responsável.</p>
+        <p class="s07-endpoint evidence-label" data-copy-key="endpoint">RESPONSÁVEL</p>
+        <p class="s07-cta evidence-label" data-copy-key="cta">PROPOSTA DE CTA — Salve este roteiro para a próxima auditoria.</p>
+        <div class="s07-lockup-panel">
+          <img class="s07-lockup" data-asset-key="s7-lockup" src="../../../assets/datta/datta-lockup-mono.svg" alt="">
+        </div>
+      </article>
+    </section>
+
+    <section class="preview-surface" aria-label="Contact sheet em escala de telefone"></section>
+  </main>
+
+  <script>
+    const preview = document.querySelector(".preview-surface");
+    for (const source of document.querySelectorAll(".slides-source > .slide")) {
+      const card = document.createElement("div");
+      card.className = "preview-card";
+      const clone = source.cloneNode(true);
+      clone.classList.remove("slide");
+      clone.classList.add("preview-slide");
+      clone.removeAttribute("data-anchor");
+      card.appendChild(clone);
+      preview.appendChild(card);
+    }
+  </script>
+</body>
+</html>

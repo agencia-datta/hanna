@@ -1,0 +1,191 @@
+{
+  "id": "hanna-forward-carousel-v1",
+  "status": "approved-for-test-only",
+  "canvas": { "width": 1080, "height": 1350 },
+  "previewScale": 0.4,
+  "safeArea": { "left": 80, "right": 80, "top": 96, "bottom": 96 },
+  "subject": "clinic lead handoff",
+  "job": "make an arrived lead visibly stall before an owner receives it",
+  "signature": "The blank cobalt paper ticket changes function from real object to route marker, audit field, stopped object, contact-strip evidence, vertical route node, and received ticket.",
+  "tokens": {
+    "ink": "#171A20",
+    "porcelain": "#F3F0E7",
+    "cobalt": "#2847D7",
+    "coral": "#E45D4F",
+    "sage": "#B6C9B6"
+  },
+  "officialColorsSelected": false,
+  "typography": [
+    {
+      "family": "Bahnschrift SemiCondensed",
+      "role": "display-primary",
+      "query": "600 96px \"Bahnschrift SemiCondensed\"",
+      "fallback": "monospace",
+      "official": false,
+      "source": "Windows system font"
+    },
+    {
+      "family": "Bahnschrift",
+      "role": "display-secondary",
+      "query": "600 72px \"Bahnschrift\"",
+      "fallback": "monospace",
+      "official": false,
+      "source": "Windows system font"
+    },
+    {
+      "family": "Segoe UI",
+      "role": "body",
+      "query": "400 32px \"Segoe UI\"",
+      "fallback": "monospace",
+      "official": false,
+      "source": "Windows system font"
+    },
+    {
+      "family": "Cascadia Mono",
+      "role": "evidence-label",
+      "query": "400 20px \"Cascadia Mono\"",
+      "fallback": "serif",
+      "official": false,
+      "source": "Windows system font"
+    }
+  ],
+  "officialMarks": {
+    "symbol": "../../../assets/datta/datta-simbolo.svg",
+    "lockup": "../../../assets/datta/datta-lockup-mono.svg"
+  },
+  "interactiveCta": false,
+  "slides": [
+    {
+      "id": "S01",
+      "mode": "image-led",
+      "composition": "full-bleed-negative-space-headline",
+      "anchor": "image-led",
+      "assetPaths": [
+        "assets/reception-open.jpg",
+        "../../../assets/datta/datta-simbolo.svg"
+      ],
+      "copy": {
+        "state": "CENA ILUSTRATIVA / SEM DADOS DE CLIENTE",
+        "headline": "O lead chegou. A resposta, não.",
+        "observation": "OBSERVAÇÃO / TICKET PRESENTE · CADEIRA VAZIA"
+      }
+    },
+    {
+      "id": "S02",
+      "mode": "image-led",
+      "composition": "asymmetric-split-route",
+      "anchor": null,
+      "assetPaths": ["assets/reception-open.jpg"],
+      "copy": {
+        "label": "DISTINÇÃO",
+        "headline": "Lead gerado não é lead atendido.",
+        "support": "Entre os dois existe uma operação.",
+        "route": "FORMULÁRIO → DISTRIBUIÇÃO → 1ª TENTATIVA",
+        "interval": "INTERVALO NÃO MEDIDO",
+        "state": "MODELO CONCEITUAL"
+      }
+    },
+    {
+      "id": "S03",
+      "mode": "artifact/evidence-led",
+      "composition": "overhead-paper-artifact",
+      "anchor": "artifact-evidence-led",
+      "assetPaths": [],
+      "copy": {
+        "state": "MODELO ILUSTRATIVO / SEM DADOS DE CLIENTE",
+        "headline": "O handoff precisa deixar rastro.",
+        "entry": "ENTRADA",
+        "owner": "RESPONSÁVEL",
+        "attempt": "1ª TENTATIVA",
+        "response": "RESPOSTA",
+        "status": "STATUS",
+        "note": "CAMPOS EM BRANCO / NÃO É UM CRM"
+      }
+    },
+    {
+      "id": "S04",
+      "mode": "artifact/evidence-led",
+      "composition": "extreme-macro-edge-annotation",
+      "anchor": null,
+      "assetPaths": [],
+      "artifactKey": "s4-ticket-stopped-css",
+      "copy": {
+        "state": "HIPÓTESE — CONFIRMAR COM CRM E REGISTROS DE CONTATO",
+        "headline": "Sem horário e responsável, o gargalo vira opinião.",
+        "annotation": "TICKET PARADO / INTERVALO SEM DURAÇÃO INVENTADA"
+      }
+    },
+    {
+      "id": "S05",
+      "mode": "image-led",
+      "composition": "horizontal-environment-contact-strip",
+      "anchor": null,
+      "assetPaths": [
+        "assets/reception-open.jpg",
+        "assets/reception-resolved.jpg"
+      ],
+      "copy": {
+        "state": "CENAS ILUSTRATIVAS / CONTEXTOS DE AUDITORIA",
+        "headline": "Descubra onde a conversa para.",
+        "beforeDistribution": "ANTES DA DISTRIBUIÇÃO",
+        "beforeAttempt": "ANTES DA TENTATIVA",
+        "afterResponse": "DEPOIS DA RESPOSTA"
+      }
+    },
+    {
+      "id": "S06",
+      "mode": "artifact/evidence-led",
+      "composition": "vertical-ticket-route",
+      "anchor": null,
+      "assetPaths": [],
+      "copy": {
+        "label": "MÉTODO",
+        "headline": "Audite quatro passagens.",
+        "route01": "entrada → distribuição",
+        "route02": "distribuição → tentativa",
+        "route03": "tentativa → resposta",
+        "route04": "resposta → agendamento",
+        "state": "SEM DURAÇÕES, SCORES OU DADOS DE CLIENTE"
+      }
+    },
+    {
+      "id": "S07",
+      "mode": "image-led",
+      "composition": "full-bleed-transformed-return",
+      "anchor": "contextual-transformation",
+      "assetPaths": [
+        "assets/reception-resolved.jpg",
+        "../../../assets/datta/datta-lockup-mono.svg"
+      ],
+      "copy": {
+        "state": "DECISÃO / CENA ILUSTRATIVA",
+        "headline": "Antes de mudar a campanha, localize o handoff.",
+        "support": "O ticket só termina a rota quando chega a um responsável.",
+        "endpoint": "RESPONSÁVEL",
+        "cta": "PROPOSTA DE CTA — Salve este roteiro para a próxima auditoria."
+      }
+    }
+  ],
+  "sourceAssets": [
+    {
+      "role": "opening reception",
+      "path": "assets/reception-open.jpg",
+      "sha256": "305721ac48b042f98bb1c6fddfde434a84d01b2d956a19e8e39f41ac3f681d8c"
+    },
+    {
+      "role": "resolved reception",
+      "path": "assets/reception-resolved.jpg",
+      "sha256": "26f683f182cac23fc2346065aeacfb4d2c56bf740b5f1315a38a3009b7b62f1c"
+    },
+    {
+      "role": "exact Datta symbol",
+      "path": "../../../assets/datta/datta-simbolo.svg",
+      "sha256": "5bfcd2bc033b1446f521ca0efc47cc68e9bae7bfd0ac978c278e7278b3e11ad6"
+    },
+    {
+      "role": "exact Datta mono lockup",
+      "path": "../../../assets/datta/datta-lockup-mono.svg",
+      "sha256": "414d7999bbe66645418f46a340efb7164a553b6f98881d47c7ecf057371013f7"
+    }
+  ]
+}

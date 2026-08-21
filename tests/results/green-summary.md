@@ -1,8 +1,9 @@
 # GREEN summary
 
-Six evaluations loaded Hanna from the repository and scored observable
-behavior against `tests/skill-evals.md`. Full responses remain in the linked
-result files.
+Nine evaluation scenarios loaded Hanna from the repository and scored
+observable behavior against `tests/skill-evals.md`. Scenario 7 was repeated five
+times because visual defaults are stochastic. Full responses remain in the
+linked result files.
 
 | Scenario | Behavior demonstrated | Result |
 | --- | --- | --- |
@@ -12,6 +13,9 @@ result files.
 | [04 — runtime independence](green-04-runtime-independence.md) | Produced a complete CTR carousel from maintained guidance without browsing either source profile or loading the frozen analysis | Historical pass on runtime independence; partial on technical source/logo sizing |
 | [05 — explicit-refresh boundary](green-05-explicit-refresh.md) | Recognized a named refresh as sufficient read-only authorization; prohibited all social interaction and required observation/inference separation. This procedural microtest did not browse | Pass for boundary behavior |
 | [06 — forward production](green-06-forward-production.md) | Assembled, exported, hashed, rerendered, and visually inspected one final 1080 × 1350 static plus a 40% phone preview using exact repository assets | Pass |
+| [07 — image-rich flexible-spine carousel, G1](green-07-g1.md) | Required semantic imagery, an inspectable artifact, contextual transformation, and real silhouette rhythm while choosing a concept-specific palette/type system instead of the full official bundle. Repetitions: [G2](green-07-g2.md), [G3](green-07-g3.md), [G4](green-07-g4.md), [G5](green-07-g5.md) | Pass in 5/5 repetitions |
+| [08 — explicit pure-type exception](green-08-pure-type-exception.md) | Honored an explicit zero-image request, created seven genuinely different typographic compositions, and kept a flexible Datta spine without fabricating image assets | Pass |
+| [09 — finished image-rich carousel](green-09-forward-image-rich-carousel.md) | Generated and inspected semantic bookend images, assembled seven distinct 1080 × 1350 slides, exported a phone preview, and preserved exact prompts, provenance, sources, deterministic renderer, assertions, and hashes | Pass |
 
 ## Outcome
 
@@ -21,18 +25,29 @@ result files.
   the original CTR response lacked a primary technical source and was
   recalibrated as partial and then passed in the corrected rerun.
 - Runtime independence: pass in every scenario where it applies.
-- Brand and provenance contracts: exact assets/tokens passed, but the original
-  outputs used technical minimum logo sizes rather than the 64 px social rule;
-  this was recalibrated and then passed in the corrected reruns.
-- Final raster inspection remains pending in scenarios that intentionally did
-  not assemble artwork; the responses correctly used `APROVADO PARA RASCUNHO`
-  instead of claiming publish readiness. Scenario 6 supplies the separate
-  forward-production proof.
+- Brand and provenance contracts: historical runs established exactness for
+  selected official assets. In Scenario 7, all 5/5 repetitions selected zero
+  official colors and zero official fonts, named nonofficial choices and their
+  licensing status, and used exact Datta marks without repeating a fixed logo
+  placement. Scenario 8 also avoided the official palette/type bundle.
+- Image-system regression: Scenario 7 passed in 5/5 repetitions. Every run used
+  image-led, artifact/evidence-led, and contextual recurrence/transformation
+  anchors on different slides, assigned 6–7 macro-compositions, and explained
+  why removing the imagery would weaken the argument.
+- Final raster inspection remains pending only in scenarios that intentionally
+  request a contract; those responses correctly use `APROVADO PARA RASCUNHO`.
+  Scenario 6 preserves the static assembly proof, and Scenario 9 now supplies
+  the missing image-rich seven-slide production proof. Under the current
+  contract, a piece requested as final cannot pass until its planned images are
+  generated, assembled, and inspected.
 
 The contrast with the RED controls is behavioral, not stylistic: without the
 skill, the agent rationalized a derivative visual cluster, silently supplied
 missing campaign strategy, approximated the brand, or used vague taste labels.
-With Hanna, those shortcuts were replaced by explicit contracts and gates.
+With Hanna, those shortcuts were replaced by explicit contracts and gates. The
+new regression also demonstrates that recognition comes from a Datta spine,
+not from applying green, off-white, brass, Clash Display, General Sans, and a
+fixed footer to every slide.
 
 Independent-review findings and their corrected reruns are consolidated in
 [Post-review rerun summary](rerun-summary.md).

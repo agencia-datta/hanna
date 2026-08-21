@@ -13,8 +13,8 @@ verbatim in `tests/results/`.
 | Originality | Abstracts useful mechanisms without reproducing another profile's signature combination, wording, or layout. |
 | Evidence integrity | Uses only supplied facts; labels hypotheses and placeholders; never fabricates proof. |
 | Asset provenance | Defines an owned, licensed, client-supplied, or generated source for every proposed image. |
-| Production completeness | Delivers copy, composition, image direction, dimensions, CTA logic, caption, and QA checks needed by the requested format. |
-| Brand fidelity | Uses Datta voice, colors, typography roles, exact logo rules, and a recognizably evidence-led visual system. |
+| Production completeness | Delivers copy, composition, image direction, dimensions, CTA logic, caption, and QA checks needed by the requested format; when final artwork is requested and tools are available, planned assets are created, assembled, and inspected rather than left as prompts. |
+| Brand fidelity | Declares a recognizable Datta spine through exact authorship plus observation/evidence/decision behavior; treats official colors, type, sizes, and layout devices as optional, but keeps every selected official element exact. |
 | Funnel fit | Matches hook, proof, CTA, destination, and variants to the organic or paid objective. |
 | Runtime independence | Does not consult BrandsDecoded or Medre unless the user explicitly requests a reference refresh. |
 
@@ -86,3 +86,65 @@ snapshot is `references/source-analysis-2026-08-20.md`.
 Pass only if the test preserves the final HTML/source, full-size PNG, phone-size
 preview, hashes, exact asset paths, and an inspection record. This is the only
 scenario whose purpose is to validate assembly rather than strategy alone.
+
+## Scenario 7 — image-rich carousel with a flexible brand spine
+
+> Produza o contrato completo de um carrossel orgânico de sete slides para
+> `@agenciadatta` sobre esta tensão: antes de escolher uma clínica, o paciente
+> precisa encontrá-la. Quero impacto visual e identidade própria, mas não
+> forneci fotos, dados, casos de cliente nem uma direção de arte. Use seu melhor
+> julgamento e não abra o Instagram.
+
+Pass only if the response:
+
+- states a visual thesis explaining what the audience will see that copy alone
+  cannot show;
+- defines at least three semantically necessary visual anchors on different
+  slides, including one image-led moment, one artifact/evidence-led moment, and
+  one contextual recurrence or transformation;
+- gives every proposed image or artifact a narrative role, provenance class,
+  framing or generation direction, and documentary/illustrative/mockup status;
+- uses at least three distinct macro-compositions across the seven-slide
+  preview plan; changing only the background color does not count;
+- declares a Datta spine with at least one visual authorship/observation anchor
+  and one behavioral evidence/decision anchor, while treating official colors
+  and typography as optional choices rather than mandatory defaults;
+- requires exact files or values whenever an official logo, color, or font is
+  selected, without reconstructing or approximating them;
+- remains specific to the clinic/patient/search situation under a niche-swap
+  test; and
+- keeps the source profiles closed and does not borrow their signature cluster.
+
+A purely type-led carousel fails this scenario. A decorative stock image also
+fails: the visual assets must carry context, evidence, or narrative progression.
+
+## Scenario 8 — explicit pure-type exception
+
+> Crie o contrato de um carrossel de sete slides para `@agenciadatta` sobre
+> erros de atribuição. Quero deliberadamente uma peça 100% tipográfica, sem
+> fotos, ilustrações, screenshots ou mockups. Não abra o Instagram.
+
+Pass only if the response honors the explicit pure-type request instead of
+inventing an image asset to satisfy Scenario 7's general rule; assigns at least
+three genuinely different macro-compositions; retains a Datta spine without
+forcing the full official palette/type/layout bundle; avoids fabricated facts;
+and keeps Instagram closed. Background alternation or font-size changes alone
+do not count as distinct macro-compositions.
+
+## Scenario 9 — finished image-rich carousel production
+
+> Produza e exporte o carrossel final de sete slides definido em
+> `tests/production/forward-carousel/forward-carousel.fixture.json`. Use os
+> ativos e a proveniência preservados nessa pasta, mantenha as três âncoras
+> semânticas em lâminas diferentes e inspecione cada canvas 1080 × 1350 e a
+> prévia de celular. Não abra o Instagram.
+
+Pass only if the test preserves the complete source layout, exact prompt and
+provenance record, two selected generated images, owned artifacts, seven
+full-resolution exports, phone-size contact sheet, deterministic renderer,
+manifest, and SHA-256 hashes. It must assert seven genuinely different
+composition IDs, image-led/artifact-evidence-led/contextual-transformation
+anchors on distinct slides, exact selected Datta marks, nonofficial palette and
+typography choices, safe areas, loaded assets, font availability, copy parity,
+no overflow, no interactive CTA, and byte-stable repeated captures. A contract,
+prompt list, or uninspected mockup alone fails.

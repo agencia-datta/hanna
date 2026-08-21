@@ -1,8 +1,10 @@
-# Datta brand system
+# Datta identity source and integrity reference
 
-Use this file as the canonical production constraint for Agencia Datta social
-content. Assets in `assets/datta/` are exact copies of the approved brandbook
-files and take precedence over inferred geometry or legacy profile graphics.
+Use this file to identify official Agencia Datta assets and values when a piece
+selects them. It is a library and integrity reference, not a mandatory visual
+skin for every social post. Assets in `assets/datta/` are exact copies of the
+approved brandbook files and take precedence over inferred geometry or legacy
+profile graphics.
 
 ## Positioning
 
@@ -13,6 +15,34 @@ métricas de vaidade.
 
 **Brand behavior:** technical, contained, precise, and operational. Brass means
 signal or focus; it must not make the brand look like generic luxury.
+
+## Identity model: spine plus expressive world
+
+Every Datta visual piece declares both layers before layout:
+
+```text
+DATTA SPINE
+- exact authorship mark and where it appears
+- observation/evidence/decision device and where it recurs
+- behavioral anchor in the copy or claim handling
+
+EXPRESSIVE WORLD
+- concept-specific palette
+- licensed typography
+- image, artifact, texture, and material language
+- macro-compositions and transitions
+- official Datta elements selected, if any
+```
+
+The spine makes the source recognizable. The expressive world makes the piece
+specific. Use the exact symbol or lockup at least once in visual artwork, then
+let observation labels, evidence handling, a measured endpoint, or another
+functional device provide continuity at selected moments. Do not stamp the
+same header, footer, logo position, palette, or device onto every slide.
+
+Hard invariants are evidence integrity, rights, legibility, exactness of any
+official element selected, and the logo's original geometry. Palette, type,
+crop, texture, illustration, photography, and grid remain concept decisions.
 
 ## Voice
 
@@ -43,7 +73,7 @@ When the objective needs a CTA, use one approved action. Mark inferred organic
 wording as `PROPOSTA DE CTA`. Confirm the real destination before declaring any
 external or commercial CTA ready to publish.
 
-## Color tokens
+## Official color options
 
 | Role | Token | Use |
 | --- | --- | --- |
@@ -54,9 +84,11 @@ external or commercial CTA ready to publish.
 | Black | `#000000` | Controlled contrast |
 | Accessible brass on light | `#7D5F28` | Brass text or fine detail on `#F1F1F1` |
 
-Target distribution is approximately 70% ground, 20% text/surfaces, 7% green,
-and 3% brass. Keep brass below 5% of the canvas. Do not use gradients. Do not
-place `#00392F` text on `#091105`; that pairing is too low-contrast.
+These values are exact whenever the official palette is selected. In that mode,
+keep brass below 5% of the canvas and do not place `#00392F` text on `#091105`.
+The official palette does not prohibit other concept-led colors, gradients, or
+image-derived palettes. Record non-official colors as part of the expressive
+world rather than presenting them as Datta tokens.
 
 Status colors are semantic, not decorative:
 
@@ -64,10 +96,11 @@ Status colors are semantic, not decorative:
 - Warning `#E8833C`
 - Error `#E0574B`
 
-Use the dark system as the default for institutional social posts. The approved
-light field is `#F1F1F1`, even if legacy token files contain nearby light grays.
+For a deliberately brand-heavy institutional piece, the dark system is a safe
+option and the approved light field is `#F1F1F1`. It is not the automatic
+starting point for ordinary editorial posts, carousels, or ads.
 
-## Typography
+## Official typography options
 
 | Role | Family | Weights | Behavior |
 | --- | --- | --- | --- |
@@ -75,11 +108,14 @@ light field is `#F1F1F1`, even if legacy token files contain nearby light grays.
 | Body | General Sans | 400, 500, 600 | Direct explanatory copy and CTA |
 | Data label | System mono | regular/medium | Sources, periods, IDs, sequence labels |
 
-Anton is not part of the social system. Do not replace Clash Display with a
-condensed shout font. Uppercase is reserved for small mono labels and data tags,
-not entire headlines.
+Clash Display and General Sans are safe official choices, not mandatory social
+defaults. A piece may use another licensed family or pairing when its concept
+benefits, provided the production record names the family, source/license, and
+role. Anton is not an official Datta font; if any non-official family is used,
+do not describe it as official. Avoid choosing a condensed shout font merely
+to imitate a source profile.
 
-Starting ranges for 1080 px-wide work:
+Starting ranges for 1080 px-wide work when the official pairing is selected:
 
 - Cover/display: 72–104 px
 - Interior title: 52–68 px
@@ -105,16 +141,14 @@ rebuild, clean, stretch, rotate, stack, outline, mask, filter, or complete its
 gaps. Preserve approximately 12% of its width as clear space. Minimum digital
 sizes are 24 px for the symbol and 120 px for the lockup.
 
-Those are technical minimums, not social recommendations. On a 1080 px-wide
-feed canvas, use the symbol at 64 px and the lockup at 200 px unless optical
-inspection documents a justified exception. Do not let minimum-size guidance
-silently become the default production size.
-
-Default social placement:
-
-- Ordinary static or carousel slide: 64 px symbol near the bottom-left safe area.
-- Final CTA slide: 200 px lockup near the bottom, subordinate to the action.
-- Never use the logo as texture, diagram, frame, crop mask, or illustration.
+Those are technical minimums, not social defaults. On a 1080 px-wide feed
+canvas, 64 px for the symbol and 200 px for the lockup are safe reference sizes
+for a conventional official-mark treatment. Choose another size when optical
+inspection supports it and record that decision; neither reference size dictates
+placement or repetition. Use an exact mark at least once per visual piece.
+Place it where authorship is legible and subordinate to the idea; a carousel
+does not need a symbol on every slide.
+Never use the logo as texture, diagram, frame, crop mask, or illustration.
 
 An SVG loaded as an external `<img>` may not inherit CSS `currentColor`. Use an
 approved raster variant or inline the exact SVG literally; never recreate its
@@ -134,7 +168,7 @@ square adaptation will be needed.
 
 ## Visual language that belongs to Datta
 
-Use these as functional devices, never as mandatory decoration:
+Use these as optional functional anchors, never as mandatory decoration:
 
 - A thin signal line with sparse nodes and one marked endpoint.
 - A 1 px brass rule separating argument from evidence.
@@ -142,6 +176,6 @@ Use these as functional devices, never as mandatory decoration:
 - Measurement brackets, source notes, and quiet coordinate marks.
 - Evidence panels with actual screenshots, numbers, or artifacts.
 
-Do not reduce every post to green background + gold word. Recognition should
-come from disciplined hierarchy, evidence handling, and recurring measurement
-details across varied compositions.
+Do not reduce every post to green background + gold word, or to Clash Display +
+the same signal line. Recognition should come from the declared Datta spine and
+evidence behavior across varied colors, type, imagery, and compositions.
