@@ -12,6 +12,7 @@ balanced out by attractive design.
 | Copy | Hook is proven by the body; voice is Datta; one idea dominates | Rewrite, do not add decoration |
 | Evidence | Client/performance claims use supplied evidence; material technical facts use a primary source; hypotheses and illustrations are labeled | Remove, qualify, source, or request proof |
 | Rights | Every image has provenance; paid-use permission is clear | Replace the asset |
+| Sourcing | External images follow the source route; bank search is concept-specific, quality-gated, and bounded before generation | Search, reject, generate, or reconcept according to the failed criterion |
 | Brand | Datta spine declares exact authorship plus observation/evidence/decision behavior; any official element selected uses its exact file/value | Restore recognition or correct the selected official element |
 | Originality | Source-similarity cluster stays below three traits and no wording/layout is copied | Redesign the cluster |
 | Distinctiveness | Visual thesis is topic-specific; assets are semantic; niche-swap requires recomposition; sequence has real silhouette rhythm | Re-concept, do not add decoration |
@@ -83,6 +84,26 @@ does not count as evidence or as the image-led anchor.
 For an explicitly pure-type carousel, record that request and identify at least
 three distinct macro-compositions. Background alternation alone does not count.
 
+## Asset-sourcing audit
+
+For every external image family, record:
+
+```text
+Visual role and source criteria:
+Materials supplied/already licensed checked:
+Round 1 providers + queries + candidates:
+Round 2 refinement, or not needed:
+Selected asset and five-gate result, or NO QUALIFYING STOCK:
+Generation trigger, or not used:
+Direct source/license/provenance record:
+```
+
+Pass only when the selected bank asset clears semantic necessity, composition,
+technical quality, distinctiveness/continuity, and rights. Rights are a hard
+gate. Search no more than two appropriate providers and two targeted rounds;
+finding a full pass ends the search. Reaching the limit without a pass triggers
+generation or reconception, not weak stock.
+
 ## Launch blockers
 
 The following keep a paid piece at `APROVADO PARA RASCUNHO` or `REPROVADO`:
@@ -111,6 +132,8 @@ create a false factual claim or external action.
 | “The number is plausible.” | Plausibility is not evidence. Label it hypothetical or remove it. |
 | “Using all brand tokens makes it recognizably Datta.” | Recognition comes from the declared spine. Applying the complete official kit by default creates a template, not a concept. |
 | “The diagram makes the carousel visual.” | Cards and lines can explain, but they do not replace a semantic image, artifact, or contextual transformation. |
+| “Generation gives me more control, so I can skip stock search.” | Control and continuity are not pre-search exceptions. First test one bank asset family with crops/composites; skip only for explicit generation/editing or a documented safe/truthful-representation exception. |
+| “I should keep searching because a better stock image may exist.” | Two targeted rounds are the stopping condition. Select a full pass or move to generation/reconception. |
 
 ## Red flags — stop and correct
 
@@ -126,6 +149,11 @@ create a false factual claim or external action.
 - Three or more traits from a source-signature cluster.
 - A CTA or destination added without a real route.
 - A public image treated as free because it is easy to download.
+- Generation used as the first external-image route without an explicit user
+  request or documented safe/truthful-representation exception.
+- A bank candidate selected from a search-results or CDN URL without its direct
+  asset page, current official license, creator, access date, and depicted-rights check.
+- More than two providers or two search rounds used without a new user request.
 - A mockup, generated dashboard, or illustrative number presented as proof.
 - “Ready to publish” while a launch-critical field is `[PENDENTE]`.
 - Browsing BrandsDecoded or Medre without an explicit refresh request.

@@ -29,7 +29,9 @@ Use when a scene, person, place, or object carries meaning the copy cannot.
 - Let the scene or concept determine color. Apply an overlay only when it serves
   readability or the idea, never merely to make the asset look branded.
 - Add at most one evidence label or signal device.
-- Use a real photo, licensed source, client asset, or generated original.
+- Choose the source through [Asset sourcing](asset-sourcing.md). Use supplied or
+  already licensed material when it fits, otherwise run the bounded free-bank
+  search before generating an original.
 
 ### Artifact/evidence-led
 
@@ -123,7 +125,11 @@ behavior for the Datta spine and let it recur only where it explains something.
 
 ## Image routes and provenance
 
-Every visual asset receives one class in the production output.
+Define the visual role before selecting the source. Follow
+[Asset sourcing](asset-sourcing.md): supplied or already licensed material,
+then a two-round quality-gated bank search, then generation only when no stock
+candidate passes or an explicit source condition requires it. Every visual
+asset receives one class in the production output.
 
 | Class | Organic | Paid ad | Required record |
 | --- | --- | --- | --- |
@@ -137,6 +143,12 @@ Do not download a public figure, film still, news photo, creator image, or brand
 campaign and treat availability on the web as permission. Paid work uses owned,
 client-cleared, commercially licensed, or generated assets only.
 
+For licensed stock, the required record is the provider's direct asset page,
+creator, asset ID or slug, current official license URL and access date,
+intended organic/paid use, depicted-rights check, downloaded-file hash, and
+edits. A provider license does not automatically clear recognizable people,
+logos, artwork, property, private data, or implied endorsement.
+
 ### Provenance manifest
 
 Return this with image-based production:
@@ -144,8 +156,10 @@ Return this with image-based production:
 ```text
 Asset: [role in piece]
 Class: [owned | client-supplied | licensed | generated | editorial-reference]
-Source: [file, provider + asset ID, or generation tool]
+Source: [file; or provider + direct asset page + creator + asset ID; or generation tool]
 Rights: [permission/license status]
+License URL + access date: [required for licensed stock]
+Intended use + depicted-rights check: [organic | paid | both; pass/fail notes]
 Edits: [crop, grade, composite, retouch]
 Evidence status: [documentary | illustrative | mockup]
 ```
@@ -153,10 +167,15 @@ Evidence status: [documentary | illustrative | mockup]
 A mockup demonstrates a design in context. It does not prove that media ran,
 that a placement existed, or that a result occurred.
 
-## Generated-image brief
+## Generated-image fallback
 
-Generate the image without copy or brand marks, then apply exact typography and
-logo in layout. Define:
+Use this route after the bounded bank search records `NO QUALIFYING STOCK`.
+Bypass search only when the user explicitly requests generated imagery/editing
+or a documented pre-search exception proves that stock cannot represent the
+subject safely or truthfully. Exact continuity alone is not an exception; test
+one bank asset family with crops, composites, or layout transformation first.
+Generate without copy or brand marks, then apply exact typography and logo in
+layout. Define:
 
 ```text
 Purpose: what the image makes understandable that copy alone cannot

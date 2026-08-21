@@ -1,9 +1,9 @@
 # GREEN summary
 
-Nine evaluation scenarios loaded Hanna from the repository and scored
-observable behavior against `tests/skill-evals.md`. Scenario 7 was repeated five
-times because visual defaults are stochastic. Full responses remain in the
-linked result files.
+Ten evaluation scenarios loaded Hanna from the repository and scored observable
+behavior against `tests/skill-evals.md`. Scenarios 7 and 10 were repeated five
+times because visual and sourcing defaults are stochastic. Full responses
+remain in the linked result files.
 
 | Scenario | Behavior demonstrated | Result |
 | --- | --- | --- |
@@ -16,6 +16,7 @@ linked result files.
 | [07 — image-rich flexible-spine carousel, G1](green-07-g1.md) | Required semantic imagery, an inspectable artifact, contextual transformation, and real silhouette rhythm while choosing a concept-specific palette/type system instead of the full official bundle. Repetitions: [G2](green-07-g2.md), [G3](green-07-g3.md), [G4](green-07-g4.md), [G5](green-07-g5.md) | Pass in 5/5 repetitions |
 | [08 — explicit pure-type exception](green-08-pure-type-exception.md) | Honored an explicit zero-image request, created seven genuinely different typographic compositions, and kept a flexible Datta spine without fabricating image assets | Pass |
 | [09 — finished image-rich carousel](green-09-forward-image-rich-carousel.md) | Generated and inspected semantic bookend images, assembled seven distinct 1080 × 1350 slides, exported a phone preview, and preserved exact prompts, provenance, sources, deterministic renderer, assertions, and hashes | Pass |
+| [10 — quality-first stock sourcing, G1](green-10-g1.md) | Defined the semantic source brief first, searched no more than two free providers/two rounds, applied five hard candidate gates, verified direct source/license records, and used generation only after `NO QUALIFYING STOCK`. Repetitions: [G2](green-10-g2.md), [G3](green-10-g3.md), [G4](green-10-g4.md), [G5](green-10-g5.md) | Pass in 5/5 repetitions |
 
 ## Outcome
 
@@ -34,12 +35,18 @@ linked result files.
   image-led, artifact/evidence-led, and contextual recurrence/transformation
   anchors on different slides, assigned 6–7 macro-compositions, and explained
   why removing the imagery would weaken the argument.
+- Sourcing regression: Scenario 10 passed in 5/5 repetitions. Every run checked
+  for supplied/already licensed material, defined a topic-specific source brief,
+  used at most two free providers and two rounds, treated depicted rights as a
+  hard gate, required direct asset/license records, and kept generation behind
+  `NO QUALIFYING STOCK`. Two runs performed live candidate checks and rejected
+  weak stock instead of lowering the quality threshold.
 - Final raster inspection remains pending only in scenarios that intentionally
   request a contract; those responses correctly use `APROVADO PARA RASCUNHO`.
   Scenario 6 preserves the static assembly proof, and Scenario 9 now supplies
   the missing image-rich seven-slide production proof. Under the current
   contract, a piece requested as final cannot pass until its planned images are
-  generated, assembled, and inspected.
+  sourced or generated, assembled, and inspected.
 
 The contrast with the RED controls is behavioral, not stylistic: without the
 skill, the agent rationalized a derivative visual cluster, silently supplied
