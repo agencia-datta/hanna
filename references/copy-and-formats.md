@@ -73,7 +73,8 @@ COMPOSITION
 - hierarchy and exact logo asset/placement selected for this piece
 - color and type roles
 ASSET PLAN
-- provenance class or generated-image brief
+- source route: supplied/already licensed → bounded free-bank search → generated fallback
+- source criteria, selection gate, provenance class, and generation brief only if triggered
 CAPTION
 ALT TEXT
 ADAPTATIONS
@@ -105,6 +106,10 @@ EXPRESSIVE WORLD
 - official Datta elements selected, if any
 IMAGE PROGRAM
 - semantic anchors, provenance, narrative role, and recurrence
+SOURCE ROUTE
+- supplied/already licensed material available, or none
+- bank search criteria and two-round stop rule
+- selected direct asset pages, or generation fallback trigger
 SILHOUETTE RHYTHM
 - macro-composition assigned to each slide
 ```
@@ -146,6 +151,12 @@ Evidence: source/period or none
 - A visual asset counts only when removing it would weaken context, evidence, or
   narrative progression. Decorative stock, generic 3D, floating UI, and a
   dashboard-looking card do not satisfy the image program.
+- When external images are needed, define the semantic role first and use
+  [Asset sourcing](asset-sourcing.md). Do not generate before the bounded bank
+  route unless the user explicitly requests generation/editing or a documented
+  pre-search exception proves that stock cannot represent the subject safely or
+  truthfully. Continuity alone does not qualify; first test a reusable bank
+  asset family.
 - If a protagonist, place, object, or situation drives the copy, make it visible
   and evolve it through the sequence.
 - Interior: one argument per slide; support copy must remain readable at phone

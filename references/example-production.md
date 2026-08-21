@@ -70,10 +70,11 @@ contact strip → vertical decision route → transformed return scene.
 > O lead chegou.
 > A resposta, não.
 
-**Visual:** generated full-bleed clinic reception before opening. A cobalt paper
-ticket sits at the desk edge beside a dark, unbranded phone; an empty chair is
-pulled back. Exact `assets/datta/datta-simbolo.svg` appears small in a quiet
-corner.
+**Visual:** qualifying licensed-stock clinic reception candidate to be selected
+before assembly. The chosen frame must contain a desk, dark unbranded phone,
+empty chair, free desk surface, and quiet wall area; an original cobalt paper
+ticket is composited at the desk edge. Exact
+`assets/datta/datta-simbolo.svg` appears small in a quiet corner.
 
 **Asset role:** make the missing handoff physically visible.
 
@@ -143,9 +144,10 @@ spaced stations. No durations, scores, or client numbers appear.
 
 Support: `PROPOSTA DE CTA — Salve este roteiro para a próxima auditoria.`
 
-**Visual:** return to the opening reception with a staff member's hand receiving
-the cobalt ticket; no face or identity is visible. The route now reaches an
-endpoint labeled `RESPONSÁVEL`. Exact mono Datta lockup
+**Visual:** return to a different crop of the opening licensed photograph. The
+original ticket/route overlay that was stalled on S04 now reaches an endpoint
+labeled `RESPONSÁVEL`; the change is clearly illustrative rather than a claim
+about the photographed location. Exact mono Datta lockup
 `assets/datta/datta-lockup-mono.svg` signs the piece.
 
 ## Caption
@@ -164,48 +166,58 @@ Antes de mudar a campanha, localize onde o handoff interrompe.
 
 ## Asset and provenance plan
 
+### Source route
+
+1. No supplied clinic photography or previously licensed campaign asset is
+   available in this example.
+2. Search at most two appropriate free banks for one reception image family,
+   using the source brief below. Run no more than two targeted rounds.
+3. Select only a candidate that passes semantic necessity, composition,
+   technical quality, distinctiveness/continuity, and rights. Record its direct
+   asset page and current official license.
+4. If no candidate passes, record `NO QUALIFYING STOCK` and generate one
+   controlled reception scene as the fallback. Do not generate before this
+   result.
+
 ### Image A — opening reception
 
-- **Class:** generated.
-- **Use:** S01 and derived crop in S02.
+- **Preferred class:** licensed stock.
+- **Use:** S01 and derived crops in S02, S04, S05, and S07.
 - **Purpose:** show a lead present while the handoff owner is absent.
-- **Framing:** eye-level 4:5 reception desk, ticket and phone in the lower third,
-  text-safe wall area.
+- **Framing:** eye-level 4:5 reception desk with an unbranded phone, free desk
+  surface in the lower third for the owned ticket overlay, and text-safe wall
+  area. The stock photo does not need to contain a ticket.
 - **Light/material:** diffuse morning light, real laminate, paper fibers, minor
   scuffs, plausible object placement.
 - **Negative constraints:** text, logos, visible patient information, luxury
-  clinic styling, smiling stock subject, fake UI, generated signage.
+  clinic styling, identifiable patients, posed smiling professional, fake UI,
+  or implied endorsement by the photographed clinic/person.
 - **Status:** illustrative.
 
-### Image B — stopped ticket
+The selection record includes provider, access modality, direct asset-page URL,
+asset ID/slug, creator, current official license URL and access date, intended
+organic use, depicted-rights check, downloaded-file hash, and planned
+crops/grade.
 
-- **Class:** generated from the same material direction.
-- **Use:** S04 and crops in S05.
-- **Purpose:** make the unowned interval visible without inventing a duration.
-- **Framing:** extreme macro of ticket under document clip; clock out of focus
-  with no readable time.
-- **Negative constraints:** legible numbers, dramatic emergency cues, text,
-  logo, watermark, extra hands.
-- **Status:** illustrative.
+### Image-derived transformation
 
-### Image C — resolved handoff
-
-- **Class:** generated continuation of Image A.
-- **Use:** S07.
-- **Purpose:** complete the opening visual by assigning ownership.
-- **Framing:** same desk, light, materials, and ticket; only a neutral hand
-  enters the frame.
-- **Status:** illustrative.
+- **Class:** licensed Image A plus owned layout artifact.
+- **Use:** stopped macro on S04, diagnostic crops on S05, and resolved route on
+  S07.
+- **Purpose:** make the unowned interval visible, then resolve it without
+  pretending the photographed clinic performed the illustrated process.
+- **Status:** illustrative composite.
 
 ### Artifact D — handoff sheet
 
 - **Class:** owned layout artifact.
 - **Use:** S03 and route source for S06.
-- **Rights/source:** original layout; exact text added after image generation.
+- **Rights/source:** original layout; exact text and ticket are added during
+  composition, never baked into the stock image.
 - **Status:** teaching mockup, not documentary evidence.
 
-Record tool, prompt, date, edit notes, and final inspection for each generated
-asset before calling the production final.
+If the stock route fails and generation is triggered, preserve the failed
+candidate gates plus tool, prompt, date, edit notes, and final inspection.
 
 ## Alt text
 
@@ -226,5 +238,6 @@ performance claim.
 - The exact Datta marks and evidence behavior carry recognition without forcing
   official palette or typography.
 - All images have a semantic role and provenance plan.
-- Final approval remains blocked until images are generated, assembled, and
-  inspected at full and phone-preview sizes.
+- Final approval remains blocked until the selected stock is downloaded with a
+  complete rights record, assembled, and inspected at full and phone-preview
+  sizes; if fallback generation is triggered, its provenance is also required.

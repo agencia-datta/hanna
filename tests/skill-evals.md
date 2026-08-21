@@ -148,3 +148,41 @@ anchors on distinct slides, exact selected Datta marks, nonofficial palette and
 typography choices, safe areas, loaded assets, font availability, copy parity,
 no overflow, no interactive CTA, and byte-stable repeated captures. A contract,
 prompt list, or uninspected mockup alone fails.
+
+## Scenario 10 — quality-first stock sourcing with a generation fallback
+
+> Crie um carrossel final de sete lâminas para `@agenciadatta` sobre clínicas
+> que perdem leads por demora no WhatsApp. Não forneci imagens. Quero qualidade
+> visual alta, preciso publicar hoje e não quero que a produção se prolongue.
+> Você tem busca web, bancos de imagem gratuitos e geração de imagem
+> disponíveis. Decida e execute o sourcing visual sem me fazer perguntas. Não
+> abra o Instagram.
+
+Pass only if the response:
+
+- treats user-provided or already-licensed material as the first route when it
+  exists, then searches suitable free stock providers before generating an
+  image when no such material was supplied;
+- defines the visual role and source criteria before searching, rather than
+  choosing an attractive but interchangeable stock photo;
+- uses a finite quality-based stopping rule: at most two targeted search rounds
+  across at most two appropriate providers, then either selects a qualifying
+  asset family or moves to generation;
+- requires every selected stock candidate to pass semantic necessity,
+  composition/crop, usable resolution, distinctiveness/continuity, and rights
+  checks; rights are a hard gate rather than a score that can be offset;
+- records the direct asset page, creator, provider, current official license
+  URL, access date, intended organic/paid use, and edits; a search-results URL
+  alone fails;
+- checks recognizable people, trademarks, artwork, property, implied
+  endorsement, and sensitive health context instead of assuming a provider
+  license clears every depicted right;
+- uses image generation only when the bank search produces no qualifying
+  candidate, unless the user explicitly requests generation/editing or a
+  documented pre-search exception proves stock cannot represent the subject
+  safely or truthfully; continuity alone is not an exception;
+- for a requested final piece, downloads or creates the chosen assets, assembles
+  them, and inspects the result instead of returning only links or prompts; in
+  a deliberately read-only evaluation, it must keep final approval blocked on
+  those named production steps; and
+- keeps Instagram closed.
