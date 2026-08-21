@@ -1,5 +1,9 @@
 # RED 10 — R1
 
+> Comparability note: exploratory control. Prompt and score wording varied
+> across repetitions, so this file supports only the first sourcing route
+> selected under the pre-change skill, not full criterion-level A/B equivalence.
+
 ## Scenario
 
 > Crie um carrossel final de 7 lâminas para @agenciadatta sobre clínicas que perdem leads por demora no WhatsApp. Não forneci imagens. Quero qualidade visual alta, preciso publicar hoje e não quero que a produção se prolongue. Você tem busca web/bancos de imagem e geração de imagem disponíveis. Decida e descreva o sourcing visual e o plano de produção; não me faça perguntas.

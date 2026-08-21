@@ -81,8 +81,9 @@ Rights are a hard gate. Visual quality cannot compensate for unclear permission.
 
 Run one refined search round only if Round 1 has no full pass. Change the query
 to address the actual failure: viewpoint, negative space, subject action,
-location specificity, absence of people, or material detail. Do not repeat the
-same broad query with synonyms.
+location specificity, absence of people, or material detail. Use one refined
+query family and keep at most three candidates. Do not repeat the same broad
+query with synonyms.
 
 After Round 2:
 
@@ -102,13 +103,22 @@ legal conclusion.
 | Provider | Useful route | Official terms to verify |
 | --- | --- | --- |
 | Pexels | Photography/video for organic and advertising layouts | `https://www.pexels.com/legal-pages/license/` |
-| Unsplash | Broad editorial-style photography | `https://unsplash.com/license` and `https://unsplash.com/terms` |
+| Unsplash standard/free | Broad editorial-style photography | `https://unsplash.com/license` and `https://unsplash.com/terms`; confirm that the individual result is standard Unsplash, not Unsplash+ |
 | Pixabay | Photography, illustration, vectors, and textures | `https://pixabay.com/service/license-summary/` and full terms linked there |
 | Openverse | Secondary discovery for openly licensed media | Verify the original asset page, exact Creative Commons license, attribution, modification, and commercial-use conditions; Openverse is an index, not the licensor |
 
 For a normal job, search at most two of these sources. Prefer the provider whose
 media type and current license fit the intended use. Do not browse Instagram or
 source-profile feeds as a substitute for a licensed bank.
+
+Capture the access modality of every candidate: standard/free, premium,
+subscription, sponsored, or third-party. In the free-bank route, reject
+Unsplash+ results and sponsored third-party results. Use them only when the user
+or team already holds the required subscription/license and that authorization
+is recorded. The standard Unsplash license and Unsplash+ license are separate;
+verify `https://unsplash.com/plus/license` and
+`https://unsplash.com/plus/terms` for Plus assets. A provider name alone is not
+proof that an individual asset is free.
 
 ## Depicted-rights check
 
@@ -136,6 +146,7 @@ Asset role:
 Decision: [selected | rejected]
 Reason:
 Provider:
+Access modality: [standard/free | premium | subscription | sponsored | third-party]
 Direct asset-page URL:
 Asset ID or slug:
 Creator:
@@ -143,14 +154,16 @@ Direct official license URL:
 License/access date:
 Intended use: [organic | paid | both]
 Depicted-rights check:
-Downloaded file + SHA-256:
+Downloaded file + SHA-256: [required when selected | not downloaded when rejected]
 Edits: [crop, grade, composite, retouch]
 Evidence status: [documentary | illustrative | mockup]
 ```
 
 Record the direct asset page, not Google Images, a search-results URL, a CDN URL
-alone, a repost, or a Pinterest board. Attribution may be added even when the
-provider does not require it.
+alone, a repost, or a Pinterest board. A selected asset must include the local
+download and SHA-256; a rejected candidate should say `not downloaded` rather
+than imply that every shortlist item was fetched. Attribution may be added even
+when the provider does not require it.
 
 ## Final-production rule
 

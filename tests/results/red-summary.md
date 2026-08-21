@@ -20,11 +20,12 @@
    production contained zero semantic images, while five revised controls all
    defaulted to the official green/off-white/brass palette, Clash Display,
    General Sans, and fixed logo placements even when no art direction was given.
-7. **Had no stable source priority.** In Scenario 10, three of five controls
-   chose image generation as the first route while two chose licensed stock.
-   The 3/2 split showed that provenance rules existed, but the skill did not
-   consistently prefer a quality-gated bank search or define one shared stop
-   condition.
+7. **Had no stable source priority.** In five exploratory Scenario 10 controls,
+   three responses chose image generation as the first route while two chose
+   licensed stock. Prompt and score wording varied between repetitions, so this
+   is evidence only of first-route variance—not a criterion-level controlled
+   A/B result. It still shows that the baseline had no consistently applied
+   quality-gated bank-first route or shared stop condition.
 
 ## Verbatim rationalizations to counter
 
@@ -54,8 +55,10 @@
 The full image-system control is preserved in
 [RED 07](red-07-image-system-and-brand-spine.md).
 
-The five sourcing controls are preserved in [RED 10 R1](red-10-r1.md),
+The five exploratory sourcing controls are preserved in [RED 10 R1](red-10-r1.md),
 [R2](red-10-r2.md), [R3](red-10-r3.md), [R4](red-10-r4.md), and
 [R5](red-10-r5.md). R1–R3 selected generation first; R4–R5 selected stock
-first. This variance, not a total absence of stock awareness, is the behavior
-the new source route corrects.
+first. Because their prompt and scoring language varied, these files are used
+only to record the first sourcing route selected under the pre-change skill.
+This variance, not a total absence of stock awareness, is the behavior the new
+source route corrects.

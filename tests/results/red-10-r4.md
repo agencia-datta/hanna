@@ -1,12 +1,16 @@
 # RED 10 — R4
 
+> Comparability note: exploratory control. Prompt and score wording varied
+> across repetitions, so this file supports only the first sourcing route
+> selected under the pre-change skill, not full criterion-level A/B equivalence.
+
 ## Scenario
 
 > Crie um carrossel final de 7 lâminas para @agenciadatta sobre clínicas que perdem leads por demora no WhatsApp. Não forneci imagens. Quero qualidade visual alta, preciso publicar hoje e não quero que a produção se prolongue. Você tem busca web/bancos gratuitos e geração disponíveis. Decida o sourcing e plano; sem perguntas; não abra Instagram.
 
 - **Baseline commit:** `97a659983ee73f497beac8711bbc85e29b32778e`
 - **Repetition:** 4
-- **Overall:** `pass`
+- **First sourcing route:** `stock first`
 
 ## Score
 

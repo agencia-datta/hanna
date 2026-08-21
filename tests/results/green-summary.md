@@ -41,8 +41,9 @@ remain in the linked result files.
   hard gate, required direct asset/license records, and kept generation behind
   `NO QUALIFYING STOCK`. Two runs performed live candidate checks and rejected
   weak stock instead of lowering the quality threshold.
-- Final raster inspection remains pending only in scenarios that intentionally
-  request a contract; those responses correctly use `APROVADO PARA RASCUNHO`.
+- Deliberately read-only behavior evaluations preserve final-production blockers
+  and correctly use `APROVADO PARA RASCUNHO` instead of claiming an unassembled
+  artifact is final.
   Scenario 6 preserves the static assembly proof, and Scenario 9 now supplies
   the missing image-rich seven-slide production proof. Under the current
   contract, a piece requested as final cannot pass until its planned images are

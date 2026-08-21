@@ -70,9 +70,10 @@ contact strip → vertical decision route → transformed return scene.
 > O lead chegou.
 > A resposta, não.
 
-**Visual:** selected licensed-stock clinic reception before opening. The chosen
-frame contains a desk, dark unbranded phone, empty chair, and quiet wall area;
-an original cobalt paper ticket is composited at the desk edge. Exact
+**Visual:** qualifying licensed-stock clinic reception candidate to be selected
+before assembly. The chosen frame must contain a desk, dark unbranded phone,
+empty chair, free desk surface, and quiet wall area; an original cobalt paper
+ticket is composited at the desk edge. Exact
 `assets/datta/datta-simbolo.svg` appears small in a quiet corner.
 
 **Asset role:** make the missing handoff physically visible.
@@ -183,8 +184,9 @@ Antes de mudar a campanha, localize onde o handoff interrompe.
 - **Preferred class:** licensed stock.
 - **Use:** S01 and derived crops in S02, S04, S05, and S07.
 - **Purpose:** show a lead present while the handoff owner is absent.
-- **Framing:** eye-level 4:5 reception desk, ticket and phone in the lower third,
-  text-safe wall area.
+- **Framing:** eye-level 4:5 reception desk with an unbranded phone, free desk
+  surface in the lower third for the owned ticket overlay, and text-safe wall
+  area. The stock photo does not need to contain a ticket.
 - **Light/material:** diffuse morning light, real laminate, paper fibers, minor
   scuffs, plausible object placement.
 - **Negative constraints:** text, logos, visible patient information, luxury
@@ -192,9 +194,10 @@ Antes de mudar a campanha, localize onde o handoff interrompe.
   or implied endorsement by the photographed clinic/person.
 - **Status:** illustrative.
 
-The selection record includes provider, direct asset-page URL, asset ID/slug,
-creator, current official license URL and access date, intended organic use,
-depicted-rights check, downloaded-file hash, and planned crops/grade.
+The selection record includes provider, access modality, direct asset-page URL,
+asset ID/slug, creator, current official license URL and access date, intended
+organic use, depicted-rights check, downloaded-file hash, and planned
+crops/grade.
 
 ### Image-derived transformation
 

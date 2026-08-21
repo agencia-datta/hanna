@@ -1,5 +1,11 @@
 # RED 10 — repetition 3
 
+> Comparability note: exploratory control. Prompt and score wording varied
+> across repetitions, so this file supports only the first sourcing route
+> selected under the pre-change skill, not full criterion-level A/B equivalence.
+> Its continuity rationale reflects the baseline evaluator; under the current
+> Scenario 10 criterion, continuity alone would not justify generation first.
+
 - Scenario: `Scenario 10 — quality-first stock sourcing with a generation fallback`
 - Baseline commit: `97a659983ee73f497beac8711bbc85e29b32778e`
 - Repetition: `3`
