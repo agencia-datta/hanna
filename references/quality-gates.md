@@ -12,9 +12,10 @@ balanced out by attractive design.
 | Copy | Hook is proven by the body; voice is Datta; one idea dominates | Rewrite, do not add decoration |
 | Evidence | Client/performance claims use supplied evidence; material technical facts use a primary source; hypotheses and illustrations are labeled | Remove, qualify, source, or request proof |
 | Rights | Every image has provenance; paid-use permission is clear | Replace the asset |
-| Brand | Exact tokens, type roles, logo asset, clear space, and brass limit | Correct before delivery |
+| Brand | Datta spine declares exact authorship plus observation/evidence/decision behavior; any official element selected uses its exact file/value | Restore recognition or correct the selected official element |
 | Originality | Source-similarity cluster stays below three traits and no wording/layout is copied | Redesign the cluster |
-| Visual | Phone-readable hierarchy, functional image, safe areas, adequate contrast | Recompose or shorten |
+| Distinctiveness | Visual thesis is topic-specific; assets are semantic; niche-swap requires recomposition; sequence has real silhouette rhythm | Re-concept, do not add decoration |
+| Visual | Phone-readable hierarchy, required image program, safe areas, adequate contrast, and inspected assets | Produce, recompose, or shorten |
 | Funnel | CTA and destination match the reached awareness stage | Change the action or mark pending |
 | Accessibility | Alt text, legibility, contrast, and non-color meaning pass | Fix before approval |
 | Production | Requested files/specs, dimensions, adaptations, and inspection are complete | Finish the artifact |
@@ -54,6 +55,34 @@ defined in [Art direction and images](art-direction-and-images.md).
 
 Do not rationalize that changed colors make a copied system original.
 
+## Distinctiveness and image-program audit
+
+For every static or carousel, answer:
+
+```text
+Visual thesis:
+Datta spine:
+Expressive world:
+What becomes weaker if each image/artifact is removed:
+Niche-swap result:
+Macro-compositions in the preview:
+```
+
+For a carousel with five or more slides, when the user did not explicitly
+request pure type, identify on different slides:
+
+1. one image-led scene/person/place/object;
+2. one artifact/evidence-led moment; and
+3. one contextual recurrence or transformation.
+
+Fail the gate if any slot is decorative, unproduced in a deliverable described
+as final, or interchangeable across unrelated industries. A fake search box,
+generic dashboard card, or row of rectangles may support an explanation, but it
+does not count as evidence or as the image-led anchor.
+
+For an explicitly pure-type carousel, record that request and identify at least
+three distinct macro-compositions. Background alternation alone does not count.
+
 ## Launch blockers
 
 The following keep a paid piece at `APROVADO PARA RASCUNHO` or `REPROVADO`:
@@ -80,10 +109,19 @@ create a false factual claim or external action.
 | “The art is premium and clean.” | Taste labels do not define grid, hierarchy, source, rights, or production. |
 | “The mockup shows what ran.” | A mockup shows a proposed context, not media placement or result. |
 | “The number is plausible.” | Plausibility is not evidence. Label it hypothetical or remove it. |
+| “Using all brand tokens makes it recognizably Datta.” | Recognition comes from the declared spine. Applying the complete official kit by default creates a template, not a concept. |
+| “The diagram makes the carousel visual.” | Cards and lines can explain, but they do not replace a semantic image, artifact, or contextual transformation. |
 
 ## Red flags — stop and correct
 
-- Approximate green, off-white, brass, font, or reconstructed logo.
+- An official color, font, size, or asset approximated or mislabeled as exact.
+- Official green, off-white, brass, Clash Display, and General Sans applied
+  together by default without a concept-specific reason.
+- The same eyebrow/headline/card/footer silhouette repeated through a carousel.
+- A five-plus-slide carousel with no image-led anchor, no artifact/evidence-led
+  anchor, or no contextual recurrence/transformation, unless pure type was
+  explicitly requested.
+- A generated or stock image that can be removed without weakening the argument.
 - Condensed uppercase used because the references look impactful.
 - Three or more traits from a source-signature cluster.
 - A CTA or destination added without a real route.

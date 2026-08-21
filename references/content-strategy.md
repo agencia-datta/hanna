@@ -90,15 +90,25 @@ does not prove causation.
 
 ## Feed coherence without template repetition
 
-Maintain recognition through tokens, measurement details, voice, and evidence
-handling while rotating:
+Maintain recognition through a Datta spine: exact authorship at a selected
+moment, a recurring observation/evidence/decision behavior, and the same factual
+discipline. Do not require the official palette, typography, or a fixed layout
+to carry all recognition.
 
-- editorial role;
-- image-led, evidence-led, and type-led composition;
-- dark and approved light fields;
+Rotate the expressive world across:
+
+- editorial role and hook family;
+- palette and color relationship;
+- type family and type role;
+- image-led, artifact/evidence-led, and type-led moments;
+- full-bleed, split, collage, object study, annotated artifact, diagram, and
+  other concept-specific macro-compositions;
 - static, short carousel, deep carousel, case, and ad;
-- documentary, conceptual, and artifact-based imagery.
+- documentary, generated, illustrated, conceptual, and artifact-based imagery.
 
-If the last three proposed pieces use the same canvas mode, hero arrangement,
-or hook family, change the next one unless the campaign deliberately needs a
-series system.
+When prior pieces are available, compare against the last three. Unless the user
+requested a deliberate series system, change at least two expressive dimensions
+when the same palette, type pairing, hero arrangement, or image treatment has
+already repeated. If prior pieces are unavailable, state that the comparison
+could not be run and avoid defaulting automatically to the complete official
+palette/type/grid bundle.

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "fixture": "hanna-forward-carousel-v1",
+  "rightsScope": "deterministic local regression only; this is not a publish-rights record",
+  "assets": [
+    {
+      "role": "opening reception",
+      "path": "assets/reception-open.jpg",
+      "class": "generated",
+      "source": "OpenAI ImageGen fixture asset",
+      "sourceHash": "305721ac48b042f98bb1c6fddfde434a84d01b2d956a19e8e39f41ac3f681d8c",
+      "generationDate": "2026-08-20",
+      "rawOutputSha256": "8dde207c50decaebaa634e6daf1cc5018b044fbfd29ed2d763356f40db9a262c",
+      "promptRecord": {
+        "exactPromptAvailable": true,
+        "path": "generation-prompts.md#opening-reception-v1"
+      },
+      "edits": "Raw PNG converted to RGB JPEG with Pillow 12.3.0 at quality 90, optimized and progressive; layout uses deterministic CSS crops and overlays only.",
+      "evidenceStatus": "illustrative"
+    },
+    {
+      "role": "resolved reception",
+      "path": "assets/reception-resolved.jpg",
+      "class": "generated",
+      "source": "OpenAI ImageGen fixture asset",
+      "sourceHash": "26f683f182cac23fc2346065aeacfb4d2c56bf740b5f1315a38a3009b7b62f1c",
+      "generationDate": "2026-08-20",
+      "rawInputSha256": "8dde207c50decaebaa634e6daf1cc5018b044fbfd29ed2d763356f40db9a262c",
+      "rawOutputSha256": "ad42c8adabe66e5ffe0908e0217d5d255e5ea7cc67cddab027b16b3c34c46001",
+      "promptRecord": {
+        "exactPromptAvailable": true,
+        "path": "generation-prompts.md#resolved-reception-edit-v1"
+      },
+      "edits": "Built-in edit of the opening raw PNG; edited PNG converted to RGB JPEG with Pillow 12.3.0 at quality 90, optimized and progressive; layout uses deterministic CSS crops and overlays only.",
+      "evidenceStatus": "illustrative"
+    },
+    {
+      "role": "exact Datta symbol",
+      "path": "../../../assets/datta/datta-simbolo.svg",
+      "class": "owned",
+      "source": "repository approved Datta asset",
+      "sourceHash": "5bfcd2bc033b1446f521ca0efc47cc68e9bae7bfd0ac978c278e7278b3e11ad6",
+      "edits": "None; loaded as the exact external SVG.",
+      "evidenceStatus": "authorship"
+    },
+    {
+      "role": "exact Datta mono lockup",
+      "path": "../../../assets/datta/datta-lockup-mono.svg",
+      "class": "owned",
+      "source": "repository approved Datta asset",
+      "sourceHash": "414d7999bbe66645418f46a340efb7164a553b6f98881d47c7ecf057371013f7",
+      "edits": "None; loaded as the exact external SVG.",
+      "evidenceStatus": "authorship"
+    }
+  ],
+  "artifacts": [
+    {
+      "key": "s3-handoff-sheet",
+      "slide": "S03",
+      "class": "owned",
+      "source": "forward-carousel.html",
+      "role": "Make blank handoff fields inspectable without presenting a CRM or client record.",
+      "evidenceStatus": "mockup"
+    },
+    {
+      "key": "s4-ticket-stopped-css",
+      "slide": "S04",
+      "class": "owned",
+      "source": "forward-carousel.html",
+      "role": "Show the same blank cobalt ticket physically stopped under a transparent bar without inventing a duration.",
+      "evidenceStatus": "illustrative"
+    },
+    {
+      "key": "s6-vertical-route",
+      "slide": "S06",
+      "class": "owned",
+      "source": "forward-carousel.html",
+      "role": "Turn the ticket into a route node across four auditable handoff passages.",
+      "evidenceStatus": "illustrative"
+    }
+  ],
+  "typography": [
+    {
+      "family": "Bahnschrift SemiCondensed / Bahnschrift",
+      "role": "display",
+      "class": "nonofficial system font",
+      "source": "Windows / Microsoft Edge runtime"
+    },
+    {
+      "family": "Segoe UI",
+      "role": "body",
+      "class": "nonofficial system font",
+      "source": "Windows / Microsoft Edge runtime"
+    },
+    {
+      "family": "Cascadia Mono",
+      "role": "evidence labels",
+      "class": "nonofficial system font",
+      "source": "Windows / Microsoft Edge runtime"
+    }
+  ]
+}

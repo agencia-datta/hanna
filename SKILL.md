@@ -8,8 +8,9 @@ description: "Use when creating, producing, adapting, or reviewing Instagram sta
 ## Overview
 
 Hanna turns a specific business truth into a finished, evidence-led Datta
-creative. A piece is complete when copy, visual hierarchy, asset provenance,
-funnel action, format, and QA all point to the same decision.
+creative. Recognition comes from a consistent spine of authorship, observation,
+and decision — not from forcing every piece into the same palette, fonts, grid,
+or image treatment.
 
 ## Route the request
 
@@ -31,16 +32,32 @@ are already encoded in the maintained references.
 1. Normalize the brief into objective, audience, awareness stage, one message,
    offer, proof, format, destination, and constraints. Mark unknowns explicitly.
 2. Select one editorial role: `Sinal`, `Diagnóstico`, `Prova`, `Método`, or
-   `Decisão`. Select one composition mode: image-led, evidence-led, or type-led.
-3. Produce the requested artifact, not generic advice. When the user requests a
-   finished creative and suitable design or image tools are available, use them
-   and inspect the result. Otherwise deliver the complete production contract.
-4. Keep every claim traceable under the evidence categories in
+   `Decisão`. State a visual thesis: what the audience will see that copy alone
+   cannot show.
+3. Declare a `DATTA SPINE` and an `EXPRESSIVE WORLD`. The spine identifies the
+   piece through exact authorship and the Datta logic of observation, evidence,
+   or decision. The expressive world chooses palette, typography, imagery,
+   texture, grid, and composition for this idea. Official colors and typefaces
+   are options, not mandatory defaults.
+4. For a carousel, choose image-led, artifact/evidence-led, or type-led per
+   slide. When it has five or more slides and the user did not explicitly ask
+   for pure type, its `IMAGE PROGRAM` contains at least three semantic anchors
+   on different slides: an image-led scene/person/place/object, an
+   artifact/evidence-led moment, and a contextual recurrence or transformation.
+   Each anchor must change what the reader understands; decoration does not
+   count. An explicitly pure-type carousel still uses at least three distinct
+   macro-compositions.
+5. Produce the requested artifact, not generic advice. When the user requests a
+   finished creative and suitable design or image tools are available, create
+   the planned visual assets, assemble them, and inspect the result. If a planned
+   asset cannot be produced, deliver a production contract with the asset as a
+   named blocker; do not call the piece final.
+6. Keep every claim traceable under the evidence categories in
    [Copy and formats](references/copy-and-formats.md). Client, performance, and
    commercial claims require supplied evidence. Material technical definitions
    require a primary authoritative source. An illustrative scenario is allowed
    only in education, labeled visibly as hypothetical in art and caption.
-5. Run every applicable gate in [Quality gates](references/quality-gates.md).
+7. Run every applicable gate in [Quality gates](references/quality-gates.md).
 
 Launch-critical unknowns such as paid-ad objective, offer, proof, destination,
 or commercial condition remain `[PENDENTE: ...]`. A draft may proceed, but it
@@ -48,8 +65,13 @@ must not be described as ready to publish or launch while those fields remain.
 
 ## Non-negotiable boundaries
 
-- Use the exact Datta assets and tokens. Never redraw the symbol, infer its
-  geometry, approximate colors, or treat a generic shape as proprietary.
+- Every Datta visual piece declares one visual authorship/observation anchor and
+  one behavioral evidence/decision anchor. Use the exact symbol or lockup at
+  least once in the artwork, without requiring the same placement on every
+  slide.
+- Official Datta colors, fonts, sizes, and layout devices are optional choices.
+  Whenever selected or described as official, use their exact files or values.
+  Never redraw the symbol, infer its geometry, or approximate a brand element.
 - Never fabricate results, testimonials, client facts, urgency, scarcity, or
   attribution. Never disguise a hypothetical example as proof.
 - Give every image a provenance class: owned, client-supplied, licensed,
@@ -65,8 +87,8 @@ must not be described as ready to publish or launch while those fields remain.
 
 | Need | Minimum deliverable |
 | --- | --- |
-| Static post | Strategy line, art copy, composition, asset plan, caption, alt text, QA |
-| Carousel | Narrative map, every slide, visual rhythm, caption, CTA logic, alt text, QA |
+| Static post | Strategy, visual thesis, Datta spine, expressive world, art copy, asset plan, caption, alt text, QA |
+| Carousel | Narrative map, visual thesis, Datta spine, expressive world, image program, every slide, silhouette rhythm, caption, CTA, alt text, QA |
 | Paid ad | Objective, audience/stage, offer, proof, destination, creative, ad copy, variants, QA |
 | Image | Provenance, scene brief or source criteria, text-safe zone, negative constraints |
 | Review | Verdict first, failed gates, exact corrections, launch blockers |
@@ -74,6 +96,12 @@ must not be described as ready to publish or launch while those fields remain.
 ## Common mistakes
 
 - “Premium”, “impactful”, or “clean” without observable visual decisions.
+- Treating green, off-white, brass, Clash Display, and General Sans as a skin
+  that must appear together on every piece.
+- Repeating one headline/card/footer silhouette across an entire carousel.
+- Adding a decorative stock or generated photo that could be removed without
+  changing the argument.
+- Applying a green overlay only to make an unrelated image look branded.
 - A dark photo plus condensed uppercase presented as originality.
 - A dashboard-looking decoration with no real evidence.
 - A CTA invented because the destination was missing.
