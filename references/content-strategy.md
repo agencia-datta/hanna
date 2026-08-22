@@ -55,6 +55,10 @@ Weak: “A importância do tracking.”
 Usable: “Seu CPL caiu. Seu custo por venda subiu. Sem o CRM, o Meta não mostra
 essa diferença.”
 
+An angle is not yet a piece. Take it to
+[Concept generation](concept-generation.md) and diverge into three visual
+territories before any layout decision.
+
 ## Hook families
 
 Select a hook because it fits the argument, not because it sounds dramatic.

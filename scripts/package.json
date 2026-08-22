@@ -1,0 +1,15 @@
+{
+  "name": "hanna-production-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Renderizador e preflight das peças sociais da Agência Datta",
+  "scripts": {
+    "render": "node render.cjs"
+  },
+  "devDependencies": {
+    "playwright": ">=1.40.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

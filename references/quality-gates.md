@@ -9,6 +9,7 @@ balanced out by attractive design.
 | Gate | Pass condition | Failure response |
 | --- | --- | --- |
 | Strategy | One objective, audience/stage, message, and action agree | Reframe the brief |
+| Concept | Three territories differing in kind were written, scored, and one selected; kill tests pass | Diverge again; do not proceed on the first idea |
 | Copy | Hook is proven by the body; voice is Datta; one idea dominates | Rewrite, do not add decoration |
 | Evidence | Client/performance claims use supplied evidence; material technical facts use a primary source; hypotheses and illustrations are labeled | Remove, qualify, source, or request proof |
 | Rights | Every image has provenance; paid-use permission is clear | Replace the asset |
@@ -17,9 +18,37 @@ balanced out by attractive design.
 | Originality | Source-similarity cluster stays below three traits and no wording/layout is copied | Redesign the cluster |
 | Distinctiveness | Visual thesis is topic-specific; assets are semantic; niche-swap requires recomposition; sequence has real silhouette rhythm | Re-concept, do not add decoration |
 | Visual | Phone-readable hierarchy, required image program, safe areas, adequate contrast, and inspected assets | Produce, recompose, or shorten |
+| Craft | The eight-point craft floor holds: dominant element, authored type, named colour roles, measured contrast, intentional edges, nothing unmissed | Fix the execution; a good idea badly set still fails |
+| Attention | Cover legible at thumbnail and in the 1:1 crop; slide 2 pays the cover; caption's first line earns the expand | Recompose the cover or re-sequence |
+| Preflight | `scripts/render.cjs` reports zero `FALHA`; every `INSPEÇÃO` item confirmed by eye | Correct the layout and re-render |
 | Funnel | CTA and destination match the reached awareness stage | Change the action or mark pending |
 | Accessibility | Alt text, legibility, contrast, and non-color meaning pass | Fix before approval |
 | Production | Requested files/specs, dimensions, adaptations, and inspection are complete | Finish the artifact |
+
+## Craft audit
+
+Answer for every finished piece. Taste words are not answers.
+
+```text
+Dominant element and why it wins:
+Display-to-body size ratio:                    (target 2.5x or more)
+Display tracking:                              (target -0.03em to -0.045em above 72px)
+Authored line breaks:                          yes | browser decided
+Widows on display copy:                        none | fix required
+Colour roles named (ground/ink/support/accent):
+Accent share of canvas:
+Measured contrast, worst text on the piece:    (target 4.5:1 body, 3:1 large)
+Scrim treatment under text on image:           directional and measured | none
+Macro-compositions used, from the vocabulary:
+Thumbnail read at ~12%:
+1:1 centre-crop survival:
+Preflight verdict and cleared findings:
+```
+
+Fail the gate on any of: default tracking on display copy, a widow on the cover,
+unnamed colour roles, two competing accents, unmeasured text over photography,
+an element within 20 px of the safe-area edge without being fully bled, or a
+piece approved without looking at the export.
 
 ## Evidence audit
 
@@ -132,6 +161,9 @@ create a false factual claim or external action.
 | “The number is plausible.” | Plausibility is not evidence. Label it hypothetical or remove it. |
 | “Using all brand tokens makes it recognizably Datta.” | Recognition comes from the declared spine. Applying the complete official kit by default creates a template, not a concept. |
 | “The diagram makes the carousel visual.” | Cards and lines can explain, but they do not replace a semantic image, artifact, or contextual transformation. |
+| “The first idea was already strong, so divergence was unnecessary.” | The first idea is the category's idea. Write three territories and score them; that is the step, not a formality. |
+| “The design is a matter of taste, so craft rules are optional.” | Tracking, contrast, hierarchy, and edge discipline are measurable. Taste begins after the floor is met. |
+| “It looks fine in the layout view.” | Approval requires the exported canvas, a phone-scale preview, and a thumbnail check. Preflight is the floor, not the verdict. |
 | “Generation gives me more control, so I can skip stock search.” | Control and continuity are not pre-search exceptions. First test one bank asset family with crops/composites; skip only for explicit generation/editing or a documented safe/truthful-representation exception. |
 | “I should keep searching because a better stock image may exist.” | Two targeted rounds are the stopping condition. Select a full pass or move to generation/reconception. |
 
@@ -156,6 +188,12 @@ create a false factual claim or external action.
 - More than two providers or two search rounds used without a new user request.
 - A mockup, generated dashboard, or illustrative number presented as proof.
 - “Ready to publish” while a launch-critical field is `[PENDENTE]`.
+- A single concept taken to layout with no divergence step recorded.
+- Display type at browser-default tracking, or line breaks left to the box.
+- Text over a photograph approved without a measured contrast or a scrim.
+- A cover that is unreadable at thumbnail size or dies in the 1:1 grid crop.
+- A Meta safe area, character limit, or policy stated from memory as fact.
+- A piece called final without a cleared preflight and an inspected export.
 - Browsing BrandsDecoded or Medre without an explicit refresh request.
 - Any Instagram like, comment, save, share, follow, or message during research.
 

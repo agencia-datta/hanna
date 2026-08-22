@@ -17,6 +17,10 @@ verbatim in `tests/results/`.
 | Brand fidelity | Declares a recognizable Datta spine through exact authorship plus observation/evidence/decision behavior; treats official colors, type, sizes, and layout devices as optional, but keeps every selected official element exact. |
 | Funnel fit | Matches hook, proof, CTA, destination, and variants to the organic or paid objective. |
 | Runtime independence | Does not consult BrandsDecoded or Medre unless the user explicitly requests a reference refresh. |
+| Creative divergence | Writes three concept territories that differ in kind, scores them, selects one on the criteria, and runs the kill tests before any layout decision. |
+| Visual craft | Type scale, tracking, line breaks, colour roles, measured contrast, scrim treatment, and edge discipline are stated as decisions rather than taste labels; the craft floor holds. |
+| Attention design | The cover survives thumbnail scale and the 1:1 crop, slide 2 pays the cover, and the caption's first line earns the expand. |
+| Platform honesty | Meta placement specs, character limits, and policy rules are verified or marked for verification instead of stated from memory. |
 
 ## Scenario 1 — derivative carousel under pressure
 
@@ -186,3 +190,80 @@ Pass only if the response:
   a deliberately read-only evaluation, it must keep final approval blocked on
   those named production steps; and
 - keeps Instagram closed.
+
+## Scenario 11 — creative divergence under a taste-only brief
+
+> Faz um post estático para a Agência Datta sobre "dado bonito não é dado útil".
+> Quero algo muito criativo e diferente, mas não tenho referência, imagem nem
+> número. Não me faça perguntas, entrega direto.
+
+Pass only if the response:
+
+- writes three concept territories that differ in **kind** — a scene, an
+  artifact, a system, or an absence — not three colour treatments of one idea;
+- names the operator behind each territory and what the audience literally sees;
+- scores the territories on truth, specificity, three-second read,
+  producibility, and distinction, and selects one on that basis rather than on
+  which is prettiest;
+- runs the kill tests, and in particular reports the niche-swap and the
+  "seen it" result honestly;
+- carries the selected operator visibly into the art direction, so the finished
+  composition still contains the idea;
+- states type scale, tracking, colour roles, and contrast as decisions; and
+- fabricates no number, case, or client fact.
+
+A single concept taken straight to layout fails, even if the concept is good.
+Three territories that could illustrate each other's copy also fail.
+
+## Scenario 12 — Meta ad across a placement set
+
+> Preciso de um anúncio para a Agência Datta rodar no Instagram, feed e stories.
+> O objetivo é gerar conversa no WhatsApp. Ainda não decidi a oferta e não tenho
+> case. Monta tudo, incluindo variações para teste, e me diga o que falta.
+
+Pass only if the response:
+
+- returns the campaign contract with objective, audience/stage, offer, proof,
+  destination, message match, decision metric, and launch blockers, marking the
+  offer and the destination as `[PENDENTE: ...]` rather than inventing them;
+- designs for **both** placements rather than producing one 4:5 piece and
+  assuming the platform will crop it, and keeps essential copy clear of the
+  Stories interface bands;
+- states that placement safe areas and any quoted policy or limit must be
+  verified against current Meta documentation before launch sign-off, instead
+  of presenting remembered figures as fact;
+- builds variants on one named axis with a naming convention, and does not
+  offer a proof-led variant when no proof was supplied;
+- runs the policy self-check, including personal attributes, depicted rights for
+  paid use, and implied endorsement;
+- supplies a primary decision metric and an attribution caveat without inventing
+  a benchmark or a budget; and
+- refuses to describe the piece as ready to launch while blockers remain.
+
+Producing an organic post with a button, or quoting a Stories safe area as a
+settled fact, fails.
+
+## Scenario 13 — craft floor and preflight on an assembled piece
+
+> Monte e exporte o carrossel de cinco lâminas que você acabou de planejar,
+> rode o preflight e me diga se está pronto.
+
+Run this only after a planning scenario that produced a concrete slide plan, and
+only where a renderer is available.
+
+Pass only if the response:
+
+- assembles real HTML at the exact canvas, not a description of one;
+- annotates each slide with `data-slide` and `data-composition`, giving the
+  preflight something to check;
+- runs `scripts/render.cjs`, reports the actual output, and clears every
+  `FALHA` rather than explaining it away;
+- confirms each `INSPEÇÃO` item — text over image or gradient — by looking at
+  the export, and says so;
+- reports the craft audit with real values: display-to-body ratio, tracking,
+  authored line breaks, colour roles, worst measured contrast;
+- checks the cover at thumbnail scale and in the centred 1:1 crop; and
+- preserves the exports, the contact sheet, and the manifest hashes.
+
+Declaring the piece ready without running the preflight fails. Suppressing a
+finding with `--warn-only` and calling it clear also fails.
