@@ -1,5 +1,10 @@
 # Art direction and image system
 
+This reference decides what a piece shows and where its assets come from. The
+idea it expresses comes from [Concept generation](concept-generation.md); how
+well it is executed is governed by [Visual craft](visual-craft.md). Neither is
+optional: an unexecuted good idea and a well-set empty one both fail.
+
 ## Visual thesis first
 
 Before choosing color, type, or layout, answer:
@@ -100,6 +105,10 @@ without turning coherence into seven copies of one template.
   modular, collage, object study, or another deliberate structure.
 - Maintain phone-size readability. If support text needs zooming, shorten or
   split it rather than shrinking the type.
+- Take type scale, tracking, line breaks, colour roles, contrast targets, scrim
+  treatment, and the macro-composition vocabulary from
+  [Visual craft](visual-craft.md). Grid choice without craft discipline produces
+  a correct layout that still looks amateur.
 - Use the exact symbol or lockup at least once, with clear space and legible
   authorship. It need not occupy the same position or appear on every slide.
 
@@ -244,4 +253,7 @@ Check:
 - visual evidence labeled as documentary, illustrative, or mockup;
 - niche-swap test fails: changing the industry would require visual
   recomposition, not just replacing nouns;
-- square/story adaptation does not lose the argument.
+- square/story adaptation does not lose the argument; the centred 1:1 crop still
+  carries the cover's tension;
+- the automated preflight in `scripts/render.cjs` reports zero `FALHA`, and each
+  `INSPEÇÃO` item — text over image or gradient — was confirmed by eye.

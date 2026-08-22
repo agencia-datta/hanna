@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Hanna — starter de canvas</title>
+
+<!--
+  ANDAIME ESTRUTURAL, NÃO TEMPLATE VISUAL.
+
+  Este arquivo resolve mecânica: canvas exato, safe area, carregamento de fonte,
+  scrim medido, grão, marca de autoria e as anotações que o
+  `scripts/render.cjs` lê. Paleta, tipografia, composição e imagem são
+  autorais de cada peça — troque tudo o que é visual.
+
+  Publicar quatro lâminas com estes quatro esqueletos é reprovado pelo gate de
+  distinção. Use-os como ponto de partida e reautore as silhuetas.
+
+  Convenções lidas pelo renderizador:
+    data-slide="s01"                    id da lâmina
+    data-composition="full-bleed"       macro-composição (mínimo 3 distintas em 5+ lâminas)
+    data-job="tensão"                   trabalho narrativo da lâmina
+    data-mode="image-led"               image-led | artifact-led | type-led
+    data-bleed                          autoriza sangrar fora da safe area
+    data-fine                           autoriza corpo abaixo do mínimo (fonte, ID, período)
+    data-over-image                     texto sobre foto: contraste vai para inspeção visual
+
+  Rodar:
+    node scripts/render.cjs assets/templates/canvas-starter.html --guides
+-->
+
+<style>
+/* ── fontes ───────────────────────────────────────────────────────────────
+   Os arquivos oficiais estão em assets/datta/fonts/. Ajuste o caminho
+   conforme a localização do HTML de produção. Se a peça usar outra família
+   licenciada, registre família, origem e licença no registro de produção. */
+@font-face { font-family:'Clash Display'; src:url('../datta/fonts/clash-display-500.woff2') format('woff2'); font-weight:500; font-display:block; }
+@font-face { font-family:'Clash Display'; src:url('../datta/fonts/clash-display-600.woff2') format('woff2'); font-weight:600; font-display:block; }
+@font-face { font-family:'Clash Display'; src:url('../datta/fonts/clash-display-700.woff2') format('woff2'); font-weight:700; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../datta/fonts/general-sans-400.woff2') format('woff2'); font-weight:400; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../datta/fonts/general-sans-500.woff2') format('woff2'); font-weight:500; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../datta/fonts/general-sans-600.woff2') format('woff2'); font-weight:600; font-display:block; }
+
+:root{
+  /* Substitua por um mundo expressivo do conceito. Estes são apenas
+     placeholders neutros para o andaime funcionar. */
+  --ground:#12100E;
+  --field:#F4F1EA;
+  --ink:#12100E;
+  --paper:#F4F1EA;
+  --accent:#E0714A;
+  --muted:#8B857C;
+
+  --display:'Clash Display', system-ui, sans-serif;
+  --body:'General Sans', system-ui, sans-serif;
+  --mono:ui-monospace, 'JetBrains Mono', Menlo, monospace;
+
+  --safe-x:80px;
+  --safe-y:96px;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{
+  background:#0E1014;
+  padding:48px;
+  display:flex;
+  flex-direction:column;
+  gap:48px;
+  width:max-content;
+  font-family:var(--body);
+  text-rendering:geometricPrecision;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,p,ol,ul{margin:0;}
+img{display:block;}
+
+/* ── canvas ─────────────────────────────────────────────────────────────── */
+.canvas{
+  position:relative;
+  width:1080px;
+  height:1350px;        /* 1080×1080 quadrado · 1080×1920 story */
+  overflow:hidden;
+  isolation:isolate;
+  background:var(--field);
+  color:var(--ink);
+}
+
+/* ── utilitários de mecânica ────────────────────────────────────────────── */
+
+/* Mídia sangrada com foco semântico controlado. */
+.media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+
+/* Scrim medido: legibilidade, não "deixar com cara de marca".
+   Opacidade é decisão de contraste — confira o valor real no preflight. */
+.scrim{position:absolute;inset:0;pointer-events:none;}
+.scrim--bottom{background:linear-gradient(to top, rgba(18,16,14,.88) 0%, rgba(18,16,14,.55) 34%, rgba(18,16,14,0) 62%);}
+.scrim--side{background:linear-gradient(90deg, rgba(18,16,14,.90) 0%, rgba(18,16,14,.52) 44%, rgba(18,16,14,0) 74%);}
+
+/* Grão: quebra o aspecto sintético de imagem gerada e de campo chapado.
+   Use baixa opacidade; grão visível vira textura decorativa. */
+.grain{
+  position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.11;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+/* Tipografia: escalas de partida para 1080px de largura.
+   Ajuste opticamente para as palavras reais da peça. */
+.display{font-family:var(--display);font-weight:600;letter-spacing:-.03em;line-height:.98;font-size:96px;}
+.display--tight{font-size:118px;line-height:.9;letter-spacing:-.042em;}
+.support{font-family:var(--body);font-weight:400;font-size:31px;line-height:1.42;max-width:20ch;}
+.label{font-family:var(--mono);font-size:19px;letter-spacing:.09em;text-transform:uppercase;}
+.fine{font-family:var(--mono);font-size:17px;letter-spacing:.05em;color:var(--muted);}
+
+/* Filete de evidência: separa afirmação de prova. */
+.rule{height:1px;background:var(--accent);}
+
+/* Marca de autoria. Use o arquivo exato; nunca redesenhe o símbolo.
+   Referências seguras em canvas 1080: símbolo 64px, lockup 200px. */
+.mark{position:absolute;width:64px;height:64px;object-fit:contain;}
+.lockup{position:absolute;width:200px;height:auto;object-fit:contain;}
+
+/* ── guias de safe area: abra com ?guides=1 ─────────────────────────────── */
+.guide{
+  position:absolute;pointer-events:none;z-index:999;display:none;
+  left:var(--safe-x);right:var(--safe-x);top:var(--safe-y);bottom:var(--safe-y);
+  outline:2px dashed rgba(255,0,110,.8);
+}
+.guide::after{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:rgba(255,0,110,.35);
+}
+:root.show-guides .guide{display:block;}
+</style>
+</head>
+<body>
+
+<!-- ══ S01 — sangria total, tensão em negativo ══════════════════════════ -->
+<section class="canvas" data-slide="s01" data-composition="full-bleed" data-job="tensão" data-mode="type-led"
+         style="background:var(--ground);color:var(--paper);">
+  <div class="grain"></div>
+  <div style="position:absolute;left:80px;top:96px;right:80px;">
+    <p class="label" data-fine style="color:var(--accent);">OBSERVAÇÃO</p>
+  </div>
+  <h1 class="display display--tight" style="position:absolute;left:80px;top:250px;width:800px;">
+    Uma tensão concreta.<br>Sem parágrafo na capa.
+  </h1>
+  <p class="support" style="position:absolute;left:80px;bottom:250px;color:#CFC9BF;">
+    Uma linha de apoio só quando a manchete precisa dela para ser verdadeira.
+  </p>
+  <div class="rule" style="position:absolute;left:80px;right:600px;bottom:210px;"></div>
+  <img class="mark" src="../datta/datta-simbolo-branco.png" alt="" style="left:80px;bottom:96px;">
+  <div class="guide"></div>
+</section>
+
+<!-- ══ S02 — split assimétrico, argumento contra campo ═════════════════ -->
+<section class="canvas" data-slide="s02" data-composition="asymmetric-split" data-job="distinção" data-mode="type-led">
+  <div style="position:absolute;inset:0 auto 0 0;width:340px;background:var(--ground);"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--paper);">01</p>
+  <h2 class="display" style="position:absolute;left:420px;top:96px;width:580px;font-size:72px;">
+    Um argumento por lâmina.
+  </h2>
+  <p class="support" style="position:absolute;left:420px;top:420px;width:560px;max-width:none;">
+    O corpo prova a manchete. Se precisa de zoom no celular, encurte ou divida
+    a lâmina em vez de reduzir o corpo.
+  </p>
+  <div class="guide"></div>
+</section>
+
+<!-- ══ S03 — artefato anotado ═════════════════════════════════════════ -->
+<section class="canvas" data-slide="s03" data-composition="annotated-artifact" data-job="prova" data-mode="artifact-led">
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;">EVIDÊNCIA</p>
+  <div style="position:absolute;left:80px;top:200px;right:80px;height:700px;border:1px solid rgba(18,16,14,.22);padding:48px;">
+    <p class="support" style="max-width:none;color:#413C35;">
+      Artefato real, screenshot autorizado ou modelo de ensino explicitamente
+      rotulado. Anote o que ele mostra; nunca use captura como papel de parede.
+    </p>
+    <div class="rule" style="margin-top:32px;"></div>
+    <p class="label" data-fine style="margin-top:24px;">MODELO ILUSTRATIVO</p>
+  </div>
+  <p class="fine" data-fine style="position:absolute;left:80px;bottom:110px;color:#5D574E;">
+    FONTE · PERÍODO · DEFINIÇÃO · LIMITE DE ATRIBUIÇÃO
+  </p>
+  <div class="guide"></div>
+</section>
+
+<!-- ══ S04 — foto com scrim medido e decisão ═══════════════════════════ -->
+<section class="canvas" data-slide="s04" data-composition="scrimmed-photo" data-job="decisão" data-mode="image-led"
+         data-over-image style="background:var(--ground);color:var(--paper);">
+  <!-- Troque por o ativo licenciado/gerado real. Registre a proveniência. -->
+  <div class="media" style="background:linear-gradient(135deg,#2A2622,#4A403A 55%,#1A1714);"></div>
+  <div class="scrim scrim--bottom"></div>
+  <div class="grain"></div>
+  <h2 class="display" style="position:absolute;left:80px;bottom:330px;width:820px;font-size:78px;">
+    A imagem carrega o que a copy não mostra.
+  </h2>
+  <p class="support" style="position:absolute;left:80px;bottom:186px;color:#DAD4CA;">
+    Se remover o ativo não enfraquece o argumento, ele é decoração.
+  </p>
+  <img class="lockup" src="../datta/datta-lockup-mono-branco.png" alt="" style="left:80px;bottom:96px;width:200px;">
+  <div class="guide"></div>
+</section>
+
+<script>
+  if (new URLSearchParams(location.search).has('guides')) {
+    document.documentElement.classList.add('show-guides');
+  }
+</script>
+</body>
+</html>

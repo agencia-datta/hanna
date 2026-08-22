@@ -56,6 +56,8 @@ Return all slots below when creating a static post:
 
 ```text
 ROLE + OBJECTIVE
+CONCEPT
+- three territories, the score, and the selected one
 VISUAL THESIS
 DATTA SPINE
 - exact authorship mark
@@ -92,9 +94,14 @@ slides. Each slide has one dominant job.
 
 ### Visual preflight
 
-Return these slots before the slide list:
+Return these slots before the slide list. The concept territories and the
+selected one come from [Concept generation](concept-generation.md); the
+macro-composition names come from the vocabulary in
+[Visual craft](visual-craft.md).
 
 ```text
+CONCEPT
+- three territories, the score, and the selected one
 VISUAL THESIS
 - what the audience will see that copy alone cannot show
 DATTA SPINE
@@ -180,62 +187,32 @@ Use this shape when a caption is requested:
 3. Evidence qualification or source when relevant.
 4. One action or concluding question.
 
+The feed truncates the caption after a short preview, so the first line is a
+second hook rather than a warm-up: it has to earn the expand on its own. Keep
+paragraphs short and broken for a phone. See
+[Instagram mechanics](instagram-mechanics.md) for the caption, cover, swipe, and
+adaptation mechanics in full.
+
 No generic hashtag block by default. Add a small, deliberate set only when the
 user's distribution strategy calls for it.
 
 ## Paid social ad contract
 
-An ad is not an organic post with a button added. Return the following:
+An ad is not an organic post with a button added. Its full contract — campaign
+fields, placement set, creative craft, ad copy, variant matrix, policy
+self-check, measurement, and launch blockers — lives in
+[Paid ads](paid-ads.md). Load it whenever the deliverable is a Meta or Instagram
+ad, and return the deliverable shape defined there.
 
-```text
-CAMPAIGN CONTRACT
-- objective
-- audience and awareness stage
-- offer
-- proof
-- destination
-- message match after click
-- launch blockers
+Two rules apply even when only a fragment of an ad is requested:
 
-CREATIVE
-- format and safe area
-- art copy
-- visual thesis, Datta spine, and expressive world
-- composition, image program, and asset provenance
-- exact logo or official element use when selected
-
-AD COPY
-- primary text
-- headline
-- description, if useful
-- platform CTA
-
-VARIANTS
-- problem-led
-- mechanism-led
-- proof-led, only if proof exists
-
-MEASUREMENT
-- primary decision metric
-- diagnostic metrics
-- attribution caveat
-
-QA VERDICT
-```
-
-Use one promise and one action per variant. “Fale conosco” requires a real
-contact destination. “Saiba mais” requires a page whose first screen continues
-the same claim and offer.
-
-### Claims and urgency
-
-- A performance percentage requires the underlying case, baseline, period,
-  metric definition, and attribution scope.
-- “Melhor”, “número 1”, “garantido”, or equivalent superiority needs verifiable
-  substantiation and is usually unnecessary.
-- Urgency comes from a real deadline, capacity, price condition, or operational
-  cost. Missing urgency is not permission to fabricate scarcity.
-- A generated or hypothetical number never becomes paid-ad proof.
+- One promise and one action per variant. `Fale conosco` requires a real contact
+  destination; `Saiba mais` requires a page whose first screen continues the same
+  claim and offer.
+- A performance percentage requires the underlying case, baseline, period, metric
+  definition, and attribution scope. A generated or hypothetical number never
+  becomes paid-ad proof, and missing urgency is never permission to fabricate
+  scarcity.
 
 ## Review contract
 
