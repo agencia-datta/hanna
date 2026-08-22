@@ -9,7 +9,10 @@ case or a publish-rights record.
 - Canvas: 1080 × 1350 for every slide.
 - Preview: seven phone-size slides at 40% scale in one contact sheet.
 - Nonofficial palette: ink `#171A20`, porcelain `#F3F0E7`, cobalt
-  `#2847D7`, coral `#E45D4F`, and sage `#B6C9B6`.
+  `#2847D7`, coral `#E45D4F`, accessible coral `#B54A3F`, and sage `#B6C9B6`.
+  `coral` carries rules, borders, and the ticket; `coral-text` is the text-safe
+  variant used for 19 px mono labels on porcelain, which the display coral
+  cannot reach at 4.5:1.
 - Nonofficial system fonts: Bahnschrift SemiCondensed/Bahnschrift, Segoe UI,
   and Cascadia Mono. The renderer verifies availability in Microsoft Edge.
 - Exact Datta assets: the repository symbol appears once on S01 and the mono
@@ -45,6 +48,41 @@ drift, visible-copy mismatch, missing or unloaded images, unavailable fonts,
 safe-area violations, overflow, repeated composition IDs, missing or colocated
 semantic anchors, incorrect primary asset placement, altered Datta asset
 hashes, an invalid stopped-ticket artifact, or any interactive CTA/control.
+
+## Pending re-render — read before trusting `tests/artifacts/`
+
+The source in this directory was corrected for accessibility after the recorded
+run. Three changes were made, all of which move pixels:
+
+| Change | Reason |
+| --- | --- |
+| `--coral-text: #B54A3F` on the S03/S04 mono labels | `#E45D4F` on porcelain measured 3.08:1, below the 4.5:1 required for 19 px text |
+| S06 labels from `--ink` to `--porcelain` | `#171A20` on cobalt measured 2.47:1; porcelain on cobalt measures 6.20:1 |
+| `.s07-cta` from 26 px to 27 px | Below the brand's own 27–36 px support-copy floor |
+
+The PNGs and `forward-carousel-manifest.json` under
+`tests/artifacts/forward-carousel/` still correspond to the **pre-correction**
+source and were deliberately left untouched: they are a signed record of a real
+Microsoft Edge run, and this repository forbids substituting a renderer and
+comparing hashes as if they were equivalent. Re-run
+`render-forward-carousel.cjs` on a machine with Edge and the four fixture fonts
+to refresh the outputs and their hashes. Until that run happens, treat the
+artifacts as evidence of the assembly path, not as the current source's output.
+
+## Generic preflight
+
+`scripts/render.cjs` reads this fixture without modification: it recognises the
+`data-slide-id` / `data-composition` annotations already present here, excludes
+the JS-cloned contact-sheet previews because they are scaled copies, and treats
+monospace text as the brand's label/source/ID role instead of demanding the
+27 px body minimum.
+
+It cannot, however, judge geometry on a machine without the fixture's fonts.
+Bahnschrift is condensed and its fallback is roughly 31% wider, which wraps
+headlines onto extra lines and produces collisions that do not exist in the Edge
+render. The preflight detects the fallback and downgrades every collision, safe
+area, overflow, and type-size finding to `INSPEÇÃO` for that reason. Only the
+font findings and colour-based findings are conclusive off-Windows.
 
 ## Outputs
 

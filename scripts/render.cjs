@@ -183,9 +183,25 @@ function auditInPage(config) {
   const MIN_FINE = config.minFinePx;
   const MIN_CONTRAST = config.minContrast;
 
-  const slides = Array.from(document.querySelectorAll("[data-slide]"));
-  const nodes = slides.length ? slides : Array.from(document.querySelectorAll(".canvas"));
-  const targets = nodes.length ? nodes : [document.body];
+  /* Aceita as duas convenções: `data-slide` e o `data-slide-id` que já existia
+     nos fixtures do repositório. `.canvas` continua como último recurso, mas
+     em arquivos que usam a mesma classe para canvas e prévia ela captura as
+     duas coisas — por isso os atributos têm precedência. */
+  const annotated = Array.from(document.querySelectorAll("[data-slide], [data-slide-id]"));
+  const nodes = annotated.length ? annotated : Array.from(document.querySelectorAll(".canvas"));
+
+  /* Folhas de contato costumam clonar as lâminas e reduzi-las por transform.
+     A cópia escalada tem largura de layout igual à original e largura pintada
+     menor: descartamos essas, e qualquer lâmina aninhada em outra. */
+  const isScaledCopy = (element) => {
+    const painted = element.getBoundingClientRect().width;
+    const layout = element.offsetWidth;
+    return layout > 0 && Math.abs(painted - layout) > 1;
+  };
+  const deduped = nodes.filter(
+    (element) => !isScaledCopy(element) && !nodes.some((other) => other !== element && other.contains(element))
+  );
+  const targets = (deduped.length ? deduped : nodes.length ? nodes : [document.body]);
 
   const parseColor = (value) => {
     const match = String(value).match(/rgba?\(([^)]+)\)/);
@@ -266,6 +282,25 @@ function auditInPage(config) {
     return { color: sawOpaque || accumulated.a >= 0.999 ? accumulated : null, uncertain: uncertain || !sawOpaque };
   };
 
+  /* document.fonts.check() só é confiável para faces declaradas em @font-face:
+     para fontes locais ele responde `true` a qualquer nome, inclusive
+     inexistente. Medimos a largura de uma sonda com dois genéricos diferentes
+     de fallback; se a família existe, as duas medidas coincidem. */
+  const GENERIC_FAMILIES = new Set([
+    "serif", "sans-serif", "monospace", "cursive", "fantasy", "system-ui",
+    "ui-serif", "ui-sans-serif", "ui-monospace", "ui-rounded", "math", "emoji", "fangsong"
+  ]);
+  const probeContext = document.createElement("canvas").getContext("2d");
+  const fontResolves = (family, weight) => {
+    if (GENERIC_FAMILIES.has(family.toLowerCase())) return true;
+    const probe = "mmmwwwiiilll0123 Handgloves";
+    const widthWith = (generic) => {
+      probeContext.font = `${weight} 48px "${family}", ${generic}`;
+      return probeContext.measureText(probe).width;
+    };
+    return Math.abs(widthWith("serif") - widthWith("monospace")) < 0.01;
+  };
+
   const isVisible = (element) => {
     const style = getComputedStyle(element);
     if (style.display === "none" || style.visibility === "hidden" || parseFloat(style.opacity) === 0) return false;
@@ -278,6 +313,8 @@ function auditInPage(config) {
       .map((node) => node.textContent.replace(/\s+/g, " ").trim())
       .join(" ")
       .trim();
+
+  targets.forEach((slide) => slide.setAttribute("data-hanna-export", ""));
 
   return targets.map((slide, index) => {
     const slideBox = slide.getBoundingClientRect();
@@ -321,12 +358,16 @@ function auditInPage(config) {
         fontsInUse.set(key, {
           family,
           weight: style.fontWeight,
-          available: document.fonts.check(`${style.fontWeight} 32px "${family}"`)
+          available: fontResolves(family, style.fontWeight)
         });
       }
       textInventory.push({ text, sizePx: Math.round(size / scale), family });
 
-      const fine = element.closest("[data-fine]") !== null;
+      /* A marca define o mono como papel de rótulo, fonte, período e ID — a
+         faixa legítima é 18–22 px. Texto em mono conta como rótulo sem precisar
+         de anotação, mas continua preso ao piso absoluto. */
+      const monoRole = /mono|consol|courier|menlo/i.test(style.fontFamily);
+      const fine = monoRole || element.closest("[data-fine]") !== null;
       if (fine) {
         if (size < MIN_FINE * scale - 0.5) {
           add("fail", "tipo-minimo", `Rótulo a ${Math.round(size / scale)} px abaixo do piso absoluto de ${MIN_FINE} px`, text.slice(0, 60));
@@ -400,11 +441,30 @@ function auditInPage(config) {
       }
     }
 
+    let fontsFellBack = false;
     fontsInUse.forEach((entry) => {
       if (!entry.available) {
-        add("fail", "fonte", `Família "${entry.family}" ${entry.weight} não carregou; o navegador usou fallback`, null);
+        fontsFellBack = true;
+        add(
+          "fail",
+          "fonte",
+          `Família "${entry.family}" ${entry.weight} não existe nesta máquina; o navegador usou fallback`,
+          "declare um @font-face com o arquivo licenciado, ou renderize onde a fonte está instalada"
+        );
       }
     });
+    /* Sem a fonte real, todo texto muda de largura e de número de linhas. As
+       medidas geométricas desta lâmina passam a descrever o fallback, não a
+       peça: reportamos, mas sem tratá-las como defeito do layout. */
+    if (fontsFellBack) {
+      findings.forEach((finding) => {
+        if (["colisao", "safe-area", "overflow", "tipo-minimo"].includes(finding.check) && finding.level === "fail") {
+          finding.level = "inspect";
+          finding.message += " — medido com fonte de fallback, reconfirmar com a fonte real";
+        }
+      });
+      add("warn", "fonte", "Geometria desta lâmina medida com fonte de fallback: colisão, safe area, overflow e corpo mínimo não são conclusivos", null);
+    }
 
     const images = Array.from(slide.querySelectorAll("img")).filter(isVisible);
     const imageRecords = images.map((image) => {
@@ -429,7 +489,7 @@ function auditInPage(config) {
 
     return {
       index: index + 1,
-      id: slide.getAttribute("data-slide") || slide.id || `s${String(index + 1).padStart(2, "0")}`,
+      id: slide.getAttribute("data-slide") || slide.getAttribute("data-slide-id") || slide.id || `s${String(index + 1).padStart(2, "0")}`,
       composition: slide.getAttribute("data-composition") || null,
       job: slide.getAttribute("data-job") || null,
       mode: slide.getAttribute("data-mode") || null,
@@ -516,9 +576,9 @@ function auditInPage(config) {
   const exports = [];
   if (!options.checkOnly) {
     fs.mkdirSync(options.out, { recursive: true });
-    const locators = await page.locator("[data-slide]").count()
-      ? page.locator("[data-slide]")
-      : page.locator(".canvas");
+    /* A auditoria marcou exatamente as lâminas reais; exportamos esse conjunto
+       para que prévias clonadas nunca virem entregável. */
+    const locators = page.locator("[data-hanna-export]");
     for (let index = 0; index < slides.length; index += 1) {
       const slide = slides[index];
       const file = path.join(
@@ -533,7 +593,7 @@ function auditInPage(config) {
 
     if (options.guides) {
       await page.evaluate((safe) => {
-        document.querySelectorAll("[data-slide], .canvas").forEach((slide) => {
+        document.querySelectorAll("[data-hanna-export]").forEach((slide) => {
           const overlay = document.createElement("div");
           const scale = slide.getBoundingClientRect().width / 1080;
           overlay.setAttribute("data-guide-overlay", "");
