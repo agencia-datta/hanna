@@ -29,15 +29,38 @@ HANNA_BROWSER_PATH="/usr/bin/google-chrome" node scripts/render.cjs peca.html
 | Anotação | Efeito |
 | --- | --- |
 | `data-slide="s01"` | Marca o canvas da lâmina e nomeia a exportação |
+| `data-slide-id="S01"` | Alias aceito; é a convenção que já existia nos fixtures |
 | `data-composition="full-bleed"` | Macro-composição; o preflight exige 3 distintas em 5+ lâminas |
 | `data-job` / `data-mode` | Registrados no manifest para conferência do contrato |
 | `data-bleed` | Autoriza o elemento a sangrar fora da safe area |
 | `data-fine` | Autoriza rótulo/fonte/período abaixo do corpo mínimo (piso absoluto: 16 px) |
 | `data-over-image` | Texto sobre foto: contraste vai para inspeção visual |
 
-Sem `[data-slide]`, o script cai para `.canvas`. Arquivos antigos que usam
-`.canvas` tanto para o canvas final quanto para prévias exportam as duas coisas;
-prefira `[data-slide]` em peças novas.
+Sem `[data-slide]` nem `[data-slide-id]`, o script cai para `.canvas`.
+
+Prévias e folhas de contato construídas no próprio HTML costumam clonar as
+lâminas e reduzi-las por `transform: scale(...)`. Essas cópias são descartadas
+automaticamente — a largura pintada difere da largura de layout —, assim como
+qualquer lâmina aninhada dentro de outra. Só o conjunto real é auditado e
+exportado.
+
+Texto em fonte monoespaçada conta como rótulo sem precisar de `data-fine`: a
+marca define o mono como papel de fonte, período, ID e rótulo de observação, na
+faixa de 18–22 px. O piso absoluto de 16 px continua valendo.
+
+### Fontes
+
+`document.fonts.check()` não serve para fontes locais: ele responde `true` a
+qualquer nome de família, inclusive inexistente. O script mede a largura de uma
+sonda com dois genéricos de fallback diferentes; se a família existe, as duas
+medidas coincidem.
+
+Quando uma família não existe na máquina, o texto muda de largura e de número de
+linhas, e a geometria deixa de descrever a peça. Nesse caso as falhas de
+colisão, safe area, overflow e corpo mínimo daquela lâmina são rebaixadas para
+`INSPEÇÃO`, com um aviso explícito — elas precisam ser reconfirmadas onde a
+fonte real está instalada. Contraste e proveniência continuam conclusivos,
+porque não dependem da métrica da fonte.
 
 ### O que o preflight mede
 
