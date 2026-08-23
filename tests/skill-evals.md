@@ -8,6 +8,13 @@ without Hanna, then repeat the same request with Hanna loaded.
 Score each criterion as `pass`, `partial`, or `fail`, and preserve the response
 verbatim in `tests/results/`.
 
+Several scenarios below end with "sem perguntas", "não pergunta nada", or
+"produza direto". Those are deliberate: they test the **opt-out path** of the
+direction round, not its absence. A response that interrogates a user who
+declined fails `Direction control` just as surely as one that silently invents
+the direction. The pass condition there is that the same decisions appear as
+named assumptions the user can reverse.
+
 | Criterion | Pass condition |
 | --- | --- |
 | Originality | Abstracts useful mechanisms without reproducing another profile's signature combination, wording, or layout. |
@@ -17,7 +24,8 @@ verbatim in `tests/results/`.
 | Brand fidelity | Declares a recognizable Datta spine through exact authorship plus observation/evidence/decision behavior; treats official colors, type, sizes, and layout devices as optional, but keeps every selected official element exact. |
 | Funnel fit | Matches hook, proof, CTA, destination, and variants to the organic or paid objective. |
 | Runtime independence | Does not consult BrandsDecoded or Medre unless the user explicitly requests a reference refresh. |
-| Creative divergence | Writes three concept territories that differ in kind, scores them, selects one on the criteria, and runs the kill tests before any layout decision. |
+| Creative divergence | Writes three concept territories that differ in kind, scores them, and runs the kill tests before any layout decision. |
+| Direction control | Puts at least five multiple-choice questions to the user before producing — up to four framing questions plus the concept selection — each with a recommended option; or, when the user declines, states every one of those decisions as a named assumption instead. |
 | Visual craft | Type scale, tracking, line breaks, colour roles, measured contrast, scrim treatment, and edge discipline are stated as decisions rather than taste labels; the craft floor holds. |
 | Attention design | The cover survives thumbnail scale and the 1:1 crop, slide 2 pays the cover, and the caption's first line earns the expand. |
 | Platform honesty | Meta placement specs, character limits, and policy rules are verified or marked for verification instead of stated from memory. |
@@ -267,3 +275,59 @@ Pass only if the response:
 
 Declaring the piece ready without running the preflight fails. Suppressing a
 finding with `--warn-only` and calling it clear also fails.
+
+## Scenario 14 — direction round before production
+
+> Quero um carrossel para o Instagram da Agência Datta sobre clínicas que
+> dependem só de indicação para conseguir paciente.
+
+Nothing else is supplied: no tone, no length, no art direction, no action, no
+data. This is the default case, and the only one where the direction round is
+fully exercised.
+
+Pass only if the response:
+
+- asks before laying anything out, using `AskUserQuestion` rather than a list of
+  questions in prose;
+- puts **up to four framing questions in a single call**, not four sequential
+  interruptions;
+- draws them from the open decisions — register, posture toward the reader,
+  depth, action, or art direction — and does not ask what the brief already
+  answers;
+- gives every question one `(Recomendado)` option, placed first, so the round
+  can be accepted wholesale and still produce a good piece;
+- writes options as consequences for the piece, not as bare labels, and keeps
+  them different in kind;
+- does **not** offer an invented offer, destination, or commercial condition as
+  an option — those stay `[PENDENTE: ...]`;
+- then writes three concept territories and returns with a **fifth question**
+  presenting them by what the audience would literally see, marking its own
+  scored pick as recommended without hiding the alternatives;
+- produces the territory the user chose, not the one it preferred; and
+- records the answers in the deliverable under `DIREÇÃO ESCOLHIDA`.
+
+Asking five questions in one round and skipping the concept question fails: the
+concept selection is the point of writing three territories. Producing before
+any question fails. Asking about the audience when the brief already said
+"clínicas" fails the "never ask what you can see" rule.
+
+## Scenario 15 — declined direction round
+
+> Crie um carrossel para a Agência Datta sobre clínicas que dependem de
+> indicação. Não me faça perguntas, decide você e entrega.
+
+Pass only if the response:
+
+- asks nothing, honoring the opt-out on the first attempt;
+- still makes every decision the round would have covered — register, posture,
+  depth, action, concept — and states each one explicitly in the deliverable
+  under `PREMISSAS ASSUMIDAS`, attributed to itself rather than to the user;
+- still writes the three concept territories and names which it chose and why,
+  so the user can reverse the choice without redoing the analysis;
+- keeps launch-critical fields as `[PENDENTE: ...]`; and
+- does not treat "decide você" as authorization to invent an offer, a
+  destination, or a client result.
+
+A response that asks anyway fails. A response that silently produces one concept
+with no stated assumptions also fails: the opt-out removes the questions, not
+the user's visibility into the decisions.

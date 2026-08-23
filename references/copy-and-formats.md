@@ -2,9 +2,19 @@
 
 ## Normalize the brief
 
-Start every production response with an internal brief. Do not burden the user
-with questions that can be safely inferred, but do not silently invent fields
-that determine whether an ad can launch.
+Start every production response with an internal brief. Two different things
+happen with what is missing from it.
+
+**Creative decisions go to the user as multiple choice.** Register, posture,
+depth, action, art direction, and the concept itself are the user's calls; put
+them in an `AskUserQuestion` round before producing, per
+[Direction questions](direction-questions.md).
+
+**Launch-critical facts are never multiple choice.** Offer, destination, and
+commercial condition cannot be invented, and cannot be offered as options
+either. They stay `[PENDENTE: ...]`.
+
+Everything else that can be safely inferred, infer — and state the assumption.
 
 | Field | If missing |
 | --- | --- |

@@ -9,7 +9,8 @@ balanced out by attractive design.
 | Gate | Pass condition | Failure response |
 | --- | --- | --- |
 | Strategy | One objective, audience/stage, message, and action agree | Reframe the brief |
-| Concept | Three territories differing in kind were written, scored, and one selected; kill tests pass | Diverge again; do not proceed on the first idea |
+| Direction | At least five multiple-choice questions were put to the user — four framing plus the concept selection — or the user declined and every decision appears as a named assumption | Ask before producing, or state the assumptions |
+| Concept | Three territories differing in kind were written, scored, and presented to the user, who chose; kill tests pass | Diverge again; do not proceed on the first idea, or on your own pick |
 | Copy | Hook is proven by the body; voice is Datta; one idea dominates | Rewrite, do not add decoration |
 | Evidence | Client/performance claims use supplied evidence; material technical facts use a primary source; hypotheses and illustrations are labeled | Remove, qualify, source, or request proof |
 | Rights | Every image has provenance; paid-use permission is clear | Replace the asset |
@@ -90,6 +91,7 @@ Do not rationalize that changed colors make a copied system original.
 For every static or carousel, answer:
 
 ```text
+Direction answers (register, posture, depth, action, concept):
 Visual thesis:
 Datta spine:
 Expressive world:
@@ -162,6 +164,8 @@ create a false factual claim or external action.
 | “Using all brand tokens makes it recognizably Datta.” | Recognition comes from the declared spine. Applying the complete official kit by default creates a template, not a concept. |
 | “The diagram makes the carousel visual.” | Cards and lines can explain, but they do not replace a semantic image, artifact, or contextual transformation. |
 | “The first idea was already strong, so divergence was unnecessary.” | The first idea is the category's idea. Write three territories and score them; that is the step, not a formality. |
+| “I inferred the tone from the topic, so asking would have been friction.” | Register, posture, depth, and action are the user's calls, not inferences. Asking four questions once costs less than a piece produced in the wrong voice. |
+| “I picked the strongest territory to save the user a decision.” | The three territories exist so the user can choose. Scoring recommends; it does not decide. |
 | “The design is a matter of taste, so craft rules are optional.” | Tracking, contrast, hierarchy, and edge discipline are measurable. Taste begins after the floor is met. |
 | “It looks fine in the layout view.” | Approval requires the exported canvas, a phone-scale preview, and a thumbnail check. Preflight is the floor, not the verdict. |
 | “Generation gives me more control, so I can skip stock search.” | Control and continuity are not pre-search exceptions. First test one bank asset family with crops/composites; skip only for explicit generation/editing or a documented safe/truthful-representation exception. |
@@ -189,6 +193,12 @@ create a false factual claim or external action.
 - A mockup, generated dashboard, or illustrative number presented as proof.
 - “Ready to publish” while a launch-critical field is `[PENDENTE]`.
 - A single concept taken to layout with no divergence step recorded.
+- Production started without the direction round, and without the user having
+  declined it.
+- The concept chosen for the user when three territories were written.
+- A launch-critical field — offer, destination, commercial condition — offered
+  as a multiple-choice option instead of held as a `[PENDENTE]` blocker.
+- A question round padded to five with questions whose answers change nothing.
 - Display type at browser-default tracking, or line breaks left to the box.
 - Text over a photograph approved without a measured contrast or a scrim.
 - A cover that is unreadable at thumbnail size, or that dies in the grid crop when the piece was not authored at 3:4.

@@ -59,6 +59,11 @@ Before any layout decision, write three concept territories. They must differ in
 kind, not in decoration. Three colour variations of the same picture is one
 territory.
 
+The three territories are not private notes. They become the concept question in
+[Direction questions](direction-questions.md), so write each one in language the
+user can choose between: what the audience would literally see, plus one
+strength and one risk.
+
 ```text
 TERRITORY A — [operator] — [what the audience sees in one sentence]
   Strength:
@@ -69,7 +74,8 @@ TERRITORY B — [different operator] — [what the audience sees]
 TERRITORY C — [different operator] — [what the audience sees]
   Strength:
   Risk:
-SELECTED: [A | B | C] because [reason tied to the score below]
+RECOMMENDED: [A | B | C] because [reason tied to the score below]
+SELECTED BY USER: [A | B | C], or "user declined the round; recommendation used"
 ```
 
 Territories are different in kind when they change the *class* of what appears:
@@ -130,6 +136,8 @@ CONCEPT
 ## Common mistakes
 
 - Producing one territory and calling the selection step done.
+- Selecting a territory for the user instead of presenting the three.
+- Writing the territories in operator language the user cannot judge.
 - Three territories that are the same picture in three palettes.
 - Choosing the most beautiful territory over the most true one.
 - A metaphor that flatters the brand rather than exposing the reader's problem.

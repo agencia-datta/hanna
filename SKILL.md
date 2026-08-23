@@ -20,6 +20,7 @@ image treatment.
 | --- | --- |
 | Any Datta deliverable | [Datta brand](references/datta-brand.md) |
 | Topic, angle, editorial plan | [Content strategy](references/content-strategy.md) |
+| Directing the piece with the user before producing | [Direction questions](references/direction-questions.md) |
 | Turning the angle into a visual idea | [Concept generation](references/concept-generation.md) |
 | Static, carousel, or caption | [Copy and formats](references/copy-and-formats.md) |
 | Meta or Instagram ad | [Paid ads](references/paid-ads.md) |
@@ -39,22 +40,35 @@ are already encoded in the maintained references.
 
 1. **Normalize the brief** into objective, audience, awareness stage, one
    message, offer, proof, format, destination, and constraints. Mark unknowns
-   explicitly. Do not ask questions you can safely infer; do not invent fields
-   that decide whether an ad can launch.
-2. **Select one editorial role** — `Sinal`, `Diagnóstico`, `Prova`, `Método`, or
+   explicitly. Never invent a field that decides whether an ad can launch — that
+   is a `[PENDENTE: ...]` blocker, never a multiple-choice option.
+2. **Ask the direction questions — at least five, in two rounds.** Before
+   generating concepts, put the open creative decisions to the user as multiple
+   choice via `AskUserQuestion`: up to four framing questions in one call,
+   chosen from the bank in
+   [Direction questions](references/direction-questions.md). The fifth is the
+   concept selection in step 4. Every question carries one `(Recomendado)`
+   option so the whole round can be accepted as is.
+   Skip this only when the user explicitly declines questions, when the brief
+   already answers them, or when the request is a review, a caption alone, or an
+   adaptation — and when skipped, state the same decisions as named assumptions
+   in the deliverable.
+3. **Select one editorial role** — `Sinal`, `Diagnóstico`, `Prova`, `Método`, or
    `Decisão` — and score the angle for specificity, consequence, evidence, and
    decision.
-3. **Diverge before you converge.** Write three concept territories that differ
-   in kind, score them, select one, and run the kill tests in
-   [Concept generation](references/concept-generation.md). One territory is not
-   a selection. State the visual thesis: what the audience will see that copy
-   alone cannot show.
-4. **Declare a `DATTA SPINE` and an `EXPRESSIVE WORLD`.** The spine identifies
+4. **Diverge, then let the user converge.** Write three concept territories that
+   differ in kind, score them, and run the kill tests in
+   [Concept generation](references/concept-generation.md). Then present the three
+   as the fifth question — by what the audience would literally see, not by
+   operator name — and produce the one chosen. One territory is not a selection,
+   and choosing it for the user is not either. State the visual thesis: what the
+   audience will see that copy alone cannot show.
+5. **Declare a `DATTA SPINE` and an `EXPRESSIVE WORLD`.** The spine identifies
    the piece through exact authorship and the Datta logic of observation,
    evidence, or decision. The expressive world chooses palette, typography,
    imagery, texture, grid, and composition for this idea. Official colors and
    typefaces are options, not mandatory defaults.
-5. **Source assets by route.** Before creating an external image, follow the
+6. **Source assets by route.** Before creating an external image, follow the
    `SOURCE ROUTE` in [Asset sourcing](references/asset-sourcing.md): materials
    supplied or already licensed, then a bounded search in free licensed banks,
    then generation only when no bank candidate passes. Skip the bank search only
@@ -62,7 +76,7 @@ are already encoded in the maintained references.
    pre-search exception that stock cannot represent safely or truthfully.
    Continuity alone is not an exception. Define what the image must communicate
    before searching.
-6. **Assign the image program and the silhouette rhythm.** For a carousel,
+7. **Assign the image program and the silhouette rhythm.** For a carousel,
    choose image-led, artifact/evidence-led, or type-led per slide. With five or
    more slides, and unless the user explicitly asked for pure type, the
    `IMAGE PROGRAM` carries at least three semantic anchors on different slides:
@@ -71,21 +85,21 @@ are already encoded in the maintained references.
    reader understands. Assign macro-compositions from the vocabulary in
    [Visual craft](references/visual-craft.md); an explicitly pure-type carousel
    still uses at least three distinct ones.
-7. **Produce the requested artifact, not generic advice.** When the user
+8. **Produce the requested artifact, not generic advice.** When the user
    requests a finished creative and suitable design or image tools are
    available, create the planned visual assets, assemble them, and inspect the
    result. If a planned asset cannot be produced, deliver a production contract
    with the asset as a named blocker; do not call the piece final.
-8. **Meet the craft floor.** Every finished piece satisfies the eight-point
+9. **Meet the craft floor.** Every finished piece satisfies the eight-point
    floor in [Visual craft](references/visual-craft.md): one dominant element,
    authored type, named colour roles, measured contrast, intentional edges, and
    legibility at phone and thumbnail scale.
-9. **Keep every claim traceable** under the evidence categories in
+10. **Keep every claim traceable** under the evidence categories in
    [Copy and formats](references/copy-and-formats.md). Client, performance, and
    commercial claims require supplied evidence. Material technical definitions
    require a primary authoritative source. An illustrative scenario is allowed
    only in education, labeled visibly in art and caption.
-10. **Run preflight, then the gates.** For an assembled piece, run
+11. **Run preflight, then the gates.** For an assembled piece, run
     `scripts/render.cjs` and clear every `FALHA` before review. Then run every
     applicable gate in [Quality gates](references/quality-gates.md).
 
@@ -147,8 +161,8 @@ deliverable copy are in Brazilian Portuguese. Keep that split.
 
 | Need | Minimum deliverable |
 | --- | --- |
-| Static post | Strategy, concept territories + selection, visual thesis, Datta spine, expressive world, art copy, asset plan, caption, alt text, QA |
-| Carousel | Narrative map, concept territories + selection, visual thesis, Datta spine, expressive world, image program, every slide, silhouette rhythm, caption, CTA, alt text, QA |
+| Static post | Strategy, direction answers, concept territories + user-selected one, visual thesis, Datta spine, expressive world, art copy, asset plan, caption, alt text, QA |
+| Carousel | Narrative map, direction answers, concept territories + user-selected one, visual thesis, Datta spine, expressive world, image program, every slide, silhouette rhythm, caption, CTA, alt text, QA |
 | Paid ad | Campaign contract, concept, placement set, creative per placement, ad copy, variant axis, measurement, policy self-check, QA |
 | Image | Source route, source criteria, selection gate, provenance, text-safe zone, negative constraints |
 | Assembled piece | Production HTML, exports, contact sheet, manifest with hashes, cleared preflight, visual inspection record |
@@ -157,6 +171,12 @@ deliverable copy are in Brazilian Portuguese. Keep that split.
 ## Common mistakes
 
 - Taking the first idea. One concept territory is not a creative decision.
+- Starting to lay out before asking what register, posture, depth, and action
+  the piece is in.
+- Choosing the concept for the user when the three territories were the whole
+  point of writing three.
+- Asking a question whose options all lead to the same piece, or offering an
+  invented offer/destination as a multiple choice instead of a blocker.
 - “Premium”, “impactful”, or “clean” without observable visual decisions.
 - Treating green, off-white, brass, Clash Display, and General Sans as a skin
   that must appear together on every piece.
