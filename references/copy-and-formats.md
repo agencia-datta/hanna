@@ -17,7 +17,7 @@ that determine whether an ad can launch.
 | Organic action or CTA | Omit when unnecessary, or mark an inferred action as `PROPOSTA DE CTA`; do not present it as user-approved |
 | Official brand element | Select only when useful; if selected, use the exact file/value and never approximate |
 | Art direction | Infer a concept-specific expressive world; do not default automatically to the entire official palette/type bundle |
-| Format | Use 1080 × 1350 feed portrait by default |
+| Format | Use 1080 × 1440 feed portrait (3:4) by default |
 
 If any paid launch-critical field is pending, deliver a draft plus an explicit
 launch-blocker list. Do not call it publish-ready.

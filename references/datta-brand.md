@@ -158,13 +158,23 @@ path to solve color inheritance.
 
 | Format | Canvas | Safe area |
 | --- | --- | --- |
-| Feed portrait | 1080 × 1350 | 80 px sides, 96 px top/bottom |
+| Feed portrait | 1080 × 1440 | 80 px sides, 96 px top/bottom |
+| Legacy portrait | 1080 × 1350 | 80 px sides, 96 px top/bottom |
 | Square | 1080 × 1080 | 80 px all sides |
 | Story/Reels adaptation | 1080 × 1920 | 120 px top, 240 px bottom, 80 px sides |
 
-Portrait `4:5` is the primary feed format unless the user requests another.
-Keep essential copy inside a centered 1080 × 1080 crop-safe region when a
-square adaptation will be needed.
+Portrait `3:4` at 1080 × 1440 is the primary feed format unless the user
+requests another. It matches the profile grid's own ratio, so a piece authored
+at 3:4 appears in the grid without being cropped.
+
+`4:5` at 1080 × 1350 remains valid for older material and for accounts that
+standardised on it, but it is no longer the default. A 4:5 piece placed in a
+3:4 grid cell is cropped; keep its essential copy inside the crop-safe region
+when that happens.
+
+Confirm both the current feed ratio and the grid ratio against Meta's own
+documentation before quoting either to a client or using it to sign off a
+launch. These figures change.
 
 ## Visual language that belongs to Datta
 

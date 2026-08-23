@@ -43,16 +43,16 @@ burden, and the CTA all change with it.
 
 ## Placement set
 
-Decide the placements before designing. Composing one 4:5 piece and letting the
+Decide the placements before designing. Composing one feed piece and letting the
 platform crop it into Stories is how a headline ends up under the interface.
 
 | Placement | Working canvas | Design consequence |
 | --- | --- | --- |
-| Feed (IG/FB) | 1080 × 1350 | Primary; the piece must work with the caption collapsed |
+| Feed (IG/FB) | 1080 × 1440 | Primary, 3:4; the piece must work with the caption collapsed |
 | Feed square | 1080 × 1080 | When the account's grid or a catalogue requires it |
 | Stories / Reels | 1080 × 1920 | Keep essential copy clear of the top ~14% and bottom ~20%; interface and CTA sit there |
 | Explore | inherits feed asset | Encountered with no profile context: the piece must identify its subject alone |
-| Carousel cards | 1080 × 1080 or 1080 × 1350 | Cards can be shown out of order in some surfaces; each must stand alone |
+| Carousel cards | 1080 × 1080 or 1080 × 1440 | Cards can be shown out of order in some surfaces; each must stand alone |
 
 Verify the current safe-area figures before a launch sign-off. Never place the
 offer, the price, the destination, or the brand mark inside a band you have not

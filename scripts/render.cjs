@@ -323,7 +323,7 @@ function auditInPage(config) {
 
     const width = Math.round(slideBox.width);
     const height = Math.round(slideBox.height);
-    const knownCanvases = ["1080x1350", "1080x1080", "1080x1920", "1200x628"];
+    const knownCanvases = ["1080x1440", "1080x1350", "1080x1080", "1080x1920", "1200x628"];
     if (!knownCanvases.includes(`${width}x${height}`)) {
       add("warn", "canvas", `Canvas ${width} × ${height} fora dos formatos usuais`, knownCanvases.join(", "));
     }
