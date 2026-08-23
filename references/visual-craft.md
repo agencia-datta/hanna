@@ -136,7 +136,7 @@ If the piece only works at 3 s, it will never be given 3 s.
 - Choose one dominant tension per canvas: scale, position, colour, or density.
   Two competing tensions cancel out.
 - Optical centre sits **above** geometric centre. Vertically centred text in a
-  4:5 canvas looks like it is sliding down.
+  tall feed canvas looks like it is sliding down.
 - Anchor to a real grid. A 6- or 12-column grid on 1080 px with an 80 px margin
   gives usable columns; snap to it, then break it deliberately once.
 - Negative space is an active choice with a stated purpose: it isolates the
@@ -217,7 +217,7 @@ Never approve from the layout view alone.
 1. Export at full canvas and inspect.
 2. Inspect at phone scale (≈40%) — support copy must read without zoom.
 3. Inspect at thumbnail scale (≈12%) — the cover must still say something.
-4. Check the centred 1:1 crop: the grid shows a square, and the argument must
-   survive it.
+4. If the piece is not authored at the grid's 3:4 ratio, crop the export to
+   that ratio and confirm the argument survives.
 5. Run `node scripts/render.cjs <arquivo.html>` and clear every `FALHA`. Items
    marked `INSPEÇÃO` are text over image or gradient: confirm them by eye.

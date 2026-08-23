@@ -99,7 +99,7 @@ without turning coherence into seven copies of one template.
 
 ## Grid and hierarchy
 
-- Primary feed canvas: 1080 × 1350.
+- Primary feed canvas: 1080 × 1440 (3:4).
 - Base safe area: 80 px sides and 96 px top/bottom.
 - Choose a grid that serves the asset and concept: full bleed, split, asymmetric,
   modular, collage, object study, or another deliberate structure.
@@ -253,7 +253,7 @@ Check:
 - visual evidence labeled as documentary, illustrative, or mockup;
 - niche-swap test fails: changing the industry would require visual
   recomposition, not just replacing nouns;
-- square/story adaptation does not lose the argument; the centred 1:1 crop still
-  carries the cover's tension;
+- square/story adaptation does not lose the argument; a piece not authored at
+  3:4 still carries the cover's tension inside the grid crop;
 - the automated preflight in `scripts/render.cjs` reports zero `FALHA`, and each
   `INSPEÇÃO` item — text over image or gradient — was confirmed by eye.

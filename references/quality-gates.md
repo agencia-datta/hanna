@@ -19,7 +19,7 @@ balanced out by attractive design.
 | Distinctiveness | Visual thesis is topic-specific; assets are semantic; niche-swap requires recomposition; sequence has real silhouette rhythm | Re-concept, do not add decoration |
 | Visual | Phone-readable hierarchy, required image program, safe areas, adequate contrast, and inspected assets | Produce, recompose, or shorten |
 | Craft | The eight-point craft floor holds: dominant element, authored type, named colour roles, measured contrast, intentional edges, nothing unmissed | Fix the execution; a good idea badly set still fails |
-| Attention | Cover legible at thumbnail and in the 1:1 crop; slide 2 pays the cover; caption's first line earns the expand | Recompose the cover or re-sequence |
+| Attention | Cover legible at grid-thumbnail scale; if the piece is not authored at 3:4, its argument survives the grid crop; slide 2 pays the cover; caption's first line earns the expand | Recompose the cover or re-sequence |
 | Preflight | `scripts/render.cjs` reports zero `FALHA`; every `INSPEÇÃO` item confirmed by eye | Correct the layout and re-render |
 | Funnel | CTA and destination match the reached awareness stage | Change the action or mark pending |
 | Accessibility | Alt text, legibility, contrast, and non-color meaning pass | Fix before approval |
@@ -41,7 +41,7 @@ Measured contrast, worst text on the piece:    (target 4.5:1 body, 3:1 large)
 Scrim treatment under text on image:           directional and measured | none
 Macro-compositions used, from the vocabulary:
 Thumbnail read at ~12%:
-1:1 centre-crop survival:
+Grid-crop survival (n/a when authored at 3:4):
 Preflight verdict and cleared findings:
 ```
 
@@ -191,7 +191,7 @@ create a false factual claim or external action.
 - A single concept taken to layout with no divergence step recorded.
 - Display type at browser-default tracking, or line breaks left to the box.
 - Text over a photograph approved without a measured contrast or a scrim.
-- A cover that is unreadable at thumbnail size or dies in the 1:1 grid crop.
+- A cover that is unreadable at thumbnail size, or that dies in the grid crop when the piece was not authored at 3:4.
 - A Meta safe area, character limit, or policy stated from memory as fact.
 - A piece called final without a cleared preflight and an inspected export.
 - Browsing BrandsDecoded or Medre without an explicit refresh request.

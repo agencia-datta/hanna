@@ -97,7 +97,7 @@ must not be described as ready to publish or launch while those fields remain.
 
 | Path | Purpose |
 | --- | --- |
-| `scripts/render.cjs` | Renders a production HTML to 1080 × 1350 PNGs, runs automated preflight, writes a contact sheet and a manifest with SHA-256 |
+| `scripts/render.cjs` | Renders a production HTML to 1080 × 1440 PNGs, runs automated preflight, writes a contact sheet and a manifest with SHA-256 |
 | `assets/templates/canvas-starter.html` | Structural scaffolding: exact canvas, safe-area guides, font loading, scrim and grain utilities, renderer annotations |
 | `assets/datta/` | Exact brand files: logos, fonts, tokens. Never redraw or approximate |
 

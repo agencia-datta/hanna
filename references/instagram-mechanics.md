@@ -12,14 +12,16 @@ under the evidence rules in [Copy and formats](copy-and-formats.md).
 
 | Surface | Canvas | Safe area | Note |
 | --- | --- | --- | --- |
-| Feed portrait | 1080 × 1350 | 80 px sides, 96 px top/bottom | Primary format |
+| Feed portrait | 1080 × 1440 | 80 px sides, 96 px top/bottom | Primary format, 3:4 |
+| Legacy portrait | 1080 × 1350 | 80 px sides, 96 px top/bottom | 4:5; older material only |
 | Feed square | 1080 × 1080 | 80 px all sides | When a square is requested |
 | Story / Reels | 1080 × 1920 | 80 px sides, 120 px top, 240 px bottom | Bottom band is interface |
-| Profile grid cell | 1:1 centred crop of the post | — | Not a separate export; a constraint on the feed piece |
+| Profile grid cell | 3:4, the same ratio as the primary canvas | — | Not a separate export; a constraint on any piece not authored at 3:4 |
 
-Design the 4:5 piece so its **centred 1080 × 1080 region still carries the
-argument**. The grid crops the top and bottom; a headline that only works at the
-bottom edge disappears from the profile.
+Author the piece at 3:4 and the grid shows it whole — that is the main reason
+to prefer 1080 × 1440. **Any piece not authored at 3:4 is cropped by the grid**,
+so a 4:5 or square post has to keep its argument inside the region the grid
+actually keeps. Check it by cropping the export, not by assuming.
 
 ## Three moments, three jobs
 
@@ -41,7 +43,7 @@ The cover is the only slide most people see.
 - One tension. No paragraph, no stacked claims, no unsupported superlative.
 - Legible at roughly 12% scale: that means display type and high contrast, not a
   cover full of body copy.
-- The tension must survive the 1:1 centre crop.
+- If the piece is not authored at 3:4, the tension must survive the grid crop.
 - A promise the rest of the piece actually pays. A cover that oversells is not a
   hook; it is the reason people stop trusting the account.
 - Avoid burying the tension under the brand mark. Authorship is subordinate to
@@ -136,7 +138,7 @@ saving.
 
 Produce an adaptation only when it is requested or operationally necessary.
 
-- **Square:** confirm the argument survives the centre crop; re-set line breaks.
+- **Square:** confirm the argument survives the grid crop; re-set line breaks.
 - **Story/Reels:** keep the bottom 240 px clear of essential copy; re-compose
   rather than scaling the 4:5 piece; a carousel becomes a sequence of frames,
   not one tall image.

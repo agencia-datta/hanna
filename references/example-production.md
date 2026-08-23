@@ -16,7 +16,7 @@ palette, font pairing, image prompt, or slide template.
 - **Proof:** mechanism and visibly illustrative artifacts; no client result or
   timing benchmark was supplied.
 - **Action:** `PROPOSTA DE CTA` — save the handoff audit.
-- **Format:** 1080 × 1350, seven slides.
+- **Format:** 1080 × 1440, seven slides.
 
 ## Visual preflight
 
@@ -184,7 +184,7 @@ Antes de mudar a campanha, localize onde o handoff interrompe.
 - **Preferred class:** licensed stock.
 - **Use:** S01 and derived crops in S02, S04, S05, and S07.
 - **Purpose:** show a lead present while the handoff owner is absent.
-- **Framing:** eye-level 4:5 reception desk with an unbranded phone, free desk
+- **Framing:** eye-level 3:4 reception desk with an unbranded phone, free desk
   surface in the lower third for the owned ticket overlay, and text-safe wall
   area. The stock photo does not need to contain a ticket.
 - **Light/material:** diffuse morning light, real laminate, paper fibers, minor
