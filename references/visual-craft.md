@@ -62,7 +62,8 @@ look cramped. These two corrections alone lift most layouts.
 - Body: 34–52 characters per line. This is the readable band on a phone canvas.
 - Break display lines on **meaning**, not on where the box happens to end.
   Author the breaks with explicit markup; never leave a three-line headline to
-  the browser.
+  the browser. An authored break only holds if the longest segment fits the box:
+  measure it, because estimating character width is how widows get shipped.
 - No widows. A single trailing word on its own line is a defect, not a style.
 - Hang punctuation and quotation marks outside the text edge at display sizes.
 
@@ -221,3 +222,6 @@ Never approve from the layout view alone.
    that ratio and confirm the argument survives.
 5. Run `node scripts/render.cjs <arquivo.html>` and clear every `FALHA`. Items
    marked `INSPEÇÃO` are text over image or gradient: confirm them by eye.
+6. Authored line breaks are verified, not assumed. The preflight reports a
+   `<br>` whose break the layout undid; fix it by measuring the widest authored
+   segment against the box, never by estimating character widths.

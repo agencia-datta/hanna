@@ -35,6 +35,7 @@ Dominant element and why it wins:
 Display-to-body size ratio:                    (target 2.5x or more)
 Display tracking:                              (target -0.03em to -0.045em above 72px)
 Authored line breaks:                          yes | browser decided
+Authored breaks that survived the layout:      n of n, measured
 Widows on display copy:                        none | fix required
 Colour roles named (ground/ink/support/accent):
 Accent share of canvas:
