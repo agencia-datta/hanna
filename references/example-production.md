@@ -18,6 +18,39 @@ palette, font pairing, image prompt, or slide template.
 - **Action:** `PROPOSTA DE CTA` — save the handoff audit.
 - **Format:** 1080 × 1440, seven slides.
 
+## Direction round
+
+Four framing questions in one `AskUserQuestion` call, then the concept selection.
+The answers are the user's; the depth recommendation is the agent's and is
+labelled as such. See [Direction questions](direction-questions.md).
+
+| Question | Answer | What it settled |
+| --- | --- | --- |
+| Registro | Editorial contido | Clean composition, one visual idea per slide |
+| Postura | Consultivo | The copy explains the handoff instead of blaming the clinic |
+| Profundidade | Média, 5–7 lâminas | Seven slides complete the argument without padding |
+| Ação | Salvar | The last slide has to leave a reusable audit behind |
+
+When the user declines the round, this block still appears — as
+`PREMISSAS ASSUMIDAS`, with each decision attributed to the agent.
+
+## Concept
+
+Three territories differing in kind, scored, then chosen by the user as the
+fifth question. See [Concept generation](concept-generation.md).
+
+| Território | Operador | O que o público vê | Total |
+| --- | --- | --- | --- |
+| **O bilhete que para** | Materialização | Um bilhete de papel cobalto atravessa a recepção e para ao lado de um telefone sem resposta | **14** |
+| A cadeira com nome | Ausência | Cada cadeira da espera traz o nome de quem deveria ter respondido; uma está vazia | 13 |
+| A recepção desmontada | Vista explodida | O balcão aberto em estações separadas, com a passagem da distribuição faltando | 12 |
+
+Recommended and selected: the first. Kill tests — niche swap: trocar clínica por
+outro setor exigiria recompor a cena, não trocar substantivos. Seen it: a
+categoria usa telefone tocando e profissional sorrindo; nenhum aparece. Removal:
+sem o bilhete, a capa vira frase sobre atendimento. Explanation: o bilhete parado
+não precisa de legenda. Flattery: expõe uma falha de operação do leitor.
+
 ## Visual preflight
 
 **Visual thesis**
@@ -231,6 +264,8 @@ performance claim.
 
 `APROVADO PARA RASCUNHO`
 
+- The direction round was answered and recorded; the concept was chosen by the
+  user from three territories, not picked by the agent.
 - The visual thesis is specific to a clinic reception handoff.
 - Image-led, artifact-led, and contextual-transformation anchors occur on
   different slides.
