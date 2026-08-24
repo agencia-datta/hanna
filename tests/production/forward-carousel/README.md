@@ -49,62 +49,6 @@ safe-area violations, overflow, repeated composition IDs, missing or colocated
 semantic anchors, incorrect primary asset placement, altered Datta asset
 hashes, an invalid stopped-ticket artifact, or any interactive CTA/control.
 
-## Pending re-render — read before trusting `tests/artifacts/`
-
-The source in this directory was corrected for accessibility after the recorded
-run. Three changes were made, all of which move pixels:
-
-| Change | Reason |
-| --- | --- |
-| `--coral-text: #B54A3F` on the S03/S04 mono labels | `#E45D4F` on porcelain measured 3.08:1, below the 4.5:1 required for 19 px text |
-| S06 labels from `--ink` to `--porcelain` | `#171A20` on cobalt measured 2.47:1; porcelain on cobalt measures 6.20:1 |
-| `.s07-cta` from 26 px to 27 px | Below the brand's own 27–36 px support-copy floor |
-
-The PNGs and `forward-carousel-manifest.json` under
-`tests/artifacts/forward-carousel/` still correspond to the **pre-correction**
-source and were deliberately left untouched: they are a signed record of a real
-Microsoft Edge run, and this repository forbids substituting a renderer and
-comparing hashes as if they were equivalent. Until the run below happens, treat
-the artifacts as evidence of the assembly path, not as the current source's
-output.
-
-### Runbook
-
-Requires Windows with stable Microsoft Edge installed and the four fixture
-fonts present (Bahnschrift, Bahnschrift SemiCondensed, Segoe UI, Cascadia Mono
-— all ship with Windows). Node 20+.
-
-```powershell
-cd tests\production
-npm.cmd ci --ignore-scripts
-node .\forward-carousel\render-forward-carousel.cjs
-```
-
-`--ignore-scripts` skips Playwright's browser download; the renderer launches
-`channel: "msedge"` and never fetches a browser. The run rewrites the seven
-PNGs, the phone preview, and `forward-carousel-manifest.json` with fresh
-hashes. Commit those outputs and delete this section.
-
-### Static audit of the renderer's assertions against the corrected source
-
-Checked here before handing the run over, so it should pass first time. The
-three corrections touch only colour values and one font size.
-
-| Assertion | Effect of the corrections |
-| --- | --- |
-| `source assets match approved hashes` | Unaffected — `fixture.sourceAssets` covers only the two JPEGs and the two Datta SVGs, none of which changed |
-| `slide ids, modes, compositions, anchors, assets, and visible copy match fixture` | Unaffected — no copy, id, mode, composition or anchor changed |
-| `concept tokens are exact and do not default to official Datta colors` | Passes: `coral-text` was added to both the CSS and `fixture.tokens`, and `#B54A3F` is not in the official set |
-| `all copy remains inside the declared safe area` | `.s07-cta` grows 2.5 px. At `top: 1010px` with `line-height: 1.25`, two lines end near y≈1078 against a 1254 px bottom bound; even a rewrap to three lines ends near y≈1111 |
-| `slides and checked regions have no overflow` | Same margin as above; the canvas is 1350 px tall |
-| `all four nonofficial system fonts are available in Edge` | Unaffected — no font family changed |
-| Remaining 18 assertions | Unaffected — they cover slide count, dimensions, image loading, asset placement, the S04 ticket artifact, anchors, composition uniqueness, interactivity, and the preview surface |
-
-The one thing this audit cannot settle is optical: confirm by eye that
-`#B54A3F` reads as intended against porcelain in Bahnschrift/Cascadia Mono, and
-that the S06 labels in porcelain on cobalt sit correctly against the vertical
-route.
-
 ## Generic preflight
 
 `scripts/render.cjs` reads this fixture without modification: it recognises the

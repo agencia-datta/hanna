@@ -4,7 +4,7 @@
   "verdict": "passed",
   "engine": {
     "browser": "Microsoft Edge",
-    "browserVersion": "151.0.4129.93",
+    "browserVersion": "151.0.4129.101",
     "playwrightVersion": "1.62.1",
     "deviceScaleFactor": 1,
     "reducedMotion": true
@@ -66,13 +66,13 @@
   "sources": [
     {
       "path": "tests/production/forward-carousel/forward-carousel.fixture.json",
-      "bytes": 6207,
-      "sha256": "b5c51c164d3513db4fe3c9902d8665609e778d59affbf93a55ae919907b6b465"
+      "bytes": 6428,
+      "sha256": "08009b7aaa013d87c79eedcca78852b7c03c512047d512fd6a08eca7b7c2fafc"
     },
     {
       "path": "tests/production/forward-carousel/forward-carousel.html",
-      "bytes": 24075,
-      "sha256": "9a9d4124493c9e35e366360e83a976a1b9c8ce4ab0f176975a1b9ad39ac32820"
+      "bytes": 24701,
+      "sha256": "e94af1cddd708d30766cd0fbe4a0eee4358dba2efde4710893b6950588440d52"
     },
     {
       "path": "tests/production/forward-carousel/render-forward-carousel.cjs",
@@ -91,8 +91,8 @@
     },
     {
       "path": "tests/production/forward-carousel/README.md",
-      "bytes": 2410,
-      "sha256": "25d90e72d44dadfe9186a16c0b109aa85a9cf3e7a4331fb29359fb8559bafd28"
+      "bytes": 3514,
+      "sha256": "1bca3b839c5f7e591faa6170696ae60b27ef07e3b392bc5bd10cbcf5edce0a67"
     },
     {
       "path": "tests/production/forward-carousel/assets/reception-open.jpg",
@@ -139,8 +139,8 @@
     {
       "role": "S03 full-resolution slide",
       "path": "tests/artifacts/forward-carousel/forward-carousel-s03-1080x1350.png",
-      "bytes": 87375,
-      "sha256": "c5473567d4777e128d2b4d63137aaf0415575e7b2a3edb91386a6900da412021",
+      "bytes": 87958,
+      "sha256": "e35a146b3f05e7fac4c3d038bf3838b4bbe0ea8ac57deb4b7c94f06ce56ce236",
       "dimensions": {
         "width": 1080,
         "height": 1350
@@ -149,8 +149,8 @@
     {
       "role": "S04 full-resolution slide",
       "path": "tests/artifacts/forward-carousel/forward-carousel-s04-1080x1350.png",
-      "bytes": 119864,
-      "sha256": "b03f9a817266bbb930d0fcc6635ba4267f1db5c75372db8264518513177a1cd3",
+      "bytes": 120805,
+      "sha256": "312eb044cc6e5cf26becf6d8fd11440546a47ae914a8ceb62d5afbb3d0228864",
       "dimensions": {
         "width": 1080,
         "height": 1350
@@ -169,8 +169,8 @@
     {
       "role": "S06 full-resolution slide",
       "path": "tests/artifacts/forward-carousel/forward-carousel-s06-1080x1350.png",
-      "bytes": 54607,
-      "sha256": "4346c9106f2cf277f90c0efd2c32ac67b1a6fdf52181949ce5d6e67cbf288007",
+      "bytes": 54725,
+      "sha256": "451791e15b15fa4beeb5cddd12ba28e7a052d3b4e2dde5d78f8f94d2db92571f",
       "dimensions": {
         "width": 1080,
         "height": 1350
@@ -179,8 +179,8 @@
     {
       "role": "S07 full-resolution slide",
       "path": "tests/artifacts/forward-carousel/forward-carousel-s07-1080x1350.png",
-      "bytes": 1292712,
-      "sha256": "0a808f0eb11906d4c19dc59d03199c62bfcb927fc667792112e7b4e9cd79604e",
+      "bytes": 1293230,
+      "sha256": "904c773a70d77dfe204bee8f56583281e1245005e785b0350c11ae691788d235",
       "dimensions": {
         "width": 1080,
         "height": 1350
@@ -189,8 +189,8 @@
     {
       "role": "phone-size seven-slide contact sheet",
       "path": "tests/artifacts/forward-carousel/forward-carousel-phone-preview.png",
-      "bytes": 969813,
-      "sha256": "b26ee463d9e460e09dfaffc964653b0ecec47aa8a7ea49fb4d732a1ded1479ef",
+      "bytes": 971246,
+      "sha256": "b8e6b283605619a97e8f1f57b683fe12a317476ee466d79fef1c8f4c73bc31ca",
       "dimensions": {
         "width": 1836,
         "height": 1148
