@@ -56,6 +56,14 @@ Optical spacing is the fastest tell between professional and default.
 Large type set at `0` looks loose and unfinished. Uppercase labels set at `0`
 look cramped. These two corrections alone lift most layouts.
 
+**Negative tracking shrinks the word space too.** `letter-spacing` applies to
+every character including the space, so a display line at `-0.035em` loses word
+gap along with letter gap — measured on Clash Display at 96 px, the gap falls
+from 24 px to 20 px, and the words start reading as one. Compensate with
+`word-spacing` between `+0.05em` and `+0.08em` whenever display tracking goes
+past `-0.02em`. Check it by eye at full size: the test is whether you can see
+where one word ends, not whether the number looks right.
+
 ### Line length and line breaks
 
 - Display: 14–28 characters per line. Longer and the eye loses the return.
@@ -198,7 +206,8 @@ Flat is fine; cheap is not. Depth comes from layer discipline, not from effects.
 
 | Sign | Fix |
 | --- | --- |
-| Headline set at default tracking | Tighten to `-0.03em` and author the line breaks |
+| Headline set at default tracking | Tighten to `-0.03em`, add `word-spacing +0.06em`, and author the line breaks |
+| Display words running together | Negative tracking ate the word space — compensate with `word-spacing` |
 | Everything centred | Choose a real alignment and one deliberate break |
 | Text over an unreadable photo | Measure the region, add a directional scrim, re-check contrast |
 | Five colours, none dominant | Assign the five roles; delete the rest |
