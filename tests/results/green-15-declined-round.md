@@ -3,7 +3,7 @@
 **Data:** 2026-08-24 · **Arranjo:** subagente isolado · **Entrada:** apenas o
 prompt do cenário.
 
-## Veredito: PASSA — 4 de 5 critérios, 1 parcial
+## Veredito: PASSA — 4 de 5 na regra da data, 5 de 5 na regra atual
 
 | # | Critério | Resultado |
 | --- | --- | --- |
@@ -28,6 +28,13 @@ de conferir o contrato por busca.
 
 **Decisão pendente para a skill:** ou o rótulo passa a ser exigido de fato, ou
 some da referência. Hoje ele é especificado e ignorado — o pior dos dois.
+
+> **Resolvido depois desta execução.** A skill passou a exigir a substância — as
+> cinco decisões declaradas, atribuídas ao agente e marcadas como reversíveis —
+> sem prescrever o texto do cabeçalho. O que o agente escreveu diz ao leitor o
+> que o bloco é, em vez de exigir que ele conheça a convenção. **Sob a regra
+> atual este critério passa, e o cenário fica 5 de 5.** A pontuação acima fica
+> como foi feita, sob a regra vigente na data — o registro não se reescreve.
 
 ### Critério 3 — acima do exigido
 
