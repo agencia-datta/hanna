@@ -69,6 +69,12 @@ texto cortado, corpo mínimo, carregamento real das fontes, resolução nativa d
 cada imagem contra o tamanho renderizado, elementos interativos e distinção de
 macro-composições.
 
+Também verifica **quebra de linha autorada**: se um bloco com `<br>` renderiza
+em mais linhas do que os segmentos declarados, a caixa está estreita demais ou o
+corpo está grande demais, e a quebra que você escreveu foi desfeita — quase
+sempre deixando uma viúva. Corrija medindo a largura real do maior segmento, não
+estimando.
+
 Camadas com `opacity < 0.5` ou `mix-blend-mode` diferente de `normal` — grão,
 scrim leve — são tratamento e ficam fora da conta de contraste. Texto sobre
 imagem, vídeo ou gradiente não é medido automaticamente: sai como `INSPEÇÃO` e

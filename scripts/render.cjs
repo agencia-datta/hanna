@@ -301,6 +301,23 @@ function auditInPage(config) {
     return Math.abs(widthWith("serif") - widthWith("monospace")) < 0.01;
   };
 
+  /* Um <br> declara onde o autor quer a quebra. Se o texto renderiza em mais
+     linhas do que os segmentos autorados, a caixa é estreita demais ou o corpo
+     é grande demais — e a quebra que o autor escreveu foi desfeita, quase
+     sempre deixando uma viúva. Contamos as linhas pelos rects do Range, que
+     dão uma caixa por linha pintada. */
+  const countRenderedLines = (element) => {
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    const rects = Array.from(range.getClientRects()).filter((r) => r.width > 0.5 && r.height > 0.5);
+    if (!rects.length) return 0;
+    const tops = [];
+    rects.forEach((rect) => {
+      if (!tops.some((top) => Math.abs(top - rect.top) < Math.max(2, rect.height * 0.4))) tops.push(rect.top);
+    });
+    return tops.length;
+  };
+
   const isVisible = (element) => {
     const style = getComputedStyle(element);
     if (style.display === "none" || style.visibility === "hidden" || parseFloat(style.opacity) === 0) return false;
@@ -403,6 +420,19 @@ function auditInPage(config) {
         add("fail", "overflow", "Texto cortado pelo próprio contêiner", text.slice(0, 60));
       }
 
+      const authored = element.innerHTML.split(/<br\s*\/?>/i).length;
+      if (authored > 1) {
+        const rendered = countRenderedLines(element);
+        if (rendered > authored) {
+          add(
+            "fail",
+            "quebra",
+            `Quebra autorada desfeita: ${authored} segmento(s) autorado(s) renderizaram em ${rendered} linhas`,
+            text.slice(0, 60)
+          );
+        }
+      }
+
       const overImage = element.closest("[data-over-image]") !== null;
       const foreground = parseColor(style.color);
       const backdrop = backdropOf(element, slide);
@@ -422,7 +452,12 @@ function auditInPage(config) {
 
     /* Colisão entre blocos de texto: o caso mais comum de peça exportada com
        defeito é manchete e apoio se sobrepondo depois de uma troca de copy. */
-    const boxes = textElements.map((element) => ({ element, box: element.getBoundingClientRect(), text: ownText(element) }));
+    /* Um inline que quebra em duas linhas devolve um retângulo que cobre as
+       duas, então dois <strong> irmãos no mesmo parágrafo parecem colidir.
+       Só blocos posicionados entram nesta checagem. */
+    const boxes = textElements
+      .filter((element) => getComputedStyle(element).display !== "inline")
+      .map((element) => ({ element, box: element.getBoundingClientRect(), text: ownText(element) }));
     for (let a = 0; a < boxes.length; a += 1) {
       for (let b = a + 1; b < boxes.length; b += 1) {
         const first = boxes[a];
@@ -458,12 +493,12 @@ function auditInPage(config) {
        peça: reportamos, mas sem tratá-las como defeito do layout. */
     if (fontsFellBack) {
       findings.forEach((finding) => {
-        if (["colisao", "safe-area", "overflow", "tipo-minimo"].includes(finding.check) && finding.level === "fail") {
+        if (["colisao", "safe-area", "overflow", "tipo-minimo", "quebra"].includes(finding.check) && finding.level === "fail") {
           finding.level = "inspect";
           finding.message += " — medido com fonte de fallback, reconfirmar com a fonte real";
         }
       });
-      add("warn", "fonte", "Geometria desta lâmina medida com fonte de fallback: colisão, safe area, overflow e corpo mínimo não são conclusivos", null);
+      add("warn", "fonte", "Geometria desta lâmina medida com fonte de fallback: colisão, safe area, overflow, corpo mínimo e quebra de linha não são conclusivos", null);
     }
 
     const images = Array.from(slide.querySelectorAll("img")).filter(isVisible);

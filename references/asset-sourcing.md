@@ -91,6 +91,28 @@ After Round 2:
 - record `NO QUALIFYING STOCK` with the failed criteria, then generate or
   reconcept the asset.
 
+### When the bank route is blocked, not exhausted
+
+An environment can deny the providers outright — a proxy or network policy
+answering `403` on connect, an offline runner, or a session with no web access.
+That is **not** `NO QUALIFYING STOCK`, and it does not authorise generation as a
+fallback: nothing was searched, so nothing failed a quality gate.
+
+Record `BANK ROUTE BLOCKED` with what was attempted and the observed response,
+then take the first route that is actually available:
+
+| Available | Do |
+| --- | --- |
+| Material supplied by the user or client | Use it; this was always route 1 |
+| An image-generation tool | Generate, and record tool, prompt, date and edits |
+| Neither | Build the piece on owned layout artifacts, and carry the image-led anchor as a **named production blocker** |
+
+A carousel of five or more slides that loses its image-led anchor this way
+cannot be `APROVADO`. It is `APROVADO PARA RASCUNHO` with the anchor named, and
+the user decides whether to supply photography, unblock the providers, or accept
+the piece without it. Do not quietly redefine an owned diagram as the image-led
+anchor to close the gap — the distinctiveness gate rejects that.
+
 Do not continue browsing in the hope of an unspecified "better" image. Do not
 accept a generic image merely because the search limit was reached.
 
@@ -188,6 +210,8 @@ production blocker and do not call the piece final.
   shorthand with no narrative role.
 - Treating “free,” “royalty-free,” or “found online” as complete rights review.
 - Searching all available banks after a qualifying family has already passed.
+- Treating a blocked provider as `NO QUALIFYING STOCK` and generating on that
+  basis, or retrying a policy denial instead of reporting it.
 - Generating by default because continuity might be difficult before testing a
   bank route.
 - Forcing weak stock after two failed rounds instead of generating or changing
