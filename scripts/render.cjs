@@ -422,7 +422,12 @@ function auditInPage(config) {
 
     /* Colisão entre blocos de texto: o caso mais comum de peça exportada com
        defeito é manchete e apoio se sobrepondo depois de uma troca de copy. */
-    const boxes = textElements.map((element) => ({ element, box: element.getBoundingClientRect(), text: ownText(element) }));
+    /* Um inline que quebra em duas linhas devolve um retângulo que cobre as
+       duas, então dois <strong> irmãos no mesmo parágrafo parecem colidir.
+       Só blocos posicionados entram nesta checagem. */
+    const boxes = textElements
+      .filter((element) => getComputedStyle(element).display !== "inline")
+      .map((element) => ({ element, box: element.getBoundingClientRect(), text: ownText(element) }));
     for (let a = 0; a < boxes.length; a += 1) {
       for (let b = a + 1; b < boxes.length; b += 1) {
         const first = boxes[a];
