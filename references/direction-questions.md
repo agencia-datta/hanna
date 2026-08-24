@@ -183,5 +183,17 @@ DIREÇÃO ESCOLHIDA
 - Conceito: [território escolhido] — [por que, e o que muda se trocar]
 ```
 
-When the user opted out, the same block appears under `PREMISSAS ASSUMIDAS`
-with each decision marked as yours, not theirs.
+When the user opted out, the same five decisions still appear — under whatever
+heading reads clearly for this piece. What is required is the substance, not a
+label:
+
+- every decision the round would have covered is stated, not left implicit;
+- each is attributed to you, not to the user, so nobody mistakes your judgement
+  for their instruction; and
+- each is marked reversible, with enough context that the user can change one
+  without redoing the analysis.
+
+Do not prescribe the wording of the heading. `PREMISSAS ASSUMIDAS` works;
+so does "as cinco decisões que a rodada de perguntas teria tomado", which tells
+a reader what the block is instead of assuming they know the convention. The
+label is a convenience; the visibility is the point.

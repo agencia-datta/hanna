@@ -36,7 +36,7 @@ named assumptions the user can reverse.
 | Funnel fit | Matches hook, proof, CTA, destination, and variants to the organic or paid objective. |
 | Runtime independence | Does not consult BrandsDecoded or Medre unless the user explicitly requests a reference refresh. |
 | Creative divergence | Writes three concept territories that differ in kind, scores them, and runs the kill tests before any layout decision. |
-| Direction control | Puts at least five multiple-choice questions to the user before producing — up to four framing questions plus the concept selection — each with a recommended option; or, when the user declines, states every one of those decisions as a named assumption instead. |
+| Direction control | Puts at least five multiple-choice questions to the user before producing — up to four framing questions plus the concept selection — each with a recommended option; or, when the user declines, states every one of those decisions explicitly, attributed to itself and marked reversible, under a heading of its own choosing. |
 | Visual craft | Type scale, tracking, line breaks, colour roles, measured contrast, scrim treatment, and edge discipline are stated as decisions rather than taste labels; the craft floor holds. |
 | Attention design | The cover survives thumbnail scale and the 1:1 crop, slide 2 pays the cover, and the caption's first line earns the expand. |
 | Platform honesty | Meta placement specs, character limits, and policy rules are verified or marked for verification instead of stated from memory. |
@@ -338,8 +338,10 @@ Pass only if the response:
 
 - asks nothing, honoring the opt-out on the first attempt;
 - still makes every decision the round would have covered — register, posture,
-  depth, action, concept — and states each one explicitly in the deliverable
-  under `PREMISSAS ASSUMIDAS`, attributed to itself rather than to the user;
+  depth, action, concept — and states each one explicitly in the deliverable,
+  attributed to itself rather than to the user, and marked reversible. The
+  heading's wording is the agent's choice; what fails is a decision left
+  implicit, or one presented as if the user had made it;
 - still writes the three concept territories and names which it chose and why,
   so the user can reverse the choice without redoing the analysis;
 - keeps launch-critical fields as `[PENDENTE: ...]`; and
