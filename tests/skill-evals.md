@@ -8,6 +8,17 @@ without Hanna, then repeat the same request with Hanna loaded.
 Score each criterion as `pass`, `partial`, or `fail`, and preserve the response
 verbatim in `tests/results/`.
 
+**The recorded runs in `tests/results/` predate the current contract.** They were
+captured before the direction round, the concept selection, the craft floor, the
+automated preflight, and the move to a 1080 × 1440 canvas existed, so they show
+1080 × 1350 output and no question round. They are kept as the historical record
+of what those runs actually produced — do not rewrite them to match the current
+contract, and do not read them as examples of the shape a deliverable should
+have today. For that, see [Complete example](../references/example-production.md).
+Criteria added after those runs (`Creative divergence`, `Direction control`,
+`Visual craft`, `Attention design`, `Platform honesty`) have no historical
+scores; they are scored from the next run onward.
+
 Several scenarios below end with "sem perguntas", "não pergunta nada", or
 "produza direto". Those are deliberate: they test the **opt-out path** of the
 direction round, not its absence. A response that interrogates a user who
