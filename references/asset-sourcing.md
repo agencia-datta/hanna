@@ -56,6 +56,23 @@ unrelated photos on every slide.
 
 Quality is the selection threshold; the bounds prevent endless browsing.
 
+`scripts/fetch-stock.cjs` runs this loop mechanically and produces the record
+the gates require — direct asset page, creator, license URL, access date,
+downloaded file and its SHA-256 — so the judgement stays with you and the
+bookkeeping does not:
+
+```bash
+node scripts/fetch-stock.cjs --query "recepção de clínica vazia com telefone" \
+     --orientation portrait --out peca/assets
+```
+
+It enforces the bounds by construction: at most two providers, at most five
+candidates each, Unsplash+ results filtered out. Free API keys go in
+`PEXELS_API_KEY`, `UNSPLASH_ACCESS_KEY`, `PIXABAY_API_KEY`; without a key, or
+with `--manual`, it prints the exact search and licence pages to work through by
+hand. It never marks a candidate as selected — the five gates below are yours to
+apply.
+
 ### Round 1 — literal scene
 
 - Use no more than two appropriate providers.
@@ -97,6 +114,15 @@ An environment can deny the providers outright — a proxy or network policy
 answering `403` on connect, an offline runner, or a session with no web access.
 That is **not** `NO QUALIFYING STOCK`, and it does not authorise generation as a
 fallback: nothing was searched, so nothing failed a quality gate.
+
+**The Claude Code remote environment is one of these.** Its egress proxy
+allowlists code infrastructure only — GitHub, GitLab, npm, PyPI reach; every
+image provider, CDN and placeholder service answers `403` on CONNECT, and no
+image-generation tool is exposed. Do not spend the session probing for an
+opening, and do not retry the denial: the proxy README forbids it. The same
+skill run on an ordinary machine has no such proxy and the bank route works
+normally, so the fastest fix is usually to run the sourcing where the network
+is — `scripts/fetch-stock.cjs` exists for exactly that handoff.
 
 Record `BANK ROUTE BLOCKED` with what was attempted and the observed response,
 then take the first route that is actually available:

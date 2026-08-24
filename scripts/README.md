@@ -1,5 +1,29 @@
 # Ferramentas de produção
 
+## `fetch-stock.cjs`
+
+Executa a rota de banco de `references/asset-sourcing.md` e grava o registro de
+proveniência que os gates exigem.
+
+```bash
+node scripts/fetch-stock.cjs --query "recepção de clínica vazia com telefone" \
+     --orientation portrait --out peca/assets
+```
+
+Impõe os limites por construção: no máximo dois provedores, no máximo cinco
+candidatos por provedor, resultados Unsplash+ descartados por terem licença
+separada. Grava `sourcing-record.json` com página direta do ativo, autor, URL
+oficial da licença, data de acesso, arquivo baixado e SHA-256.
+
+Chaves gratuitas em `PEXELS_API_KEY`, `UNSPLASH_ACCESS_KEY`, `PIXABAY_API_KEY`.
+Sem chave, ou com `--manual`, imprime as páginas exatas de busca e de licença
+para trabalhar à mão.
+
+Ele **não seleciona** candidato: os cinco gates continuam sendo julgamento seu, e
+direitos seguem sendo gate rígido. No ambiente remoto do Claude Code os
+provedores respondem 403 por política de rede — o script diagnostica isso e
+indica rodar onde a rede alcança.
+
 ## `render.cjs`
 
 Renderiza um HTML de produção em PNGs no canvas exato, roda o preflight
