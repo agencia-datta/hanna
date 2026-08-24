@@ -9,6 +9,14 @@ com uma política mais permissiva, sem depender de ninguém.
 
 Documentação: https://code.claude.com/docs/en/claude-code-on-the-web
 
+Este ambiente é o **`Default`** (`env_014mgR5cYgoaPfRqqRxu3phQ`, tipo
+`anthropic_cloud`), cuja política é o preset descrito como *trusted network
+access*. Na prática esse preset libera apenas infraestrutura de código. A troca
+é feita nas configurações do Claude Code na web — criando um ambiente com
+política mais ampla, ou alterando a deste. **Não é possível alterar de dentro de
+uma sessão governada pela política**, o que é o comportamento correto: uma
+sessão não deve poder ampliar o próprio acesso.
+
 Se a política for gerida por outra pessoa, use o texto abaixo.
 
 ---

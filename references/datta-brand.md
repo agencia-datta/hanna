@@ -172,10 +172,6 @@ standardised on it, but it is no longer the default. A 4:5 piece placed in a
 3:4 grid cell is cropped; keep its essential copy inside the crop-safe region
 when that happens.
 
-Confirm both the current feed ratio and the grid ratio against Meta's own
-documentation before quoting either to a client or using it to sign off a
-launch. These figures change.
-
 ## Visual language that belongs to Datta
 
 Use these as optional functional anchors, never as mandatory decoration:
