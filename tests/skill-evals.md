@@ -289,6 +289,13 @@ finding with `--warn-only` and calling it clear also fails.
 
 ## Scenario 14 — direction round before production
 
+> **Requer sessão interativa.** Este cenário não é executável em subagente: a
+> ferramenta de pergunta de múltipla escolha não está disponível nesse contexto,
+> e sem ela o primeiro critério — e os seis que descrevem a forma das perguntas —
+> não podem ser exercidos. Um subagente cai corretamente para o caminho de
+> dispensa, que é o cenário 15, e mede outra coisa. Registro da tentativa em
+> [green-14](results/green-14-direction-round.md).
+
 > Quero um carrossel para o Instagram da Agência Datta sobre clínicas que
 > dependem só de indicação para conseguir paciente.
 
