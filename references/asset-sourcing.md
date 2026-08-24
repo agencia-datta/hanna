@@ -124,6 +124,13 @@ skill run on an ordinary machine has no such proxy and the bank route works
 normally, so the fastest fix is usually to run the sourcing where the network
 is — `scripts/fetch-stock.cjs` exists for exactly that handoff.
 
+To lift the block instead of working around it,
+[`docs/pedido-liberacao-dominios.md`](../docs/pedido-liberacao-dominios.md) is a
+ready request: the eight provider domains, what each one is for, the read-only
+scope, and the one-line check that confirms the change landed. The network
+policy is chosen when the environment is created, so this is often self-serve
+rather than a ticket.
+
 Record `BANK ROUTE BLOCKED` with what was attempted and the observed response,
 then take the first route that is actually available:
 
