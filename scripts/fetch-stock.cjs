@@ -22,6 +22,12 @@
  *   --orientation <o>      portrait | landscape | square
  *   --use <uso>            organic | paid | both (padrão: organic)
  *   --manual               não baixa: imprime as URLs de busca e o gabarito
+ *   --select <ids>         marca candidatos como selecionados num registro já
+ *                          gravado em --out e dispara o endpoint de download do
+ *                          Unsplash, exigido pelas API Guidelines quando a foto
+ *                          é de fato usada. Aceita id do ativo ou nome do
+ *                          arquivo, separados por vírgula. Os demais viram
+ *                          `rejected`.
  *   --json                 imprime só o registro em JSON
  *
  * Chaves (gratuitas, variáveis de ambiente):
@@ -39,6 +45,21 @@ const LICENSES = {
   pixabay:  { url: "https://pixabay.com/service/license-summary/",     note: "Confirme o resumo e os termos completos ligados nele." }
 };
 
+/* O Unsplash exige atribuição com UTM e o disparo de `download_location` quando
+   a foto é de fato usada; Pexels e Pixabay exigem crédito ao autor. Os dois
+   entram no registro para que a peça credite sem voltar ao provedor. */
+const APP_NAME = process.env.HANNA_APP_NAME || "hanna-agencia-datta";
+
+function utm(url) {
+  if (!url) return url;
+  return `${url}${url.includes("?") ? "&" : "?"}utm_source=${APP_NAME}&utm_medium=referral`;
+}
+
+const PROVIDER_LABEL = { pexels: "Pexels", unsplash: "Unsplash", pixabay: "Pixabay" };
+
+const attributionFor = (provider, c) =>
+  `Foto de ${c.creator || "autor não identificado"} no ${PROVIDER_LABEL[provider]} — ${c.assetPage}`;
+
 const SEARCH_PAGE = {
   pexels:   (q, o) => `https://www.pexels.com/search/${encodeURIComponent(q)}/${o ? `?orientation=${o}` : ""}`,
   unsplash: (q, o) => `https://unsplash.com/s/photos/${encodeURIComponent(q)}${o ? `?orientation=${o}` : ""}`,
@@ -47,7 +68,7 @@ const SEARCH_PAGE = {
 
 function parseArgs(argv) {
   const o = { query: null, out: "stock", providers: ["pexels", "unsplash"], limit: 3,
-              orientation: null, use: "organic", manual: false, json: false };
+              orientation: null, use: "organic", manual: false, json: false, select: [] };
   for (let i = 0; i < argv.length; i += 1) {
     const a = argv[i];
     if (a === "--query") o.query = argv[++i];
@@ -58,9 +79,10 @@ function parseArgs(argv) {
     else if (a === "--use") o.use = argv[++i];
     else if (a === "--manual") o.manual = true;
     else if (a === "--json") o.json = true;
+    else if (a === "--select") o.select = argv[++i].split(",").map((x) => x.trim()).filter(Boolean);
     else throw new Error(`Opção desconhecida: ${a}`);
   }
-  if (!o.query) throw new Error('Informe --query. Descreva a relação, não a categoria: "recepção de clínica vazia com telefone", não "saúde".');
+  if (!o.query && !o.select.length) throw new Error('Informe --query. Descreva a relação, não a categoria: "recepção de clínica vazia com telefone", não "saúde".');
   for (const p of o.providers) if (!LICENSES[p]) throw new Error(`Provedor desconhecido: ${p}`);
   if (o.providers.length > 2) throw new Error("A rota permite no máximo dois provedores por trabalho.");
   return o;
@@ -101,8 +123,9 @@ async function searchUnsplash(o) {
     candidates: (data.results || [])
       .filter((p) => !p.premium && !p.plus)   /* Unsplash+ tem licença separada */
       .map((p) => ({
-        assetPage: p.links && p.links.html, creator: p.user && p.user.name,
-        creatorPage: p.user && p.user.links && p.user.links.html,
+        assetPage: utm(p.links && p.links.html), creator: p.user && p.user.name,
+        creatorPage: utm(p.user && p.user.links && p.user.links.html),
+        downloadLocation: p.links && p.links.download_location,
         id: p.id, width: p.width, height: p.height,
         download: p.urls && p.urls.full, alt: p.alt_description || null
       }))
@@ -125,10 +148,82 @@ async function searchPixabay(o) {
 
 const SEARCHERS = { pexels: searchPexels, unsplash: searchUnsplash, pixabay: searchPixabay };
 
+/* ── seleção ────────────────────────────────────────────────────────────── */
+
+/* As API Guidelines do Unsplash exigem um GET em `download_location` quando a
+   foto é de fato usada — não a cada resultado de busca. Como quem seleciona é
+   uma pessoa, o disparo mora aqui, no momento da decisão, e não na busca. */
+async function triggerUnsplashDownload(c) {
+  if (!c.downloadLocation) return { skipped: "registro sem download_location: refaça a busca com esta versão do script" };
+  const key = process.env.UNSPLASH_ACCESS_KEY;
+  if (!key) return { skipped: "UNSPLASH_ACCESS_KEY ausente" };
+  try {
+    await get(c.downloadLocation, { Authorization: `Client-ID ${key}` });
+    return { triggeredAt: new Date().toISOString() };
+  } catch (err) {
+    return { error: String(err.message) };
+  }
+}
+
+async function runSelect(o) {
+  const recordPath = path.join(o.out, "sourcing-record.json");
+  if (!fs.existsSync(recordPath)) throw new Error(`Não há registro em ${recordPath}. Rode a busca antes de selecionar.`);
+  const record = JSON.parse(fs.readFileSync(recordPath, "utf8"));
+  const wanted = new Set(o.select);
+  const hit = new Set();
+  const all = [];
+
+  for (const prov of record.providers) {
+    for (const c of prov.candidates) {
+      const names = [c.id, c.file && path.basename(c.file)].filter(Boolean);
+      const chosen = names.some((n) => wanted.has(n));
+      if (chosen) names.forEach((n) => { if (wanted.has(n)) hit.add(n); });
+      c.decision = chosen ? "selected" : "rejected";
+      all.push({ provider: prov.provider, c });
+    }
+  }
+
+  const missing = [...wanted].filter((w) => !hit.has(w));
+  if (missing.length) {
+    throw new Error(`Não está no registro: ${missing.join(", ")}. Candidatos: ${all.map(({ c }) => c.id).join(", ")}`);
+  }
+
+  record.selectedAt = new Date().toISOString().slice(0, 10);
+  for (const { provider, c } of all) {
+    if (c.decision === "selected" && provider === "unsplash") {
+      c.unsplashDownloadTrigger = await triggerUnsplashDownload(c);
+    }
+  }
+
+  fs.writeFileSync(recordPath, `${JSON.stringify(record, null, 2)}
+`);
+  if (o.json) { process.stdout.write(`${JSON.stringify(record, null, 2)}
+`); return; }
+
+  console.log(`
+Hanna — seleção registrada
+`);
+  for (const { provider, c } of all) {
+    console.log(`  ${c.decision === "selected" ? "selected" : "rejected"}  ${provider}  ${c.id}`);
+    if (c.decision !== "selected") continue;
+    console.log(`    crédito: ${c.attribution || attributionFor(provider, c)}`);
+    const t = c.unsplashDownloadTrigger;
+    if (t && t.triggeredAt) console.log(`    download_location disparado: ${t.triggeredAt}`);
+    if (t && (t.skipped || t.error)) console.log(`    download_location NÃO disparado: ${t.skipped || t.error}`);
+  }
+  console.log(`
+  Direitos seguem gate rígido: a licença não libera pessoas identificáveis,`);
+  console.log(`  marcas, obras nem propriedade. Credite o autor na entrega da peça.`);
+  console.log(`
+  Registro: ${recordPath}
+`);
+}
+
 /* ── execução ───────────────────────────────────────────────────────────── */
 
 (async () => {
   const o = parseArgs(process.argv.slice(2));
+  if (o.select.length) { await runSelect(o); return; }
   const accessDate = new Date().toISOString().slice(0, 10);
   const record = { tool: "hanna/scripts/fetch-stock.cjs", query: o.query, intendedUse: o.use,
                    accessDate, providers: [], gateReminder: null };
@@ -152,9 +247,11 @@ const SEARCHERS = { pexels: searchPexels, unsplash: searchUnsplash, pixabay: sea
         try {
           const res = await get(c.download);
           fs.writeFileSync(file, Buffer.from(await res.arrayBuffer()));
-          entry.candidates.push({ ...c, file, bytes: fs.statSync(file).size, sha256: sha256(file) });
+          entry.candidates.push({ ...c, file, bytes: fs.statSync(file).size, sha256: sha256(file),
+                                  attribution: attributionFor(provider, c), decision: null });
         } catch (err) {
-          entry.candidates.push({ ...c, downloadError: String(err.message) });
+          entry.candidates.push({ ...c, downloadError: String(err.message),
+                                  attribution: attributionFor(provider, c), decision: null });
         }
       }
     } catch (err) {
@@ -173,7 +270,8 @@ const SEARCHERS = { pexels: searchPexels, unsplash: searchUnsplash, pixabay: sea
     "4 distinção e continuidade · 5 direitos — os direitos são gate rígido, não nota.",
     "A licença do provedor NÃO libera pessoas identificáveis, marcas, obras, propriedade",
     "nem endosso implícito. Para uso pago, confirme os dois: licença e direitos retratados.",
-    "Registre a decisão (selected | rejected) de cada candidato antes de montar a peça."
+    "Registre a decisão de cada candidato antes de montar a peça: --select <ids> grava",
+    "selected/rejected e dispara o endpoint de download que o Unsplash exige no uso."
   ];
 
   const recordPath = path.join(o.out, "sourcing-record.json");
