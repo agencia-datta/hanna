@@ -1,0 +1,210 @@
+{
+  "tool": "hanna/scripts/render.cjs",
+  "generatedAt": "2026-08-27T14:12:51.671Z",
+  "input": {
+    "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\anuncio-story.html",
+    "sha256": "9aebeda4ee1a78eed6616254a38c907aa4a8362b0f93416955a26b193369f21a"
+  },
+  "browser": {
+    "version": "151.0.7922.174",
+    "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "origin": "HANNA_BROWSER_PATH"
+  },
+  "settings": {
+    "safeArea": {
+      "x": 80,
+      "top": 270,
+      "bottom": 384
+    },
+    "minBodyPx": 27,
+    "minFinePx": 16,
+    "minContrast": 4.5,
+    "exportScale": 1,
+    "previewScale": 0.4
+  },
+  "rhythm": {
+    "declared": 2,
+    "distinct": 1,
+    "slides": 2
+  },
+  "slides": [
+    {
+      "index": 1,
+      "id": "story-v1-problema",
+      "composition": "vertical-route",
+      "job": "tensão",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1920
+      },
+      "text": [
+        {
+          "text": "Sinal",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "O relatório fecha. A operação, não.",
+          "sizePx": 92,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Gerenciador · leads — origem registrada",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "CRM · vendas — origem em branco",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Artefato ilustrativo · sem dado de cliente",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "O Gerenciador conta lead. O CRM conta venda. Ninguém liga as duas listas.",
+          "sizePx": 31,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../../assets/datta/datta-lockup-mono-preto.png",
+          "natural": [
+            1600,
+            422
+          ],
+          "rendered": [
+            200,
+            53
+          ]
+        }
+      ],
+      "smallestBodyPx": 31,
+      "worstContrast": 4.67,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 2,
+      "id": "story-v2-mecanismo",
+      "composition": "vertical-route",
+      "job": "mecanismo",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1920
+      },
+      "text": [
+        {
+          "text": "Método",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Ligue a venda ao anúncio.",
+          "sizePx": 92,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Gerenciador · leads — origem registrada",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "CRM · vendas — origem em branco",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Artefato ilustrativo · sem dado de cliente",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Entrada, UTM, CRM e venda no mesmo registro, do clique ao caixa.",
+          "sizePx": 31,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../../assets/datta/datta-lockup-mono-preto.png",
+          "natural": [
+            1600,
+            422
+          ],
+          "rendered": [
+            200,
+            53
+          ]
+        }
+      ],
+      "smallestBodyPx": 31,
+      "worstContrast": 4.67,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    }
+  ],
+  "exports": [
+    {
+      "slide": "story-v1-problema",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\exports\\story-story-v1-problema-1080x1920.png",
+      "sha256": "9f5c19079545cbbb9d4ed997e96799cdbe92569972a9d45d8019ec53016ecfbd"
+    },
+    {
+      "slide": "story-v2-mecanismo",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\exports\\story-story-v2-mecanismo-1080x1920.png",
+      "sha256": "69d5e77d1fbec0a51353bef7f019775da4af1ebacb80ea9fa39923f54c86e416"
+    },
+    {
+      "slide": "contact-sheet",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\exports\\story-contact-sheet.png",
+      "sha256": "f4c4b34c2301def956d8611f4a61f5feedf80a9908ab152191104db1b3173ece"
+    }
+  ],
+  "pageErrors": [],
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "inspect": 0
+  },
+  "verdict": "PREFLIGHT OK"
+}

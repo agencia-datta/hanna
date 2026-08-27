@@ -1,0 +1,32 @@
+{
+  "tool": "hanna/scripts/fetch-stock.cjs",
+  "query": "duas listas impressas sobre mesa de escritório",
+  "intendedUse": "organic",
+  "accessDate": "2026-08-27",
+  "providers": [
+    {
+      "provider": "pexels",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "licenseNote": "Confirme na página: uso comercial e restrições de pessoas identificáveis.",
+      "searchPage": "https://www.pexels.com/search/duas%20listas%20impressas%20sobre%20mesa%20de%20escrit%C3%B3rio/?orientation=portrait",
+      "candidates": [],
+      "mode": "manual"
+    },
+    {
+      "provider": "unsplash",
+      "licenseUrl": "https://unsplash.com/license",
+      "licenseNote": "Rejeite resultados Unsplash+ — licença separada em https://unsplash.com/plus/license.",
+      "searchPage": "https://unsplash.com/s/photos/duas%20listas%20impressas%20sobre%20mesa%20de%20escrit%C3%B3rio?orientation=portrait",
+      "candidates": [],
+      "mode": "manual"
+    }
+  ],
+  "gateReminder": [
+    "Nenhum candidato está selecionado ainda. Aplique os cinco gates de asset-sourcing.md:",
+    "1 necessidade semântica · 2 composição e área segura de texto · 3 qualidade técnica",
+    "4 distinção e continuidade · 5 direitos — os direitos são gate rígido, não nota.",
+    "A licença do provedor NÃO libera pessoas identificáveis, marcas, obras, propriedade",
+    "nem endosso implícito. Para uso pago, confirme os dois: licença e direitos retratados.",
+    "Registre a decisão (selected | rejected) de cada candidato antes de montar a peça."
+  ]
+}

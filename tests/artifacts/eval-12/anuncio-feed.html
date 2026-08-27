@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Datta — anúncio feed 1080×1440 (v1 problema · v2 mecanismo)</title>
+<style>
+@font-face { font-family:'Clash Display'; src:url('../../../assets/datta/fonts/clash-display-600.woff2') format('woff2'); font-weight:600; font-display:block; }
+@font-face { font-family:'Clash Display'; src:url('../../../assets/datta/fonts/clash-display-700.woff2') format('woff2'); font-weight:700; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-400.woff2') format('woff2'); font-weight:400; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-500.woff2') format('woff2'); font-weight:500; font-display:block; }
+
+:root{
+  /* MUNDO EXPRESSIVO — papel de relatório impresso.
+     ground/support são autorais da peça; ink e latão são valores oficiais exatos. */
+  --ground:#E8E4DA;            /* GROUND  · papel */
+  --ink:#091105;               /* INK     · oficial Datta (deep ground) */
+  --support:#4A463C;           /* SUPPORT · cinza quente autoral */
+  --hair:rgba(9,17,5,.18);     /* estrutura */
+  --bar:rgba(9,17,5,.20);      /* linha redigida */
+  --accent:#C89C4F;            /* ACCENT  · latão oficial, só em traço/contorno */
+  --accent-txt:#7D5F28;        /* latão acessível oficial p/ texto sobre claro */
+
+  --display:'Clash Display', system-ui, sans-serif;
+  --body:'General Sans', system-ui, sans-serif;
+  --mono:Consolas, ui-monospace, monospace;
+
+  --safe-x:80px;
+  --safe-y:96px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{background:#0E1014;padding:48px;display:flex;flex-direction:column;gap:48px;width:max-content;font-family:var(--body);text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased;}
+h1,p{margin:0;}
+img{display:block;}
+
+.canvas{position:relative;width:1080px;height:1440px;overflow:hidden;isolation:isolate;background:var(--ground);color:var(--ink);}
+
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.09;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");}
+
+.label{font-family:var(--mono);font-size:19px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-txt);}
+.fine{font-family:var(--mono);font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--support);}
+.display{font-family:var(--display);font-weight:600;font-size:82px;line-height:.96;letter-spacing:-.028em;color:var(--ink);}
+.support{font-family:var(--body);font-weight:400;font-size:31px;line-height:1.42;color:var(--support);}
+.rule{height:1px;background:var(--accent);}
+
+/* ── artefato: as duas listas ─────────────────────────────────────────── */
+.panel{position:absolute;top:400px;width:400px;height:520px;border:1px solid var(--hair);padding:26px 24px 0;overflow:hidden;background:transparent;}
+.panel__head{font-family:var(--mono);font-size:18px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);}
+.row{display:flex;align-items:center;justify-content:space-between;height:66px;border-bottom:1px solid var(--hair);}
+.bar{display:block;height:14px;background:var(--bar);}
+.chip{display:block;width:76px;height:24px;}
+.chip--cheia{background:var(--bar);}
+.chip--vazia{border:1px dashed var(--accent);background:transparent;}
+.fade{position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(to bottom, rgba(232,228,218,0) 0%, var(--ground) 78%);}
+.caption{position:absolute;top:932px;font-family:var(--mono);font-size:18px;letter-spacing:.07em;text-transform:uppercase;}
+.link{position:absolute;height:1px;background:var(--hair);}
+.lockup{position:absolute;left:80px;bottom:96px;width:200px;height:53px;object-fit:contain;}
+</style>
+</head>
+<body>
+
+<!-- ═══ V1 — ângulo PROBLEMA ═══════════════════════════════════════════ -->
+<section class="canvas" data-slide="feed-v1-problema" data-composition="annotated-artifact" data-job="tensão" data-mode="artifact-led">
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;">Sinal</p>
+
+  <h1 class="display" style="position:absolute;left:80px;top:170px;width:920px;">
+    O relatório fecha.<br>A operação, não.
+  </h1>
+
+  <!-- lista 1 · o que o Gerenciador enxerga -->
+  <div class="panel" style="left:80px;">
+    <p class="panel__head">Gerenciador · leads</p>
+    <div class="row" style="margin-top:18px;"><span class="bar" style="width:172px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:140px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:196px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:158px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:184px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:150px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:168px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:190px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <!-- ligação partida -->
+  <div class="link" style="left:480px;top:512px;width:38px;"></div>
+  <div class="link" style="left:562px;top:512px;width:38px;"></div>
+  <div class="link" style="left:480px;top:644px;width:38px;"></div>
+  <div class="link" style="left:562px;top:644px;width:38px;"></div>
+  <div class="link" style="left:480px;top:776px;width:38px;"></div>
+  <div class="link" style="left:562px;top:776px;width:38px;"></div>
+
+  <!-- lista 2 · o que o CRM enxerga -->
+  <div class="panel" style="left:600px;">
+    <p class="panel__head">CRM · vendas</p>
+    <div class="row" style="margin-top:18px;"><span class="bar" style="width:164px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:132px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:188px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:146px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:176px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:154px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:170px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:138px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <p class="caption" data-fine style="left:80px;color:var(--support);">Origem registrada</p>
+  <p class="caption" data-fine style="left:600px;color:var(--accent-txt);">Origem em branco</p>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;top:984px;">Artefato ilustrativo · sem dado de cliente</p>
+
+  <div class="rule" style="position:absolute;left:80px;width:560px;top:1044px;"></div>
+
+  <p class="support" style="position:absolute;left:80px;top:1074px;width:790px;">
+    O Gerenciador conta lead. O CRM conta venda. Sem ligação entre as duas listas,
+    o orçamento do mês é decidido no achismo.
+  </p>
+
+  <img class="lockup" src="../../../assets/datta/datta-lockup-mono-preto.png" alt="Agência Datta">
+  <div class="grain"></div>
+</section>
+
+<!-- ═══ V2 — ângulo MECANISMO ══════════════════════════════════════════ -->
+<section class="canvas" data-slide="feed-v2-mecanismo" data-composition="annotated-artifact" data-job="mecanismo" data-mode="artifact-led">
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;">Método</p>
+
+  <h1 class="display" style="position:absolute;left:80px;top:170px;width:920px;">
+    Ligue a venda<br>ao anúncio.
+  </h1>
+
+  <div class="panel" style="left:80px;">
+    <p class="panel__head">Gerenciador · leads</p>
+    <div class="row" style="margin-top:18px;"><span class="bar" style="width:172px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:140px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:196px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:158px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:184px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:150px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:168px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:190px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <div class="link" style="left:480px;top:512px;width:38px;"></div>
+  <div class="link" style="left:562px;top:512px;width:38px;"></div>
+  <div class="link" style="left:480px;top:644px;width:38px;"></div>
+  <div class="link" style="left:562px;top:644px;width:38px;"></div>
+  <div class="link" style="left:480px;top:776px;width:38px;"></div>
+  <div class="link" style="left:562px;top:776px;width:38px;"></div>
+
+  <div class="panel" style="left:600px;">
+    <p class="panel__head">CRM · vendas</p>
+    <div class="row" style="margin-top:18px;"><span class="bar" style="width:164px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:132px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:188px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:146px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:176px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:154px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:170px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:138px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <p class="caption" data-fine style="left:80px;color:var(--support);">Origem registrada</p>
+  <p class="caption" data-fine style="left:600px;color:var(--accent-txt);">Origem em branco</p>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;top:984px;">Artefato ilustrativo · sem dado de cliente</p>
+
+  <div class="rule" style="position:absolute;left:80px;width:560px;top:1044px;"></div>
+
+  <p class="support" style="position:absolute;left:80px;top:1074px;width:790px;">
+    Entrada, UTM, CRM e venda no mesmo registro. O orçamento passa a ser decidido
+    pela lista que fez caixa, não pela que o pixel consegue contar.
+  </p>
+
+  <img class="lockup" src="../../../assets/datta/datta-lockup-mono-preto.png" alt="Agência Datta">
+  <div class="grain"></div>
+</section>
+
+</body>
+</html>
