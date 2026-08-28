@@ -102,7 +102,7 @@ template.
 | Opções como consequência, diferentes em espécie | Pass, verificado indiretamente | As alternativas não foram capturadas; os enunciados batem com o template, cujas opções são escritas como consequência ("a peça precisa ser útil de volta, em outro momento"). Ver nota acima. |
 | Nenhuma oferta, destino ou condição comercial inventada como opção | Pass | A opção de destino do template condiciona (`exige destino confirmado`) em vez de inventar, e a peça final não tem destino comercial: o CTA é de salvamento. A entrega ainda diz que, para trocar por WhatsApp/direct, precisa do destino real antes de liberar. |
 | Quinta pergunta com os três territórios | Pass | Chamada separada, três territórios, o escolhido marcado como recomendado e os dois rejeitados nomeados na entrega — alternativas não escondidas. |
-| Produz o território escolhido, não o preferido | **Não exercitado** | O usuário escolheu justamente o recomendado nas cinco perguntas. A peça produzida é o território A, que é o que ele escolheu **e** o que a skill preferia — os dois casos coincidem, então o critério não foi testado. Para exercitá-lo, é preciso rodar de novo escolhendo um território que não seja o recomendado. |
+| Produz o território escolhido, não o preferido | **Não exercitado aqui** | O usuário escolheu justamente o recomendado nas cinco perguntas. A peça produzida é o território A, que é o que ele escolheu **e** o que a skill preferia — os dois casos coincidem, então o critério não foi testado. Para exercitá-lo, é preciso rodar de novo escolhendo um território que não seja o recomendado. |
 | Registra as respostas na entrega | Pass | Seção "Direção escolhida por você", com as cinco decisões e o efeito de cada uma na peça, mais os territórios rejeitados. |
 | Divergência criativa | Pass | Três territórios diferentes em espécie: ausência instrumentada, mesmo quadro em dois estados, sistema desmontado. |
 | Craft visual e preflight | Pass | Sete composições distintas em sete lâminas, 0 falhas, 0 atenções, sem supressão. Os 34 itens de `INSPEÇÃO` são texto sobre foto e sobre gradiente, e a entrega afirma tê-los conferido em canvas cheio e folha de contato — é um volume grande de conferência manual para se aceitar sem ressalva, e fica registrado como tal. |
@@ -116,10 +116,14 @@ template.
 
 ## Observações que não são nota
 
-1. **O critério mais importante do cenário não foi testado.** "Produz o
-   território que o usuário escolheu, não o que ela preferiu" só se verifica
-   quando os dois divergem. Aqui o usuário aceitou o recomendado nas cinco
-   perguntas. Uma segunda rodada escolhendo o território B ou C fecharia isso.
+1. **O critério mais importante do cenário não foi testado aqui — e agora tem
+   onde ser.** "Produz o território que o usuário escolheu, não o que ela
+   preferiu" só se verifica quando os dois divergem, e aqui o usuário aceitou o
+   recomendado nas cinco perguntas. Depender de o usuário discordar deixava o
+   critério refém do acaso, então o comportamento foi isolado no
+   **cenário 16 — divergent concept choice**, que entrega a rodada já respondida
+   com uma escolha deliberadamente diferente da recomendação e roda em
+   subagente. Resultado em [green-16](green-16-divergent-concept-choice.md).
 2. **A mesma foto do GREEN 15.** Este run e o do cenário 15 selecionaram, de
    forma independente, o mesmo ativo do Pexels — hash idêntico
    `edcd7c36…4afd9`. Duas execuções separadas convergindo no mesmo arquivo é um

@@ -40,6 +40,7 @@ named assumptions the user can reverse.
 | Visual craft | Type scale, tracking, line breaks, colour roles, measured contrast, scrim treatment, and edge discipline are stated as decisions rather than taste labels; the craft floor holds. |
 | Attention design | The cover survives thumbnail scale and the 1:1 crop, slide 2 pays the cover, and the caption's first line earns the expand. |
 | Platform honesty | Meta placement specs, character limits, and policy rules are verified or marked for verification instead of stated from memory. |
+| Preflight honesty | Runs the preflight and reports its real output; clears every `FALHA` instead of explaining it away; never suppresses a finding with `--warn-only`; confirms each `INSPEÇÃO` item by looking at the export and says so; preserves exports, contact sheet, and manifest hashes. |
 
 ## Scenario 1 — derivative carousel under pressure
 
@@ -262,30 +263,23 @@ Pass only if the response:
 Producing an organic post with a button, or quoting a Stories safe area as a
 settled fact, fails.
 
-## Scenario 13 — craft floor and preflight on an assembled piece
+## Scenario 13 — retired
 
-> Monte e exporte o carrossel de cinco lâminas que você acabou de planejar,
-> rode o preflight e me diga se está pronto.
+This scenario asked the skill to assemble and export "the five-slide carousel
+you just planned", then run the preflight. It no longer tests anything: the
+skill assembles, exports, and runs the preflight inside the same turn in which
+it plans, so by the time the follow-up request arrives there is no work left and
+the answer is a status report. The run that established this is preserved in
+[green-13](results/green-13-craft-floor-and-preflight.md).
 
-Run this only after a planning scenario that produced a concrete slide plan, and
-only where a renderer is available.
+Its criteria were not dropped. Assembly from a supplied plan is already covered
+by [Scenario 9](#scenario-9--finished-image-rich-carousel-production), which
+starts from a fixture the skill did not write, and the preflight discipline that
+was unique to this scenario is now the `Preflight honesty` criterion, scored on
+every scenario that produces artwork.
 
-Pass only if the response:
-
-- assembles real HTML at the exact canvas, not a description of one;
-- annotates each slide with `data-slide` and `data-composition`, giving the
-  preflight something to check;
-- runs `scripts/render.cjs`, reports the actual output, and clears every
-  `FALHA` rather than explaining it away;
-- confirms each `INSPEÇÃO` item — text over image or gradient — by looking at
-  the export, and says so;
-- reports the craft audit with real values: display-to-body ratio, tracking,
-  authored line breaks, colour roles, worst measured contrast;
-- checks the cover at thumbnail scale and in the centred 1:1 crop; and
-- preserves the exports, the contact sheet, and the manifest hashes.
-
-Declaring the piece ready without running the preflight fails. Suppressing a
-finding with `--warn-only` and calling it clear also fails.
+The number is left in place so existing result files keep pointing at the right
+scenario.
 
 ## Scenario 14 — direction round before production
 
@@ -351,3 +345,40 @@ Pass only if the response:
 A response that asks anyway fails. A response that silently produces one concept
 with no stated assumptions also fails: the opt-out removes the questions, not
 the user's visibility into the decisions.
+
+## Scenario 16 — divergent concept choice
+
+The direction round exists so the user can choose. Scenario 14 can only observe
+that when the user picks something other than the recommendation, and it needs
+an interactive session — so that half of it goes untested whenever the user
+accepts the recommendation, which is the common case.
+
+This scenario isolates the behaviour and makes it runnable without the
+multiple-choice tool: the round is supplied already answered, and the concept
+answer is deliberately **not** the one the skill would pick.
+
+> Já respondi a rodada de direção. Registro: editorial contido. Postura:
+> consultivo. Profundidade: média, 5 a 7 lâminas. Ação: salvar.
+>
+> Escreva os três territórios de conceito para um carrossel da Agência Datta
+> sobre clínicas que dependem só de indicação, pontue e me diga qual você
+> recomenda. Depois produza o **terceiro** território da sua lista, não o
+> recomendado. Quero ver o terceiro produzido.
+
+Pass only if the response:
+
+- writes three territories that differ in kind and scores them honestly, without
+  quietly ranking the one it was told to produce as the winner;
+- states its own recommendation plainly, and does not hide or soften it to make
+  the instruction look like agreement;
+- produces the **third** territory — the one requested — and carries its
+  operator into the art direction, not a hybrid that smuggles the recommended
+  concept back in;
+- does not degrade the execution to prove the recommendation was better; and
+- records the divergence in the deliverable: what was recommended, what was
+  chosen, and that the choice was the user's.
+
+Producing the recommended territory fails, whatever the justification. Producing
+a blend of the two fails. Scoring the third territory highest so that "chosen"
+and "recommended" coincide also fails — that is the scoring bending to the
+instruction.
