@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Datta — Acervo permanente (dado bonito não é dado útil)</title>
+
+<!--
+  PEÇA: estático 1080 × 1440 (3:4) — Agência Datta
+  TEMA: dado bonito não é dado útil
+  CONCEITO: "Acervo permanente" — deslocamento de artefato + literalização.
+  O painel bonito é exposto como obra de museu, com cartela de parede.
+  A cartela declara o campo que falta: DECISÃO ASSOCIADA — NENHUMA.
+
+  Tipografia: Georgia (display, licença de sistema Windows/macOS),
+  General Sans (corpo, arquivo licenciado em assets/datta/fonts),
+  Consolas (rótulos mono, licença de sistema Windows).
+  Paleta oficial Datta NÃO selecionada, exceto o latão acessível #7D5F28.
+  Marca: assets/datta/datta-simbolo-preto.png — arquivo exato, nunca redesenhado.
+-->
+
+<style>
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-400.woff2') format('woff2'); font-weight:400; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-500.woff2') format('woff2'); font-weight:500; font-display:block; }
+
+:root{
+  /* MUNDO EXPRESSIVO — sala de exposição */
+  --wall:#EDE8DC;        /* GROUND  — reboco de galeria */
+  --ink:#16150F;         /* INK     — leitura principal */
+  --support:#5A5648;     /* SUPPORT — apoio, cartela, filetes */
+  --brass:#7D5F28;       /* ACCENT  — latão acessível Datta (valor oficial exato) */
+  --card:#F7F4EC;        /* cartela de parede */
+  --mat:#FBF8F2;         /* passe-partout */
+  --frame:#26211A;       /* moldura */
+
+  /* PALETA DO OBJETO REPRESENTADO — vive só dentro da moldura */
+  --art-violet:#6C4DE0;
+  --art-teal:#1FA6A0;
+  --art-amber:#F2A93B;
+  --art-rose:#D9436F;
+
+  --display:Georgia,'Times New Roman',serif;
+  --body:'General Sans',system-ui,sans-serif;
+  --mono:Consolas,ui-monospace,monospace;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{background:#0E1014;padding:48px;width:max-content;font-family:var(--body);
+     text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased;}
+p,h1,div{margin:0;}
+
+.canvas{position:relative;width:1080px;height:1440px;overflow:hidden;isolation:isolate;
+        background:var(--wall);color:var(--ink);}
+
+/* luz de parede: camada de tratamento, opacidade baixa, não é fundo efetivo */
+.wall-light{position:absolute;inset:0;pointer-events:none;opacity:.40;
+  background:radial-gradient(120% 78% at 26% 16%, rgba(255,255,255,.95) 0%, rgba(255,255,255,0) 58%),
+             linear-gradient(to bottom, rgba(0,0,0,0) 52%, rgba(60,50,32,.30) 100%);}
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.10;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");}
+
+/* ── rótulo de sala ─────────────────────────────────────────────────────── */
+.room-label{position:absolute;left:80px;top:96px;font-family:var(--mono);font-size:19px;
+  letter-spacing:.10em;text-transform:uppercase;color:var(--brass);}
+
+/* ── a obra: quadro pendurado ───────────────────────────────────────────── */
+.artwork{position:absolute;left:80px;top:174px;width:560px;
+  border:14px solid var(--frame);background:var(--mat);padding:30px;
+  box-shadow:26px 34px 54px rgba(38,30,14,.24), 4px 6px 10px rgba(38,30,14,.20);}
+.artwork svg{display:block;width:464px;height:322px;}
+.mat-line{position:absolute;left:22px;right:22px;top:22px;bottom:22px;
+  border:1px solid rgba(38,33,26,.16);pointer-events:none;}
+
+/* ── cartela de parede ──────────────────────────────────────────────────── */
+.cartel{position:absolute;left:680px;top:432px;width:320px;background:var(--card);
+  padding:24px 22px 22px;box-shadow:6px 9px 18px rgba(38,30,14,.14);}
+.cartel-title{font-family:var(--display);font-style:italic;font-weight:700;font-size:29px;
+  line-height:1.18;letter-spacing:-.012em;color:var(--ink);}
+.cartel-meta{font-family:var(--mono);font-size:17px;line-height:1.62;color:var(--support);
+  margin-top:14px;letter-spacing:.012em;}
+.cartel-rule{height:1px;background:var(--brass);margin:16px 0 12px;}
+.cartel-field{font-family:var(--mono);font-size:17px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--support);}
+.cartel-value{font-family:var(--display);font-style:italic;font-weight:700;font-size:29px;
+  line-height:1.1;letter-spacing:-.01em;color:var(--brass);margin-top:6px;}
+
+/* ── argumento ──────────────────────────────────────────────────────────── */
+.headline{position:absolute;left:80px;top:826px;width:920px;font-family:var(--display);
+  font-weight:700;font-size:84px;line-height:.99;letter-spacing:-.035em;color:var(--ink);}
+.arg-rule{position:absolute;left:80px;top:1040px;width:186px;height:1px;background:var(--brass);}
+.support-copy{position:absolute;left:80px;top:1078px;width:680px;font-family:var(--body);
+  font-weight:400;font-size:31px;line-height:1.44;color:var(--support);}
+
+/* ── assinatura ─────────────────────────────────────────────────────────── */
+.status{position:absolute;left:80px;top:1300px;font-family:var(--mono);font-size:17px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--support);}
+.mark{position:absolute;left:936px;top:1280px;width:64px;height:64px;object-fit:contain;}
+</style>
+</head>
+<body>
+
+<section class="canvas" data-slide="s01" data-composition="object study on field"
+         data-job="sinal" data-mode="artifact-led">
+
+  <div class="wall-light"></div>
+
+  <div class="room-label">Acervo permanente</div>
+
+  <div class="artwork">
+    <div class="mat-line"></div>
+    <svg viewBox="0 0 464 322" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="Gráfico decorativo sem eixos, sem números e sem legenda">
+      <defs>
+        <linearGradient id="gv" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#6C4DE0" stop-opacity=".62"/>
+          <stop offset="1" stop-color="#6C4DE0" stop-opacity=".10"/>
+        </linearGradient>
+        <linearGradient id="gt" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#1FA6A0" stop-opacity=".70"/>
+          <stop offset="1" stop-color="#1FA6A0" stop-opacity=".12"/>
+        </linearGradient>
+        <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#F2A93B" stop-opacity=".85"/>
+          <stop offset="1" stop-color="#F2A93B" stop-opacity=".22"/>
+        </linearGradient>
+      </defs>
+
+      <rect width="464" height="322" fill="#FBF8F2"/>
+
+      <g stroke="#2A2419" stroke-opacity=".07" stroke-width="1">
+        <path d="M0 74H464M0 138H464M0 202H464M0 266H464"/>
+      </g>
+
+      <g fill="none" stroke="#6C4DE0" stroke-opacity=".22" stroke-width="1.4">
+        <circle cx="392" cy="60" r="36"/>
+        <circle cx="392" cy="60" r="21"/>
+      </g>
+
+      <path d="M0 240C60 230 90 150 150 140S250 205 300 170S400 95 464 120V322H0Z" fill="url(#gv)"/>
+      <path d="M0 282C70 270 110 205 180 200S270 250 330 220S420 175 464 190V322H0Z" fill="url(#gt)"/>
+      <path d="M0 305C80 300 120 262 200 258S300 290 360 272S430 250 464 258V322H0Z" fill="url(#ga)"/>
+
+      <path d="M20 96C80 70 120 132 180 112S280 58 340 86S430 122 448 100"
+            fill="none" stroke="#D9436F" stroke-width="2.4" stroke-linecap="round"/>
+      <g fill="#FBF8F2" stroke="#D9436F" stroke-width="2.4">
+        <circle cx="20" cy="96" r="5"/>
+        <circle cx="180" cy="112" r="5"/>
+        <circle cx="340" cy="86" r="5"/>
+        <circle cx="448" cy="100" r="5"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="cartel">
+    <div class="cartel-title">Painel de Performance</div>
+    <div class="cartel-meta">
+      <div>2026</div>
+      <div>Exportação semanal em PDF</div>
+      <div>Coleção do time de marketing</div>
+    </div>
+    <div class="cartel-rule"></div>
+    <div class="cartel-field">Decisão associada</div>
+    <div class="cartel-value">Nenhuma.</div>
+  </div>
+
+  <h1 class="headline">Bonito de ver.<br>Inútil para decidir.</h1>
+
+  <div class="arg-rule"></div>
+
+  <p class="support-copy">Um gráfico só vira análise quando alguém consegue dizer o que muda depois dele: qual decisão, quem toma e até quando.</p>
+
+  <div class="status" data-fine>Peça ilustrativa · sem dados de cliente</div>
+  <img class="mark" src="../../../assets/datta/datta-simbolo-preto.png" alt="Agência Datta">
+
+  <div class="grain"></div>
+</section>
+
+</body>
+</html>

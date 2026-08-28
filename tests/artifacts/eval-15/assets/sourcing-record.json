@@ -1,0 +1,71 @@
+{
+  "peca": "carrossel-indicacao — Agência Datta",
+  "data_de_acesso": "2026-08-27",
+  "uso_pretendido": "organic",
+  "familia_de_ativo": "sala de espera de clínica, vazia (cena de abertura + recorrência)",
+  "brief_de_origem": {
+    "papel_narrativo": "sem a cena, a capa vira frase sobre indicação; a foto mostra o mês em que a agenda não enche",
+    "sujeito": "sala de espera real, cadeiras vazias, sem pessoas",
+    "composicao": "retrato, ponto focal nas cadeiras, área de parede/chão livre para texto",
+    "continuidade": "mesma foto reaparece em S04 em outro recorte e outra graduação",
+    "evitar": "profissional sorrindo, aperto de mão, dashboard flutuante, paciente identificável, logo, sinalização legível de marca",
+    "minimo": "≥1080 px de largura nativa, uso comercial livre"
+  },
+  "rodada_1": {
+    "provedores": ["pixabay", "pexels"],
+    "candidatos": [
+      {
+        "decisao": "rejected",
+        "provedor": "pixabay",
+        "pagina": "https://pixabay.com/photos/clinic-doctor-hall-signs-chairs-9529139/",
+        "autor": "Mollyroselee",
+        "licenca": "https://pixabay.com/service/license-summary/",
+        "modalidade": "standard/free",
+        "motivo": "gate 3 (qualidade técnica): download anônimo limitado a 964×1280, abaixo do canvas de 1080 px; sinalização em inglês competindo com a leitura",
+        "arquivo": "not downloaded"
+      },
+      {
+        "decisao": "rejected",
+        "provedor": "pixabay",
+        "pagina": "https://pixabay.com/photos/lobby-waiting-room-television-9628266/",
+        "autor": "Mollyroselee",
+        "licenca": "https://pixabay.com/service/license-summary/",
+        "modalidade": "standard/free",
+        "motivo": "gate 1 (necessidade semântica): lobby com televisão lê como recepção corporativa, não como clínica",
+        "arquivo": "not downloaded"
+      },
+      {
+        "decisao": "rejected",
+        "provedor": "pexels",
+        "pagina": "https://www.pexels.com/photo/wooden-bench-in-a-reception-ward-17843875/",
+        "autor": "Bayram Yalcin",
+        "licenca": "https://www.pexels.com/license/",
+        "modalidade": "standard/free",
+        "motivo": "gate 5 (direitos retratados): capas de revista com pessoas identificáveis e sinalização institucional legível na cena",
+        "arquivo": "not downloaded"
+      },
+      {
+        "decisao": "selected",
+        "provedor": "pexels",
+        "pagina": "https://www.pexels.com/photo/empty-seats-in-a-waiting-room-18623554/",
+        "id": "18623554",
+        "autor": "Elina Volkova",
+        "perfil_do_autor": "https://www.pexels.com/@miami302/",
+        "licenca": "https://www.pexels.com/license/",
+        "modalidade": "standard/free",
+        "uso": "organic",
+        "checagem_de_direitos": "sem pessoas, sem rostos, sem logos, sem texto legível, sem dado de paciente; nenhuma clínica identificável; nenhum endosso implícito",
+        "arquivo": "assets/sala-espera-pexels-18623554.jpg",
+        "dimensoes": "2400×3199",
+        "sha256": "edcd7c363410e5c928e86d47a0c66d6368a39928f9bdfac722f0b664d2f4afd9",
+        "edicoes": "S01: recorte 50%/62%, brilho .78, saturação .90, contraste 1.05, scrim direcional inferior + superior, grão .10. S04: recorte 38%/88% em faixa de 600 px, brilho .72, saturação .82",
+        "status_de_evidencia": "ilustrativo"
+      }
+    ]
+  },
+  "rodada_2": "não necessária — a rodada 1 produziu uma passagem completa nos cinco gates",
+  "geracao_de_imagem": "não usada",
+  "artefatos_proprios": {
+    "ficha_de_agenda": "construída no layout (S02, S03, S06); rotulada como MODELO ILUSTRATIVO; nomes e horários fictícios, nenhum dado real de paciente"
+  }
+}

@@ -1,0 +1,671 @@
+{
+  "tool": "hanna/scripts/render.cjs",
+  "generatedAt": "2026-08-27T14:12:58.439Z",
+  "input": {
+    "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\carrossel-indicacao.html",
+    "sha256": "a0bcbb2121517e86b3147abbacb5f8ed459a4dea517651fd52aa11be02404bd1"
+  },
+  "browser": {
+    "version": "151.0.7922.174",
+    "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "origin": "sistema"
+  },
+  "settings": {
+    "safeArea": {
+      "x": 80,
+      "top": 96,
+      "bottom": 96
+    },
+    "minBodyPx": 27,
+    "minFinePx": 16,
+    "minContrast": 4.5,
+    "exportScale": 1,
+    "previewScale": 0.4
+  },
+  "rhythm": {
+    "declared": 6,
+    "distinct": 6,
+    "slides": 6
+  },
+  "slides": [
+    {
+      "index": 1,
+      "id": "s01",
+      "composition": "full-bleed",
+      "job": "tensao",
+      "mode": "image-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Sinal",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "A agenda enche sozinha. Até o mês em que não enche.",
+          "sizePx": 82,
+          "family": "Clash Display"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Cascadia Mono",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/sala-espera-pexels-18623554.jpg",
+          "natural": [
+            2400,
+            3199
+          ],
+          "rendered": [
+            1080,
+            1440
+          ]
+        },
+        {
+          "src": "../../../assets/datta/datta-simbolo-branco.png",
+          "natural": [
+            512,
+            512
+          ],
+          "rendered": [
+            64,
+            64
+          ]
+        }
+      ],
+      "smallestBodyPx": 82,
+      "worstContrast": null,
+      "contrastPendingVisualCheck": 2,
+      "findings": [
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Sinal"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "A agenda enche sozinha. Até o mês em que não enche."
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "s02",
+      "composition": "overhead-flat-lay",
+      "job": "sintoma",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Observação",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Toda linha tem hora e nome. Nenhuma tem origem.",
+          "sizePx": 60,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Horário",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Paciente",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Procedimento",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Origem",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "08:30",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Marina R.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Avaliação",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "09:15",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Paulo H.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Retorno",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "10:00",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Eduarda S.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Limpeza",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "11:00",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Vera M.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Urgência",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "14:30",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Sérgio A.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Avaliação",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "A clínica sabe quem atendeu. Não sabe quem trouxe.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Modelo ilustrativo · nenhum dado real de paciente",
+          "sizePx": 18,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Ficha de entrada · exemplo de ensino",
+          "sizePx": 18,
+          "family": "Cascadia Mono"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Cascadia Mono",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "500",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 28,
+      "worstContrast": 5.21,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 3,
+      "id": "s03",
+      "composition": "extreme-macro",
+      "job": "diagnostico",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Diagnóstico",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Origem",
+          "sizePx": 42,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Campo nunca preenchido",
+          "sizePx": 18,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Sem origem registrada, indicação é relato. Não é canal.",
+          "sizePx": 64,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Canal é o que se mede e se corrige. Relato é o que alguém lembra depois.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Modelo ilustrativo",
+          "sizePx": 18,
+          "family": "Cascadia Mono"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Cascadia Mono",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.21,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 4,
+      "id": "s04",
+      "composition": "horizontal-band",
+      "job": "consequencia",
+      "mode": "image-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Consequência",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Quando a agenda esvazia, não há o que ajustar.",
+          "sizePx": 64,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Você não sabe se a indicação parou, se o retorno atrasou ou se o encaixe sumiu. Sem origem no registro, o mês fraco não tem causa — tem opinião.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Cascadia Mono",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/sala-espera-pexels-18623554.jpg",
+          "natural": [
+            2400,
+            3199
+          ],
+          "rendered": [
+            1080,
+            600
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.5,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 5,
+      "id": "s05",
+      "composition": "list-ladder",
+      "job": "metodo",
+      "mode": "type-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Método",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Quatro campos transformam indicação em canal.",
+          "sizePx": 60,
+          "family": "Clash Display"
+        },
+        {
+          "text": "01",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Quem indicou",
+          "sizePx": 40,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Paciente, parceiro ou profissional que trouxe.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "02",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Por onde chegou",
+          "sizePx": 40,
+          "family": "Clash Display"
+        },
+        {
+          "text": "WhatsApp, telefone, balcão, formulário ou direct.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "03",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "O que procurou",
+          "sizePx": 40,
+          "family": "Clash Display"
+        },
+        {
+          "text": "O procedimento pedido na primeira conversa.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "04",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "O que aconteceu",
+          "sizePx": 40,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Agendou, remarcou ou não voltou. Fecha a conta.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Quatro campos na ficha de entrada, preenchidos por quem atende o primeiro contato — antes da consulta, não depois do mês.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Roteiro de registro · sem ferramenta nova",
+          "sizePx": 18,
+          "family": "Cascadia Mono"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Cascadia Mono",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 28,
+      "worstContrast": 5.21,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 6,
+      "id": "s06",
+      "composition": "framed-inset",
+      "job": "decisao",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Decisão",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "A indicação continua. Agora dá para ver quando ela para.",
+          "sizePx": 66,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Paciente",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Origem",
+          "sizePx": 19,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "Marina R.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Indicação · Paulo H.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Paulo H.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Indicação · Dra. Lívia",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Eduarda S.",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Balcão · sem indicação",
+          "sizePx": 28,
+          "family": "General Sans"
+        },
+        {
+          "text": "Modelo ilustrativo · nenhum dado real de paciente",
+          "sizePx": 18,
+          "family": "Cascadia Mono"
+        },
+        {
+          "text": "A mesma agenda, com uma coluna a mais. Quando o volume cai, dá para ver qual origem parou.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Proposta de CTA · Salve para a próxima ficha de entrada.",
+          "sizePx": 18,
+          "family": "Cascadia Mono"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Cascadia Mono",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "500",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../../assets/datta/datta-lockup-mono-branco.png",
+          "natural": [
+            1600,
+            422
+          ],
+          "rendered": [
+            200,
+            53
+          ]
+        }
+      ],
+      "smallestBodyPx": 28,
+      "worstContrast": 5.5,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    }
+  ],
+  "exports": [
+    {
+      "slide": "s01",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\exports\\carrossel-indicacao-s01-1080x1440.png",
+      "sha256": "dc27ac47585233bd29303d87ebb32fba28654fcefc0d4f5917433f9a28c1d858"
+    },
+    {
+      "slide": "s02",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\exports\\carrossel-indicacao-s02-1080x1440.png",
+      "sha256": "84ca20907da5888922f38826f9ec2892ae18c5d65f608834736dafe560ea6559"
+    },
+    {
+      "slide": "s03",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\exports\\carrossel-indicacao-s03-1080x1440.png",
+      "sha256": "4692ba01f65b9988e1ac08f865da67016f0319045a5404f62e45d30d2a8f0b7f"
+    },
+    {
+      "slide": "s04",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\exports\\carrossel-indicacao-s04-1080x1440.png",
+      "sha256": "8bb83b3f7f28c356d7b5d54c2d998c041ad6e9899d4f009f2a4f61f2734c7fee"
+    },
+    {
+      "slide": "s05",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\exports\\carrossel-indicacao-s05-1080x1440.png",
+      "sha256": "9b3a3310dad870597635e291892436d16addafe75c6516aed068cb8cf2187cde"
+    },
+    {
+      "slide": "s06",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\exports\\carrossel-indicacao-s06-1080x1440.png",
+      "sha256": "da83efb7542787e28532f6c88e59faa8e936acac66c4b16ac40cdbed28a9a7c2"
+    },
+    {
+      "slide": "contact-sheet",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-15\\exports\\carrossel-indicacao-contact-sheet.png",
+      "sha256": "f219670734f6a5f48b7e466cae54c168d9800984a319c7213860b30379b1ad2a"
+    }
+  ],
+  "pageErrors": [],
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "inspect": 2
+  },
+  "verdict": "PENDENTE DE INSPEÇÃO VISUAL"
+}

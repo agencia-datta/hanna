@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Datta — Clínicas que dependem de indicação</title>
+<style>
+@font-face { font-family:'Clash Display'; src:url('../../../assets/datta/fonts/clash-display-500.woff2') format('woff2'); font-weight:500; font-display:block; }
+@font-face { font-family:'Clash Display'; src:url('../../../assets/datta/fonts/clash-display-600.woff2') format('woff2'); font-weight:600; font-display:block; }
+@font-face { font-family:'Clash Display'; src:url('../../../assets/datta/fonts/clash-display-700.woff2') format('woff2'); font-weight:700; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-400.woff2') format('woff2'); font-weight:400; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-500.woff2') format('woff2'); font-weight:500; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-600.woff2') format('woff2'); font-weight:600; font-display:block; }
+
+:root{
+  /* MUNDO EXPRESSIVO — papel de agenda + grafite + carimbo.
+     Paleta autoral da peça; a paleta oficial verde/latão NÃO foi selecionada. */
+  --paper:#E9E3D7;        /* GROUND claro  */
+  --paper-card:#F6F2E9;   /* superfície do artefato */
+  --ink:#15181A;          /* INK sobre claro / GROUND escuro */
+  --ink-dark:#171A1C;
+  --paper-ink:#F2EEE5;    /* INK sobre escuro */
+  --support:#5F5C56;      /* SUPPORT sobre claro */
+  --support-dark:#B9B3A8; /* SUPPORT sobre escuro */
+  --accent:#A33326;       /* ACCENT sobre claro — carimbo */
+  --accent-lt:#E0704F;    /* mesmo acento, valor legível sobre escuro */
+
+  --display:'Clash Display', system-ui, sans-serif;
+  --body:'General Sans', system-ui, sans-serif;
+  --mono:'Cascadia Mono', Consolas, ui-monospace, monospace;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{
+  background:#0E1014;padding:48px;display:flex;flex-direction:column;gap:48px;
+  width:max-content;font-family:var(--body);
+  text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,p,ol,ul,li{margin:0;}
+img{display:block;}
+
+.canvas{position:relative;width:1080px;height:1440px;overflow:hidden;isolation:isolate;
+  background:var(--paper);color:var(--ink);}
+
+.media{position:absolute;width:100%;height:100%;object-fit:cover;}
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.10;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");}
+
+.display{font-family:var(--display);font-weight:600;letter-spacing:-.038em;line-height:.99;}
+.support{font-family:var(--body);font-weight:400;font-size:30px;line-height:1.45;color:var(--support);}
+.label{font-family:var(--mono);font-size:19px;letter-spacing:.10em;text-transform:uppercase;}
+.fine{font-family:var(--mono);font-size:18px;letter-spacing:.06em;}
+
+/* artefato: página de agenda */
+.card{position:absolute;background:var(--paper-card);
+  box-shadow:0 26px 54px rgba(21,24,26,.16), 0 2px 0 rgba(21,24,26,.05);
+  border:1px solid rgba(21,24,26,.10);}
+.row-rule{position:absolute;height:1px;background:rgba(21,24,26,.13);}
+.cell{font-family:var(--body);font-weight:500;font-size:28px;color:var(--ink);position:absolute;white-space:nowrap;}
+.cell--muted{font-weight:400;color:var(--support);}
+.head{font-family:var(--mono);font-size:19px;letter-spacing:.10em;text-transform:uppercase;color:var(--support);position:absolute;}
+.blank{position:absolute;height:34px;border:2px dashed rgba(163,51,38,.62);}
+</style>
+</head>
+<body>
+
+<!-- ═══ S01 — capa · sinal · imagem sangrada ══════════════════════════ -->
+<section class="canvas" data-slide="s01" data-composition="full-bleed" data-job="tensao" data-mode="image-led"
+         data-over-image style="background:var(--ink-dark);color:var(--paper-ink);">
+  <img class="media" data-bleed src="assets/sala-espera-pexels-18623554.jpg" alt=""
+       style="inset:0;object-position:50% 62%;filter:brightness(.78) saturate(.9) contrast(1.05);">
+  <div data-bleed style="position:absolute;inset:0;pointer-events:none;
+       background:linear-gradient(to top, rgba(12,14,15,.95) 0%, rgba(12,14,15,.80) 30%, rgba(12,14,15,.24) 56%, rgba(12,14,15,0) 76%);"></div>
+  <div data-bleed style="position:absolute;inset:0;pointer-events:none;
+       background:linear-gradient(to bottom, rgba(12,14,15,.66) 0%, rgba(12,14,15,.28) 12%, rgba(12,14,15,0) 26%);"></div>
+  <div class="grain" data-bleed></div>
+
+  <p class="label" data-fine data-over-image style="position:absolute;left:80px;bottom:502px;color:var(--accent-lt);">Sinal</p>
+
+  <div style="position:absolute;left:80px;bottom:452px;width:220px;height:2px;background:var(--accent-lt);"></div>
+  <h1 class="display" data-over-image
+      style="position:absolute;left:80px;bottom:180px;width:900px;font-size:82px;line-height:.99;color:var(--paper-ink);">
+    A agenda enche<br>sozinha. Até o mês<br>em que não enche.
+  </h1>
+
+  <img src="../../../assets/datta/datta-simbolo-branco.png" alt=""
+       style="position:absolute;right:80px;bottom:96px;width:64px;height:64px;object-fit:contain;opacity:.92;">
+</section>
+
+<!-- ═══ S02 — sintoma · artefato em vista superior ════════════════════ -->
+<section class="canvas" data-slide="s02" data-composition="overhead-flat-lay" data-job="sintoma" data-mode="artifact-led">
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent);">Observação</p>
+
+  <h2 class="display" style="position:absolute;left:80px;top:162px;width:900px;font-size:60px;line-height:1.02;">
+    Toda linha tem hora e nome.<br>Nenhuma tem origem.
+  </h2>
+
+  <div class="card" style="left:80px;top:392px;width:920px;height:868px;">
+    <p class="head" style="left:44px;top:44px;">Horário</p>
+    <p class="head" style="left:220px;top:44px;">Paciente</p>
+    <p class="head" style="left:470px;top:44px;">Procedimento</p>
+    <p class="head" style="left:730px;top:44px;color:var(--accent);">Origem</p>
+    <div class="row-rule" style="left:44px;top:100px;width:832px;background:rgba(21,24,26,.28);"></div>
+
+    <p class="cell" style="left:44px;top:140px;">08:30</p>
+    <p class="cell" style="left:220px;top:140px;">Marina R.</p>
+    <p class="cell cell--muted" style="left:470px;top:140px;">Avaliação</p>
+    <div class="blank" style="left:730px;top:142px;width:146px;"></div>
+    <div class="row-rule" style="left:44px;top:210px;width:832px;"></div>
+
+    <p class="cell" style="left:44px;top:250px;">09:15</p>
+    <p class="cell" style="left:220px;top:250px;">Paulo H.</p>
+    <p class="cell cell--muted" style="left:470px;top:250px;">Retorno</p>
+    <div class="blank" style="left:730px;top:252px;width:146px;"></div>
+    <div class="row-rule" style="left:44px;top:320px;width:832px;"></div>
+
+    <p class="cell" style="left:44px;top:360px;">10:00</p>
+    <p class="cell" style="left:220px;top:360px;">Eduarda S.</p>
+    <p class="cell cell--muted" style="left:470px;top:360px;">Limpeza</p>
+    <div class="blank" style="left:730px;top:362px;width:146px;"></div>
+    <div class="row-rule" style="left:44px;top:430px;width:832px;"></div>
+
+    <p class="cell" style="left:44px;top:470px;">11:00</p>
+    <p class="cell" style="left:220px;top:470px;">Vera M.</p>
+    <p class="cell cell--muted" style="left:470px;top:470px;">Urgência</p>
+    <div class="blank" style="left:730px;top:472px;width:146px;"></div>
+    <div class="row-rule" style="left:44px;top:540px;width:832px;"></div>
+
+    <p class="cell" style="left:44px;top:580px;">14:30</p>
+    <p class="cell" style="left:220px;top:580px;">Sérgio A.</p>
+    <p class="cell cell--muted" style="left:470px;top:580px;">Avaliação</p>
+    <div class="blank" style="left:730px;top:582px;width:146px;"></div>
+    <div class="row-rule" style="left:44px;top:650px;width:832px;"></div>
+
+    <p class="support" style="position:absolute;left:44px;top:692px;width:600px;color:var(--support);font-size:28px;">
+      A clínica sabe quem atendeu. Não sabe quem trouxe.
+    </p>
+    <p class="fine" data-fine style="position:absolute;left:44px;bottom:40px;color:var(--support);">
+      Modelo ilustrativo · nenhum dado real de paciente
+    </p>
+  </div>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;bottom:96px;color:var(--support);">
+    Ficha de entrada · exemplo de ensino
+  </p>
+</section>
+
+<!-- ═══ S03 — diagnóstico · macro do campo vazio ══════════════════════ -->
+<section class="canvas" data-slide="s03" data-composition="extreme-macro" data-job="diagnostico" data-mode="artifact-led">
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent);">Diagnóstico</p>
+
+  <div class="card" style="left:80px;top:170px;width:920px;height:498px;">
+    <p style="position:absolute;left:52px;top:48px;font-family:var(--mono);font-size:42px;letter-spacing:.10em;
+              text-transform:uppercase;color:var(--accent);">Origem</p>
+    <div class="row-rule" style="left:52px;top:126px;width:816px;background:rgba(163,51,38,.45);height:2px;"></div>
+    <div class="blank" style="left:52px;top:170px;width:560px;height:66px;"></div>
+    <div class="blank" style="left:52px;top:266px;width:560px;height:66px;"></div>
+    <div class="blank" style="left:52px;top:362px;width:560px;height:66px;"></div>
+    <div style="position:absolute;left:664px;top:170px;width:3px;height:258px;background:var(--accent);"></div>
+    <div style="position:absolute;left:664px;top:170px;width:26px;height:3px;background:var(--accent);"></div>
+    <div style="position:absolute;left:664px;top:425px;width:26px;height:3px;background:var(--accent);"></div>
+    <p class="fine" data-fine style="position:absolute;left:706px;top:272px;width:170px;color:var(--accent);
+              letter-spacing:.08em;line-height:1.5;">Campo<br>nunca<br>preenchido</p>
+  </div>
+
+  <h2 class="display" style="position:absolute;left:80px;top:770px;width:900px;font-size:64px;line-height:1.02;">
+    Sem origem registrada,<br>indicação é relato.<br>Não é canal.
+  </h2>
+
+  <p class="support" style="position:absolute;left:80px;top:1080px;width:700px;max-width:none;">
+    Canal é o que se mede e se corrige. Relato é o que alguém lembra depois.
+  </p>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;bottom:96px;color:var(--support);">
+    Modelo ilustrativo
+  </p>
+</section>
+
+<!-- ═══ S04 — consequência · faixa de imagem + campo escuro ═══════════ -->
+<section class="canvas" data-slide="s04" data-composition="horizontal-band" data-job="consequencia" data-mode="image-led"
+         style="background:var(--ink-dark);color:var(--paper-ink);">
+  <div data-bleed style="position:absolute;left:0;top:0;width:1080px;height:600px;overflow:hidden;">
+    <img class="media" data-bleed src="assets/sala-espera-pexels-18623554.jpg" alt=""
+         style="inset:0;object-position:38% 88%;filter:brightness(.72) saturate(.82) contrast(1.05);">
+    <div class="grain" data-bleed></div>
+    <div data-bleed style="position:absolute;inset:0;
+         background:linear-gradient(to top, rgba(23,26,28,1) 0%, rgba(23,26,28,.12) 34%, rgba(23,26,28,0) 60%);"></div>
+  </div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:664px;color:var(--accent-lt);">Consequência</p>
+
+  <h2 class="display" style="position:absolute;left:80px;top:736px;width:900px;font-size:64px;line-height:1.02;color:var(--paper-ink);">
+    Quando a agenda esvazia,<br>não há o que ajustar.
+  </h2>
+
+  <div style="position:absolute;left:80px;top:1002px;width:180px;height:2px;background:var(--accent-lt);"></div>
+
+  <p class="support" style="position:absolute;left:80px;top:1050px;width:720px;max-width:none;color:var(--support-dark);">
+    Você não sabe se a indicação parou, se o retorno atrasou ou se o encaixe
+    sumiu. Sem origem no registro, o mês fraco não tem causa — tem opinião.
+  </p>
+</section>
+
+<!-- ═══ S05 — método · escada de itens ═══════════════════════════════ -->
+<section class="canvas" data-slide="s05" data-composition="list-ladder" data-job="metodo" data-mode="type-led">
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent);">Método</p>
+
+  <h2 class="display" style="position:absolute;left:80px;top:162px;width:900px;font-size:60px;line-height:1.02;">
+    Quatro campos transformam<br>indicação em canal.
+  </h2>
+
+  <div class="row-rule" style="left:80px;top:394px;width:920px;background:rgba(21,24,26,.30);height:2px;"></div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:432px;color:var(--accent);">01</p>
+  <h3 style="position:absolute;left:186px;top:424px;width:814px;font-family:var(--display);font-weight:600;
+             font-size:40px;letter-spacing:-.02em;line-height:1.05;">Quem indicou</h3>
+  <p class="support" style="position:absolute;left:186px;top:478px;width:700px;max-width:none;font-size:28px;">
+    Paciente, parceiro ou profissional que trouxe.
+  </p>
+  <div class="row-rule" style="left:80px;top:556px;width:920px;"></div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:594px;color:var(--accent);">02</p>
+  <h3 style="position:absolute;left:186px;top:586px;width:814px;font-family:var(--display);font-weight:600;
+             font-size:40px;letter-spacing:-.02em;line-height:1.05;">Por onde chegou</h3>
+  <p class="support" style="position:absolute;left:186px;top:640px;width:700px;max-width:none;font-size:28px;">
+    WhatsApp, telefone, balcão, formulário ou direct.
+  </p>
+  <div class="row-rule" style="left:80px;top:718px;width:920px;"></div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:756px;color:var(--accent);">03</p>
+  <h3 style="position:absolute;left:186px;top:748px;width:814px;font-family:var(--display);font-weight:600;
+             font-size:40px;letter-spacing:-.02em;line-height:1.05;">O que procurou</h3>
+  <p class="support" style="position:absolute;left:186px;top:802px;width:700px;max-width:none;font-size:28px;">
+    O procedimento pedido na primeira conversa.
+  </p>
+  <div class="row-rule" style="left:80px;top:880px;width:920px;"></div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:918px;color:var(--accent);">04</p>
+  <h3 style="position:absolute;left:186px;top:910px;width:814px;font-family:var(--display);font-weight:600;
+             font-size:40px;letter-spacing:-.02em;line-height:1.05;">O que aconteceu</h3>
+  <p class="support" style="position:absolute;left:186px;top:964px;width:700px;max-width:none;font-size:28px;">
+    Agendou, remarcou ou não voltou. Fecha a conta.
+  </p>
+  <div class="row-rule" style="left:80px;top:1042px;width:920px;background:rgba(21,24,26,.30);height:2px;"></div>
+
+  <p class="support" style="position:absolute;left:80px;top:1094px;width:700px;max-width:none;color:var(--ink);">
+    Quatro campos na ficha de entrada, preenchidos por quem atende o primeiro
+    contato — antes da consulta, não depois do mês.
+  </p>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;bottom:96px;color:var(--support);">
+    Roteiro de registro · sem ferramenta nova
+  </p>
+</section>
+
+<!-- ═══ S06 — decisão · artefato preenchido em moldura ════════════════ -->
+<section class="canvas" data-slide="s06" data-composition="framed-inset" data-job="decisao" data-mode="artifact-led"
+         style="background:var(--ink-dark);color:var(--paper-ink);">
+  <div class="grain" data-bleed></div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent-lt);">Decisão</p>
+
+  <h2 class="display" style="position:absolute;left:80px;top:172px;width:900px;font-size:66px;line-height:1.0;color:var(--paper-ink);">
+    A indicação continua.<br>Agora dá para ver<br>quando ela para.
+  </h2>
+
+  <div class="card" style="left:80px;top:498px;width:920px;height:452px;background:var(--paper-card);">
+    <p class="head" style="left:44px;top:40px;">Paciente</p>
+    <p class="head" style="left:400px;top:40px;color:var(--accent);">Origem</p>
+    <div class="row-rule" style="left:44px;top:92px;width:832px;background:rgba(21,24,26,.28);"></div>
+
+    <p class="cell" style="left:44px;top:126px;">Marina R.</p>
+    <p class="cell" style="left:400px;top:126px;color:var(--accent);">Indicação · Paulo H.</p>
+    <div class="row-rule" style="left:44px;top:190px;width:832px;"></div>
+
+    <p class="cell" style="left:44px;top:224px;">Paulo H.</p>
+    <p class="cell" style="left:400px;top:224px;color:var(--accent);">Indicação · Dra. Lívia</p>
+    <div class="row-rule" style="left:44px;top:288px;width:832px;"></div>
+
+    <p class="cell" style="left:44px;top:322px;">Eduarda S.</p>
+    <p class="cell" style="left:400px;top:322px;color:var(--accent);">Balcão · sem indicação</p>
+
+    <p class="fine" data-fine style="position:absolute;left:44px;bottom:26px;color:var(--support);">
+      Modelo ilustrativo · nenhum dado real de paciente
+    </p>
+  </div>
+
+  <p class="support" style="position:absolute;left:80px;top:1004px;width:700px;max-width:none;color:var(--support-dark);">
+    A mesma agenda, com uma coluna a mais. Quando o volume cai, dá para ver
+    qual origem parou.
+  </p>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1168px;width:900px;color:var(--accent-lt);letter-spacing:.06em;">
+    Proposta de CTA · Salve para a próxima ficha de entrada.
+  </p>
+
+  <img src="../../../assets/datta/datta-lockup-mono-branco.png" alt=""
+       style="position:absolute;left:80px;bottom:96px;width:200px;height:auto;object-fit:contain;opacity:.94;">
+</section>
+
+</body>
+</html>

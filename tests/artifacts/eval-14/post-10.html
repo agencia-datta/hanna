@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Datta — só indicação não é aquisição</title>
+<style>
+@font-face{font-family:'General Sans';src:url('../../assets/datta/fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:block;}
+@font-face{font-family:'General Sans';src:url('../../assets/datta/fonts/general-sans-500.woff2') format('woff2');font-weight:500;font-display:block;}
+@font-face{font-family:'General Sans';src:url('../../assets/datta/fonts/general-sans-600.woff2') format('woff2');font-weight:600;font-display:block;}
+
+:root{
+  /* mundo expressivo derivado da propria fotografia: parede fria, piso escuro,
+     vidro ambar. nenhum verde/latao oficial foi selecionado. */
+  --paper:#E8E9E4;
+  --dark:#1C2326;
+  --ink:#13181A;
+  --ink-inv:#EDEEE9;
+  --support:#525E61;
+  --support-inv:#A9B3B4;
+  --accent:#C9861F;
+  --accent-ink:#7F5310;
+  --line:rgba(19,24,26,.16);
+
+  --display:Georgia,'Times New Roman',serif;
+  --body:'General Sans',system-ui,sans-serif;
+  --mono:Consolas,'Cascadia Mono',ui-monospace,monospace;
+
+  --safe-x:80px; --safe-y:96px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{background:#0E1014;padding:48px;display:flex;flex-direction:column;gap:48px;width:max-content;
+     font-family:var(--body);text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased;}
+h1,h2,p,ol,ul{margin:0;}
+img{display:block;}
+
+.canvas{position:relative;width:1080px;height:1440px;overflow:hidden;isolation:isolate;
+        background:var(--paper);color:var(--ink);}
+.media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.10;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");}
+
+.display{font-family:var(--display);font-weight:700;letter-spacing:-.032em;line-height:1.02;}
+.support{font-family:var(--body);font-weight:400;font-size:30px;line-height:1.45;}
+.label{font-family:var(--mono);font-size:19px;letter-spacing:.10em;text-transform:uppercase;}
+.fine{font-family:var(--mono);font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--support);}
+.mark{position:absolute;width:64px;height:64px;object-fit:contain;}
+.lockup{position:absolute;width:200px;height:auto;object-fit:contain;}
+
+/* artefato de agenda — modelo ilustrativo, construido no layout */
+.sheet{background:#F5F5F1;border:1px solid var(--line);}
+.row{display:grid;grid-template-columns:150px 1fr 300px;align-items:center;
+     height:66px;padding:0 34px;border-top:1px solid var(--line);}
+.row .h{font-family:var(--mono);font-size:22px;letter-spacing:.04em;color:var(--support);}
+.row .p{font-family:var(--body);font-size:27px;font-weight:500;}
+.row .o{font-family:var(--mono);font-size:22px;letter-spacing:.04em;}
+.row.void{background:repeating-linear-gradient(135deg,rgba(19,24,26,.035) 0 8px,transparent 8px 17px);}
+</style>
+</head>
+<body>
+
+<!-- ══ S01 — capa · sangria total · foto documental ═════════════════════ -->
+<section class="canvas" data-slide="s01" data-composition="full-bleed" data-job="tensao" data-mode="image-led" data-over-image>
+  <img class="media" src="assets/sala-espera-pexels-18623554.jpg" alt="">
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(232,233,228,.95) 0%,rgba(232,233,228,.88) 40%,rgba(232,233,228,.40) 60%,rgba(232,233,228,0) 74%);"></div>
+  <div class="grain"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent-ink);">Observação</p>
+  <h1 class="display" style="position:absolute;left:80px;top:196px;width:900px;font-size:104px;">
+    Só indicação<br>não é aquisição.<br>É espera.
+  </h1>
+  <div style="position:absolute;left:80px;top:576px;width:300px;height:2px;background:var(--accent);"></div>
+  <p class="support" style="position:absolute;left:80px;top:614px;width:760px;color:#2C3538;">
+    Quem indica decide o tamanho do seu mês.
+  </p>
+  <img class="mark" src="../../assets/datta/datta-simbolo-branco.png" alt="" style="left:80px;top:1256px;">
+</section>
+
+<!-- ══ S02 — artefato anotado · a agenda do dia ════════════════════════ -->
+<section class="canvas" data-slide="s02" data-composition="annotated-artifact" data-job="sintoma" data-mode="artifact-led">
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent-ink);">Modelo ilustrativo</p>
+  <h2 class="display" style="position:absolute;left:80px;top:156px;width:880px;font-size:66px;">
+    A agenda avisa antes<br>do caixa avisar.
+  </h2>
+  <div class="sheet" style="position:absolute;left:80px;top:376px;width:920px;">
+    <div style="display:grid;grid-template-columns:150px 1fr 300px;padding:26px 34px 22px;">
+      <span class="fine" data-fine>Hora</span><span class="fine" data-fine>Paciente</span><span class="fine" data-fine>Origem</span>
+    </div>
+    <div class="row void"><span class="h">08:00</span><span class="p" style="color:var(--support);">—</span><span class="o" style="color:var(--support);">—</span></div>
+    <div class="row"><span class="h">09:00</span><span class="p">A. M.</span><span class="o" style="color:var(--accent-ink);">indicação</span></div>
+    <div class="row void"><span class="h">10:00</span><span class="p" style="color:var(--support);">—</span><span class="o" style="color:var(--support);">—</span></div>
+    <div class="row"><span class="h">11:00</span><span class="p">R. S.</span><span class="o" style="color:var(--accent-ink);">indicação</span></div>
+    <div class="row void"><span class="h">13:00</span><span class="p" style="color:var(--support);">—</span><span class="o" style="color:var(--support);">—</span></div>
+    <div class="row void"><span class="h">14:00</span><span class="p" style="color:var(--support);">—</span><span class="o" style="color:var(--support);">—</span></div>
+    <div class="row"><span class="h">15:00</span><span class="p">P. C.</span><span class="o" style="color:var(--accent-ink);">indicação</span></div>
+    <div class="row void"><span class="h">16:00</span><span class="p" style="color:var(--support);">—</span><span class="o" style="color:var(--support);">—</span></div>
+    <div class="row void"><span class="h">17:00</span><span class="p" style="color:var(--support);">—</span><span class="o" style="color:var(--support);">—</span></div>
+  </div>
+  <div style="position:absolute;left:646px;top:396px;width:2px;height:640px;background:var(--accent);"></div>
+  <p class="support" style="position:absolute;left:80px;top:1156px;width:840px;">
+    Três horários preenchidos. Uma única origem nos três.
+  </p>
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1288px;">Modelo ilustrativo · sem dados de paciente</p>
+</section>
+
+<!-- ══ S03 — split assimetrico · diagnostico ═══════════════════════════ -->
+<section class="canvas" data-slide="s03" data-composition="asymmetric-split" data-job="diagnostico" data-mode="type-led">
+  <div data-bleed style="position:absolute;inset:0 auto 0 0;width:340px;background:var(--dark);"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent);">Diagnóstico</p>
+  <div style="position:absolute;left:80px;top:1256px;width:220px;height:1px;background:rgba(237,238,233,.35);"></div>
+  <img class="mark" src="../../assets/datta/datta-simbolo-branco.png" alt="" style="left:80px;top:1296px;width:56px;height:56px;">
+  <h2 class="display" style="position:absolute;left:400px;top:262px;width:600px;font-size:66px;">
+    Indicação é um<br>canal sem volante.
+  </h2>
+  <div style="position:absolute;left:400px;top:512px;width:170px;height:2px;background:var(--accent);"></div>
+  <p class="support" style="position:absolute;left:400px;top:558px;width:590px;">
+    Você não escolhe quantas chegam, quando chegam, nem de qual procedimento.
+    Quando o volume cai, não existe alavanca para puxar.
+  </p>
+  <p class="support" style="position:absolute;left:400px;top:818px;width:590px;color:var(--support);">
+    O canal funciona. Ele só não obedece.
+  </p>
+</section>
+
+<!-- ══ S04 — diptico comparativo · a mesma cena duas vezes ═════════════ -->
+<section class="canvas" data-slide="s04" data-composition="diptych-comparison" data-job="consequencia" data-mode="image-led" style="background:var(--dark);color:var(--ink-inv);">
+  <h2 class="display" style="position:absolute;left:80px;top:118px;width:900px;font-size:64px;">
+    Você não consegue<br>apontar a diferença.
+  </h2>
+  <div style="position:absolute;left:80px;top:400px;width:440px;height:500px;overflow:hidden;">
+    <img src="assets/sala-espera-pexels-18623554.jpg" alt="" style="position:absolute;width:640px;height:auto;left:-70px;top:-330px;filter:grayscale(.35) contrast(1.02);">
+  </div>
+  <div style="position:absolute;left:560px;top:400px;width:440px;height:500px;overflow:hidden;">
+    <img src="assets/sala-espera-pexels-18623554.jpg" alt="" style="position:absolute;width:640px;height:auto;left:-70px;top:-330px;filter:grayscale(.35) contrast(1.02);">
+  </div>
+  <p class="fine" data-fine style="position:absolute;left:80px;top:926px;color:var(--support-inv);">O mês que funcionou</p>
+  <p class="fine" data-fine style="position:absolute;left:560px;top:926px;color:var(--support-inv);">O mês que não funcionou</p>
+  <div style="position:absolute;left:80px;top:996px;width:920px;height:2px;background:var(--accent);"></div>
+  <div style="position:absolute;left:80px;top:996px;width:2px;height:22px;background:var(--accent);"></div>
+  <div style="position:absolute;left:998px;top:996px;width:2px;height:22px;background:var(--accent);"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:1042px;color:var(--accent);">Mesma explicação registrada: nenhuma</p>
+  <p class="support" style="position:absolute;left:80px;top:1120px;width:860px;color:var(--support-inv);">
+    Sem origem anotada, o mês bom vira sorte e o mês ruim vira palpite.
+  </p>
+</section>
+
+<!-- ══ S05 — escada de itens · o limite do canal ═══════════════════════ -->
+<section class="canvas" data-slide="s05" data-composition="list-ladder" data-job="limite" data-mode="type-led">
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent-ink);">Limite</p>
+  <h2 class="display" style="position:absolute;left:80px;top:158px;width:860px;font-size:68px;">
+    O que a indicação<br>não entrega.
+  </h2>
+  <div style="position:absolute;left:80px;top:420px;width:920px;">
+    <div style="display:grid;grid-template-columns:96px 1fr;gap:0 28px;padding:34px 0;border-top:1px solid var(--line);">
+      <span class="label" data-fine style="color:var(--accent-ink);padding-top:8px;">01</span>
+      <span class="support" style="display:block;width:770px;">Volume previsível de pacientes novos.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:96px 1fr;gap:0 28px;padding:34px 0;border-top:1px solid var(--line);">
+      <span class="label" data-fine style="color:var(--accent-ink);padding-top:8px;">02</span>
+      <span class="support" style="display:block;width:770px;">Escolha de qual procedimento entra na agenda.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:96px 1fr;gap:0 28px;padding:34px 0;border-top:1px solid var(--line);">
+      <span class="label" data-fine style="color:var(--accent-ink);padding-top:8px;">03</span>
+      <span class="support" style="display:block;width:770px;">Registro de origem de cada paciente que chega.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:96px 1fr;gap:0 28px;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <span class="label" data-fine style="color:var(--accent-ink);padding-top:8px;">04</span>
+      <span class="support" style="display:block;width:770px;">Custo conhecido por paciente novo.</span>
+    </div>
+  </div>
+  <p class="support" style="position:absolute;left:80px;top:1122px;width:860px;color:var(--support);">
+    Nada disso é defeito de quem indica. É limite do canal.
+  </p>
+  <img class="mark" src="../../assets/datta/datta-simbolo-preto.png" alt="" style="left:80px;top:1272px;width:56px;height:56px;">
+</section>
+
+<!-- ══ S06 — rota vertical · a cadeia de aquisicao ═════════════════════ -->
+<section class="canvas" data-slide="s06" data-composition="vertical-route" data-job="metodo" data-mode="type-led" style="background:var(--dark);color:var(--ink-inv);">
+  <div class="grain"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent);">Método</p>
+  <h2 class="display" style="position:absolute;left:80px;top:158px;width:900px;font-size:66px;">
+    Aquisição é uma<br>cadeia, não um favor.
+  </h2>
+  <div style="position:absolute;left:104px;top:436px;width:2px;height:462px;background:rgba(237,238,233,.22);"></div>
+  <div style="position:absolute;left:96px;top:436px;width:18px;height:18px;border-radius:50%;background:var(--support-inv);"></div>
+  <p class="support" style="position:absolute;left:168px;top:424px;width:760px;">Demanda que já existe na sua cidade.</p>
+  <div style="position:absolute;left:96px;top:548px;width:18px;height:18px;border-radius:50%;background:var(--support-inv);"></div>
+  <p class="support" style="position:absolute;left:168px;top:536px;width:760px;">Anúncio que alcança essa demanda.</p>
+  <div style="position:absolute;left:96px;top:660px;width:18px;height:18px;border-radius:50%;background:var(--support-inv);"></div>
+  <p class="support" style="position:absolute;left:168px;top:648px;width:760px;">Conversa respondida em tempo útil.</p>
+  <div style="position:absolute;left:96px;top:772px;width:18px;height:18px;border-radius:50%;background:var(--support-inv);"></div>
+  <p class="support" style="position:absolute;left:168px;top:760px;width:760px;">Agendamento e comparecimento.</p>
+  <div style="position:absolute;left:92px;top:880px;width:26px;height:26px;border-radius:50%;background:var(--accent);"></div>
+  <p class="support" style="position:absolute;left:168px;top:872px;width:760px;font-weight:600;color:#F2E2C6;">Origem registrada em cada paciente.</p>
+  <p class="label" data-fine style="position:absolute;left:168px;top:932px;color:var(--accent);">Decisão</p>
+  <div style="position:absolute;left:80px;top:1064px;width:920px;height:1px;background:rgba(237,238,233,.22);"></div>
+  <p class="support" style="position:absolute;left:80px;top:1108px;width:860px;color:var(--support-inv);">
+    A indicação continua. Ela deixa de ser a única fonte e passa a ser
+    uma fonte medida.
+  </p>
+</section>
+
+<!-- ══ S07 — insercao emoldurada · a mesma agenda, outra origem ════════ -->
+<section class="canvas" data-slide="s07" data-composition="framed-inset" data-job="decisao" data-mode="artifact-led">
+  <div data-bleed style="position:absolute;left:0;right:0;top:0;height:300px;overflow:hidden;">
+    <img src="assets/sala-espera-pexels-18623554.jpg" alt="" style="position:absolute;width:1080px;height:auto;left:0;top:-560px;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(232,233,228,0) 0%,rgba(232,233,228,.55) 62%,rgba(232,233,228,1) 100%);"></div>
+  </div>
+  <h2 class="display" style="position:absolute;left:80px;top:352px;width:900px;font-size:70px;">
+    Comece registrando<br>a origem.
+  </h2>
+  <div class="sheet" style="position:absolute;left:80px;top:610px;width:920px;">
+    <div style="display:grid;grid-template-columns:150px 1fr 300px;padding:24px 34px 20px;">
+      <span class="fine" data-fine>Hora</span><span class="fine" data-fine>Paciente</span><span class="fine" data-fine>Origem</span>
+    </div>
+    <div class="row"><span class="h">09:00</span><span class="p">A. M.</span><span class="o" style="color:var(--accent-ink);">indicação</span></div>
+    <div class="row"><span class="h">10:00</span><span class="p">L. F.</span><span class="o" style="color:var(--accent-ink);">anúncio</span></div>
+    <div class="row"><span class="h">11:00</span><span class="p">R. S.</span><span class="o" style="color:var(--accent-ink);">busca</span></div>
+    <div class="row"><span class="h">14:00</span><span class="p">D. A.</span><span class="o" style="color:var(--accent-ink);">retorno</span></div>
+    <div class="row"><span class="h">15:00</span><span class="p">P. C.</span><span class="o" style="color:var(--accent-ink);">indicação</span></div>
+  </div>
+  <p class="support" style="position:absolute;left:80px;top:1092px;width:860px;">
+    Uma coluna por semana muda a conversa sobre o mês.
+  </p>
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1206px;">Proposta de CTA · salve e compare com a sua agenda desta semana</p>
+  <img class="lockup" src="../../assets/datta/datta-lockup-mono-preto.png" alt="" style="left:80px;top:1266px;width:200px;">
+</section>
+
+</body>
+</html>

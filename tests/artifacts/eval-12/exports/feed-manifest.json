@@ -1,0 +1,230 @@
+{
+  "tool": "hanna/scripts/render.cjs",
+  "generatedAt": "2026-08-27T14:07:11.290Z",
+  "input": {
+    "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\anuncio-feed.html",
+    "sha256": "a5188090af3da9373528dc363f9d7ad788c0a6ba2cbc835b14ef752745aa948e"
+  },
+  "browser": {
+    "version": "151.0.7922.174",
+    "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "origin": "HANNA_BROWSER_PATH"
+  },
+  "settings": {
+    "safeArea": {
+      "x": 80,
+      "top": 96,
+      "bottom": 96
+    },
+    "minBodyPx": 27,
+    "minFinePx": 16,
+    "minContrast": 4.5,
+    "exportScale": 1,
+    "previewScale": 0.4
+  },
+  "rhythm": {
+    "declared": 2,
+    "distinct": 1,
+    "slides": 2
+  },
+  "slides": [
+    {
+      "index": 1,
+      "id": "feed-v1-problema",
+      "composition": "annotated-artifact",
+      "job": "tensão",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Sinal",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "O relatório fecha. A operação, não.",
+          "sizePx": 82,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Gerenciador · leads",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "CRM · vendas",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Origem registrada",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Origem em branco",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Artefato ilustrativo · sem dado de cliente",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "O Gerenciador conta lead. O CRM conta venda. Sem ligação entre as duas listas, o orçamento do mês é decidido no achismo.",
+          "sizePx": 31,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../../assets/datta/datta-lockup-mono-preto.png",
+          "natural": [
+            1600,
+            422
+          ],
+          "rendered": [
+            200,
+            53
+          ]
+        }
+      ],
+      "smallestBodyPx": 31,
+      "worstContrast": 4.67,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 2,
+      "id": "feed-v2-mecanismo",
+      "composition": "annotated-artifact",
+      "job": "mecanismo",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Método",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Ligue a venda ao anúncio.",
+          "sizePx": 82,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Gerenciador · leads",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "CRM · vendas",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Origem registrada",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Origem em branco",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Artefato ilustrativo · sem dado de cliente",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Entrada, UTM, CRM e venda no mesmo registro. O orçamento passa a ser decidido pela lista que fez caixa, não pela que o pixel consegue contar.",
+          "sizePx": 31,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../../assets/datta/datta-lockup-mono-preto.png",
+          "natural": [
+            1600,
+            422
+          ],
+          "rendered": [
+            200,
+            53
+          ]
+        }
+      ],
+      "smallestBodyPx": 31,
+      "worstContrast": 4.67,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    }
+  ],
+  "exports": [
+    {
+      "slide": "feed-v1-problema",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\exports\\feed-feed-v1-problema-1080x1440.png",
+      "sha256": "245da7acc0aa19a592deab576330b6eddf2d460997d26a09b72bc86f1ca9ece2"
+    },
+    {
+      "slide": "feed-v2-mecanismo",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\exports\\feed-feed-v2-mecanismo-1080x1440.png",
+      "sha256": "4b0f7fbbdf071d136a378b9c09d39eaf838b15d6ed3c1500d6f42a813e41e4df"
+    },
+    {
+      "slide": "contact-sheet",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-12\\exports\\feed-contact-sheet.png",
+      "sha256": "f688dbbcc94e78f4cf4bcd1c95b77c41a0e1687085bc2d0fa6453a4b4ae5568f"
+    }
+  ],
+  "pageErrors": [],
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "inspect": 0
+  },
+  "verdict": "PREFLIGHT OK"
+}

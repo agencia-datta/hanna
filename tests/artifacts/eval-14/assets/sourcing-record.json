@@ -1,0 +1,34 @@
+{
+  "tool": "hanna/scripts/fetch-stock.cjs",
+  "query": "empty clinic waiting room chairs",
+  "intendedUse": "organic",
+  "accessDate": "2026-08-27",
+  "providers": [
+    {
+      "provider": "pexels",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "licenseNote": "Confirme na página: uso comercial e restrições de pessoas identificáveis.",
+      "searchPage": "https://www.pexels.com/search/empty%20clinic%20waiting%20room%20chairs/?orientation=portrait",
+      "candidates": [],
+      "mode": "manual",
+      "reason": "PEXELS_API_KEY ausente"
+    },
+    {
+      "provider": "unsplash",
+      "licenseUrl": "https://unsplash.com/license",
+      "licenseNote": "Rejeite resultados Unsplash+ — licença separada em https://unsplash.com/plus/license.",
+      "searchPage": "https://unsplash.com/s/photos/empty%20clinic%20waiting%20room%20chairs?orientation=portrait",
+      "candidates": [],
+      "mode": "manual",
+      "reason": "UNSPLASH_ACCESS_KEY ausente"
+    }
+  ],
+  "gateReminder": [
+    "Nenhum candidato está selecionado ainda. Aplique os cinco gates de asset-sourcing.md:",
+    "1 necessidade semântica · 2 composição e área segura de texto · 3 qualidade técnica",
+    "4 distinção e continuidade · 5 direitos — os direitos são gate rígido, não nota.",
+    "A licença do provedor NÃO libera pessoas identificáveis, marcas, obras, propriedade",
+    "nem endosso implícito. Para uso pago, confirme os dois: licença e direitos retratados.",
+    "Registre a decisão (selected | rejected) de cada candidato antes de montar a peça."
+  ]
+}

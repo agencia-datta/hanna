@@ -1,0 +1,148 @@
+{
+  "tool": "hanna/scripts/render.cjs",
+  "generatedAt": "2026-08-27T14:03:00.424Z",
+  "input": {
+    "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-11\\post-11-acervo.html",
+    "sha256": "2b7a42546fb84856eccb88d418b911388d2076951e137adb931c49937668e599"
+  },
+  "browser": {
+    "version": "151.0.7922.174",
+    "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "origin": "sistema"
+  },
+  "settings": {
+    "safeArea": {
+      "x": 80,
+      "top": 96,
+      "bottom": 96
+    },
+    "minBodyPx": 27,
+    "minFinePx": 16,
+    "minContrast": 4.5,
+    "exportScale": 1,
+    "previewScale": 0.4
+  },
+  "rhythm": {
+    "declared": 1,
+    "distinct": 1,
+    "slides": 1
+  },
+  "slides": [
+    {
+      "index": 1,
+      "id": "s01",
+      "composition": "object study on field",
+      "job": "sinal",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Acervo permanente",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Painel de Performance",
+          "sizePx": 29,
+          "family": "Georgia"
+        },
+        {
+          "text": "2026",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Exportação semanal em PDF",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Coleção do time de marketing",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Decisão associada",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Nenhuma.",
+          "sizePx": 29,
+          "family": "Georgia"
+        },
+        {
+          "text": "Bonito de ver. Inútil para decidir.",
+          "sizePx": 84,
+          "family": "Georgia"
+        },
+        {
+          "text": "Um gráfico só vira análise quando alguém consegue dizer o que muda depois dele: qual decisão, quem toma e até quando.",
+          "sizePx": 31,
+          "family": "General Sans"
+        },
+        {
+          "text": "Peça ilustrativa · sem dados de cliente",
+          "sizePx": 17,
+          "family": "Consolas"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../../assets/datta/datta-simbolo-preto.png",
+          "natural": [
+            512,
+            512
+          ],
+          "rendered": [
+            64,
+            64
+          ]
+        }
+      ],
+      "smallestBodyPx": 29,
+      "worstContrast": 4.85,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    }
+  ],
+  "exports": [
+    {
+      "slide": "s01",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-11\\exports\\post-11-acervo-1080x1440.png",
+      "sha256": "f50153f9ae82e2e2e0d2fe8c584af7c39d1c21032dbd561f4c3ae82e669c3750"
+    },
+    {
+      "slide": "contact-sheet",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-11\\exports\\post-11-acervo-contact-sheet.png",
+      "sha256": "cfb19661306b8cbf785e9c57d224937dfbce30a00fee9713eee52ca2b8052890"
+    }
+  ],
+  "pageErrors": [],
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "inspect": 0
+  },
+  "verdict": "PREFLIGHT OK"
+}

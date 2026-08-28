@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Datta — anúncio stories 1080×1920 (v1 problema · v2 mecanismo)</title>
+<style>
+@font-face { font-family:'Clash Display'; src:url('../../../assets/datta/fonts/clash-display-600.woff2') format('woff2'); font-weight:600; font-display:block; }
+@font-face { font-family:'General Sans'; src:url('../../../assets/datta/fonts/general-sans-400.woff2') format('woff2'); font-weight:400; font-display:block; }
+
+:root{
+  --ground:#E8E4DA;
+  --ink:#091105;
+  --support:#4A463C;
+  --hair:rgba(9,17,5,.18);
+  --bar:rgba(9,17,5,.20);
+  --accent:#C89C4F;
+  --accent-txt:#7D5F28;
+
+  --display:'Clash Display', system-ui, sans-serif;
+  --body:'General Sans', system-ui, sans-serif;
+  --mono:Consolas, ui-monospace, monospace;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{background:#0E1014;padding:48px;display:flex;flex-direction:column;gap:48px;width:max-content;font-family:var(--body);text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased;}
+h1,p{margin:0;}
+img{display:block;}
+
+/* Story 1080×1920 — envelope conservador de zona de segurança:
+   nada de texto ou marca acima de y=270 (~14% do topo) nem abaixo de y=1536
+   (~20% da base). É o valor mais restritivo entre o de trabalho da skill
+   (120/240) e o indicado no guia de anúncios da Meta; confirmar na página
+   oficial antes de assinar o launch. */
+.canvas{position:relative;width:1080px;height:1920px;overflow:hidden;isolation:isolate;background:var(--ground);color:var(--ink);}
+
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.09;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");}
+
+.label{font-family:var(--mono);font-size:19px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-txt);}
+.fine{font-family:var(--mono);font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--support);}
+.display{font-family:var(--display);font-weight:600;font-size:92px;line-height:.95;letter-spacing:-.028em;color:var(--ink);}
+.support{font-family:var(--body);font-weight:400;font-size:31px;line-height:1.42;color:var(--support);}
+.rule{height:1px;background:var(--accent);}
+
+.panel{position:absolute;left:80px;width:920px;height:290px;border:1px solid var(--hair);padding:22px 26px 0;overflow:hidden;}
+.panel__head{font-family:var(--mono);font-size:18px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);}
+.row{display:flex;align-items:center;justify-content:space-between;height:56px;border-bottom:1px solid var(--hair);}
+.bar{display:block;height:14px;background:var(--bar);}
+.chip{display:block;width:120px;height:26px;}
+.chip--cheia{background:var(--bar);}
+.chip--vazia{border:1px dashed var(--accent);background:transparent;}
+.fade{position:absolute;left:0;right:0;bottom:0;height:84px;background:linear-gradient(to bottom, rgba(232,228,218,0) 0%, var(--ground) 76%);}
+.linkv{position:absolute;left:540px;width:1px;background:var(--hair);}
+.lockup{position:absolute;left:80px;top:280px;width:200px;height:53px;object-fit:contain;}
+</style>
+</head>
+<body>
+
+<!-- ═══ STORY V1 — ângulo PROBLEMA ═════════════════════════════════════ -->
+<section class="canvas" data-slide="story-v1-problema" data-composition="vertical-route" data-job="tensão" data-mode="artifact-led">
+
+  <img class="lockup" src="../../../assets/datta/datta-lockup-mono-preto.png" alt="Agência Datta">
+  <p class="label" data-fine style="position:absolute;left:80px;top:355px;">Sinal</p>
+
+  <h1 class="display" style="position:absolute;left:80px;top:420px;width:920px;">
+    O relatório fecha.<br>A operação, não.
+  </h1>
+
+  <div class="panel" style="top:650px;">
+    <p class="panel__head">Gerenciador · leads — origem registrada</p>
+    <div class="row" style="margin-top:16px;"><span class="bar" style="width:300px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:238px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:342px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:268px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:316px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <div class="linkv" style="top:950px;height:26px;"></div>
+  <div class="linkv" style="top:1000px;height:26px;"></div>
+
+  <div class="panel" style="top:1050px;">
+    <p class="panel__head">CRM · vendas — origem em branco</p>
+    <div class="row" style="margin-top:16px;"><span class="bar" style="width:284px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:352px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:246px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:308px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:262px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1358px;">Artefato ilustrativo · sem dado de cliente</p>
+
+  <div class="rule" style="position:absolute;left:80px;width:560px;top:1408px;"></div>
+
+  <p class="support" style="position:absolute;left:80px;top:1436px;width:800px;">
+    O Gerenciador conta lead. O CRM conta venda. Ninguém liga as duas listas.
+  </p>
+
+  <div class="grain"></div>
+</section>
+
+<!-- ═══ STORY V2 — ângulo MECANISMO ════════════════════════════════════ -->
+<section class="canvas" data-slide="story-v2-mecanismo" data-composition="vertical-route" data-job="mecanismo" data-mode="artifact-led">
+
+  <img class="lockup" src="../../../assets/datta/datta-lockup-mono-preto.png" alt="Agência Datta">
+  <p class="label" data-fine style="position:absolute;left:80px;top:355px;">Método</p>
+
+  <h1 class="display" style="position:absolute;left:80px;top:420px;width:920px;">
+    Ligue a venda<br>ao anúncio.
+  </h1>
+
+  <div class="panel" style="top:650px;">
+    <p class="panel__head">Gerenciador · leads — origem registrada</p>
+    <div class="row" style="margin-top:16px;"><span class="bar" style="width:300px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:238px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:342px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:268px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="row"><span class="bar" style="width:316px;"></span><span class="chip chip--cheia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <div class="linkv" style="top:950px;height:26px;"></div>
+  <div class="linkv" style="top:1000px;height:26px;"></div>
+
+  <div class="panel" style="top:1050px;">
+    <p class="panel__head">CRM · vendas — origem em branco</p>
+    <div class="row" style="margin-top:16px;"><span class="bar" style="width:284px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:352px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:246px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:308px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="row"><span class="bar" style="width:262px;"></span><span class="chip chip--vazia"></span></div>
+    <div class="fade"></div>
+  </div>
+
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1358px;">Artefato ilustrativo · sem dado de cliente</p>
+
+  <div class="rule" style="position:absolute;left:80px;width:560px;top:1408px;"></div>
+
+  <p class="support" style="position:absolute;left:80px;top:1436px;width:800px;">
+    Entrada, UTM, CRM e venda no mesmo registro, do clique ao caixa.
+  </p>
+
+  <div class="grain"></div>
+</section>
+
+</body>
+</html>
