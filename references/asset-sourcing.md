@@ -73,6 +73,21 @@ with `--manual`, it prints the exact search and licence pages to work through by
 hand. It never marks a candidate as selected — the five gates below are yours to
 apply.
 
+Once they are applied, record the outcome:
+
+```bash
+node scripts/fetch-stock.cjs --select "ZhCOcbnvSvU,pexels-30285468.jpg" --out peca/assets
+```
+
+This marks the chosen assets `selected` and every other candidate `rejected`,
+and it discharges the provider obligations that attach to use rather than to
+search: Unsplash requires a request to the photo's `download_location` when the
+photo is actually used, and UTM-tagged attribution links back to the
+photographer and to Unsplash. The trigger belongs to the selection step because
+the human choice is what constitutes use. Each candidate also carries a
+ready-made `attribution` line — credit the photographer in the delivered piece;
+neither licence waives that.
+
 ### Round 1 — literal scene
 
 - Use no more than two appropriate providers.
