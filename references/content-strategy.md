@@ -59,6 +59,23 @@ An angle is not yet a piece. Take it to
 [Concept generation](concept-generation.md) and diverge into three visual
 territories before any layout decision.
 
+## Trend-led angles
+
+A piece can start from something outside Datta — a sector figure, a platform
+change, a market move. Two extra conditions apply, on top of the evidence
+categories in [Copy and formats](copy-and-formats.md):
+
+1. **Durability.** Ask whether the angle still holds in six months. If the piece
+   dies with the news cycle, it is a story, not a position — write it only when
+   the timing is the point, and never as evergreen feed material.
+2. **A trend is not a forecast.** Naming what is happening is reporting; naming
+   what will happen is a claim, and it needs the same evidence as any other. If
+   the projection is the agency's own reading, mark it as such and say what
+   would prove it wrong. Do not dress inference as observation.
+
+The reflex this guards against is real: trend-led formats reward urgency, and
+urgency is the cheapest way to end up asserting something nobody verified.
+
 ## Hook families
 
 Select a hook because it fits the argument, not because it sounds dramatic.

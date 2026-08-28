@@ -39,6 +39,7 @@ Do not use “mechanism” as an evidence bypass. Classify the claim before writ
 | Claim type | Requirement |
 | --- | --- |
 | Client, performance, commercial, testimonial, or comparative claim | Evidence supplied by the user or an approved internal source, with period, definition, scope, and attribution limit |
+| Third-party market or sector data | Name the publisher and the date in the piece itself, not only in the production record. Carry the sample or method when the source states it. Never present a sector figure as a Datta result, and never round it into a rhetorical number |
 | Material technical definition or platform behavior | Current primary authoritative source; cite it in the caption, source note, or production record |
 | Operational hypothesis | Mark as hypothesis; describe what data would confirm or reject it |
 | Logical explanation derived from cited facts | State the boundary and do not present it as observed client proof |
@@ -140,6 +141,8 @@ SILHOUETTE RHYTHM
 | Method | Problem → principle → ordered stages → quality criteria → decision |
 | Comparison | Shared situation → option A → option B → consequence → selection rule |
 | Objection | Objection → why it feels true → what it misses → proof/mechanism → fit CTA |
+| Counter-thesis | Belief the reader holds → the fact that strains it → what is actually true → the model that replaces it → what to do differently. The belief must be one the audience genuinely holds, stated without caricature; a straw man kills the family |
+| Trend reading | External fact with source → why it is happening now → what changes for the reader → what to do about it. Requires a real cited fact: without one this is a forecast, not a reading |
 
 For every slide, provide:
 
