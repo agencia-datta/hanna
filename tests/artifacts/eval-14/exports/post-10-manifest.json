@@ -1,0 +1,1076 @@
+{
+  "tool": "hanna/scripts/render.cjs",
+  "generatedAt": "2026-08-27T14:47:30.542Z",
+  "input": {
+    "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\post-10.html",
+    "sha256": "6e62b1e8fc45a0380bff7291ec797e0fc918bfd0c7915928979d3d2aa4bc80b1"
+  },
+  "browser": {
+    "version": "151.0.7922.174",
+    "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "origin": "sistema"
+  },
+  "settings": {
+    "safeArea": {
+      "x": 80,
+      "top": 96,
+      "bottom": 96
+    },
+    "minBodyPx": 27,
+    "minFinePx": 16,
+    "minContrast": 4.5,
+    "exportScale": 1,
+    "previewScale": 0.4
+  },
+  "rhythm": {
+    "declared": 7,
+    "distinct": 7,
+    "slides": 7
+  },
+  "slides": [
+    {
+      "index": 1,
+      "id": "s01",
+      "composition": "full-bleed",
+      "job": "tensao",
+      "mode": "image-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Observação",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Só indicação não é aquisição. É espera.",
+          "sizePx": 104,
+          "family": "Georgia"
+        },
+        {
+          "text": "Quem indica decide o tamanho do seu mês.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/sala-espera-pexels-18623554.jpg",
+          "natural": [
+            2400,
+            3199
+          ],
+          "rendered": [
+            1080,
+            1440
+          ]
+        },
+        {
+          "src": "../../assets/datta/datta-simbolo-branco.png",
+          "natural": [
+            512,
+            512
+          ],
+          "rendered": [
+            64,
+            64
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": null,
+      "contrastPendingVisualCheck": 3,
+      "findings": [
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Observação"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Só indicação não é aquisição. É espera."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Quem indica decide o tamanho do seu mês."
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "s02",
+      "composition": "annotated-artifact",
+      "job": "sintoma",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Modelo ilustrativo",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "A agenda avisa antes do caixa avisar.",
+          "sizePx": 66,
+          "family": "Georgia"
+        },
+        {
+          "text": "Hora",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Paciente",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Origem",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "08:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "—",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "—",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "09:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "A. M.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "indicação",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "10:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "—",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "—",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "11:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "R. S.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "indicação",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "13:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "—",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "—",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "14:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "—",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "—",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "15:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "P. C.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "indicação",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "16:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "—",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "—",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "17:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "—",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "—",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "Três horários preenchidos. Uma única origem nos três.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Modelo ilustrativo · sem dados de paciente",
+          "sizePx": 17,
+          "family": "Consolas"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "500",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 27,
+      "worstContrast": 5.47,
+      "contrastPendingVisualCheck": 18,
+      "findings": [
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "08:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "10:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "13:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "14:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "16:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "17:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "—"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "s03",
+      "composition": "asymmetric-split",
+      "job": "diagnostico",
+      "mode": "type-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Diagnóstico",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Indicação é um canal sem volante.",
+          "sizePx": 66,
+          "family": "Georgia"
+        },
+        {
+          "text": "Você não escolhe quantas chegam, quando chegam, nem de qual procedimento. Quando o volume cai, não existe alavanca para puxar.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "O canal funciona. Ele só não obedece.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../assets/datta/datta-simbolo-branco.png",
+          "natural": [
+            512,
+            512
+          ],
+          "rendered": [
+            56,
+            56
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.25,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 4,
+      "id": "s04",
+      "composition": "diptych-comparison",
+      "job": "consequencia",
+      "mode": "image-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Você não consegue apontar a diferença.",
+          "sizePx": 64,
+          "family": "Georgia"
+        },
+        {
+          "text": "O mês que funcionou",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "O mês que não funcionou",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Mesma explicação registrada: nenhuma",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Sem origem anotada, o mês bom vira sorte e o mês ruim vira palpite.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/sala-espera-pexels-18623554.jpg",
+          "natural": [
+            2400,
+            3199
+          ],
+          "rendered": [
+            640,
+            853
+          ]
+        },
+        {
+          "src": "assets/sala-espera-pexels-18623554.jpg",
+          "natural": [
+            2400,
+            3199
+          ],
+          "rendered": [
+            640,
+            853
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.25,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 5,
+      "id": "s05",
+      "composition": "list-ladder",
+      "job": "limite",
+      "mode": "type-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Limite",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "O que a indicação não entrega.",
+          "sizePx": 68,
+          "family": "Georgia"
+        },
+        {
+          "text": "01",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Volume previsível de pacientes novos.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "02",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Escolha de qual procedimento entra na agenda.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "03",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Registro de origem de cada paciente que chega.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "04",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Custo conhecido por paciente novo.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Nada disso é defeito de quem indica. É limite do canal.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "../../assets/datta/datta-simbolo-preto.png",
+          "natural": [
+            512,
+            512
+          ],
+          "rendered": [
+            56,
+            56
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.47,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 6,
+      "id": "s06",
+      "composition": "vertical-route",
+      "job": "metodo",
+      "mode": "type-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Método",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Aquisição é uma cadeia, não um favor.",
+          "sizePx": 66,
+          "family": "Georgia"
+        },
+        {
+          "text": "Demanda que já existe na sua cidade.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Anúncio que alcança essa demanda.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Conversa respondida em tempo útil.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Agendamento e comparecimento.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Origem registrada em cada paciente.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Decisão",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "A indicação continua. Ela deixa de ser a única fonte e passa a ser uma fonte medida.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "600",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.25,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 7,
+      "id": "s07",
+      "composition": "framed-inset",
+      "job": "decisao",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Comece registrando a origem.",
+          "sizePx": 70,
+          "family": "Georgia"
+        },
+        {
+          "text": "Hora",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Paciente",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "Origem",
+          "sizePx": 17,
+          "family": "Consolas"
+        },
+        {
+          "text": "09:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "A. M.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "indicação",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "10:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "L. F.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "anúncio",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "11:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "R. S.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "busca",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "14:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "D. A.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "retorno",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "15:00",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "P. C.",
+          "sizePx": 27,
+          "family": "General Sans"
+        },
+        {
+          "text": "indicação",
+          "sizePx": 22,
+          "family": "Consolas"
+        },
+        {
+          "text": "Uma coluna por semana muda a conversa sobre o mês.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Proposta de CTA · salve e compare com a sua agenda desta semana",
+          "sizePx": 17,
+          "family": "Consolas"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Georgia",
+          "weight": "700",
+          "available": true
+        },
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "500",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/sala-espera-pexels-18623554.jpg",
+          "natural": [
+            2400,
+            3199
+          ],
+          "rendered": [
+            1080,
+            1440
+          ]
+        },
+        {
+          "src": "../../assets/datta/datta-lockup-mono-preto.png",
+          "natural": [
+            1600,
+            422
+          ],
+          "rendered": [
+            200,
+            53
+          ]
+        }
+      ],
+      "smallestBodyPx": 27,
+      "worstContrast": 5.49,
+      "contrastPendingVisualCheck": 13,
+      "findings": [
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Comece registrando a origem."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Hora"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Paciente"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Origem"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "09:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "A. M."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "indicação"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "10:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "L. F."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "anúncio"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "11:00"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "R. S."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "busca"
+        }
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "slide": "s01",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-s01-1080x1440.png",
+      "sha256": "30b18382318044c6e180aa9eecb8b984c78b3ec15ca57b7a19126dd66d44daf3"
+    },
+    {
+      "slide": "s02",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-s02-1080x1440.png",
+      "sha256": "710fddc6652cbdac33037516a57183864c3f30c1d127cb2e2dc90ebbd1ca5f6b"
+    },
+    {
+      "slide": "s03",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-s03-1080x1440.png",
+      "sha256": "71256c1a59fa80daae1e2f3f61ad7f1a2dfa412382ff017b3725d0410eab5168"
+    },
+    {
+      "slide": "s04",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-s04-1080x1440.png",
+      "sha256": "f468eb9d9b6d452398c70ddf40e550c7a4aed9fd5196ba5aaa989c1ef7a69a55"
+    },
+    {
+      "slide": "s05",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-s05-1080x1440.png",
+      "sha256": "b550c78617e9c431069cfd6a9ccd2c14ee066d073ef3f27cba3db5f3e4ee2ab1"
+    },
+    {
+      "slide": "s06",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-s06-1080x1440.png",
+      "sha256": "c9ebff2db1a06d6e268fa496549f2294807b6cf54111a734c4c782a98094faac"
+    },
+    {
+      "slide": "s07",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-s07-1080x1440.png",
+      "sha256": "21e18172ffef6d285531098a03137b00135b011d941c0f53f67ded04a0045cd8"
+    },
+    {
+      "slide": "contact-sheet",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\entregas\\post-10-indicacao\\exports\\post-10-contact-sheet.png",
+      "sha256": "442082ce44c2e320f715c2e2aa90076dd0bcef7a793aa67a0c92cc348928ac8e"
+    }
+  ],
+  "pageErrors": [],
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "inspect": 34
+  },
+  "verdict": "PENDENTE DE INSPEÇÃO VISUAL"
+}
