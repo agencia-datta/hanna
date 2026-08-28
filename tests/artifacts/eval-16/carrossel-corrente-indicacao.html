@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Datta — a corrente da indicação, desmontada</title>
+<style>
+@font-face{font-family:'Clash Display';src:url('../../../assets/datta/fonts/clash-display-600.woff2') format('woff2');font-weight:600;font-display:block;}
+@font-face{font-family:'Clash Display';src:url('../../../assets/datta/fonts/clash-display-700.woff2') format('woff2');font-weight:700;font-display:block;}
+@font-face{font-family:'General Sans';src:url('../../../assets/datta/fonts/general-sans-400.woff2') format('woff2');font-weight:400;font-display:block;}
+@font-face{font-family:'General Sans';src:url('../../../assets/datta/fonts/general-sans-500.woff2') format('woff2');font-weight:500;font-display:block;}
+@font-face{font-family:'General Sans';src:url('../../../assets/datta/fonts/general-sans-600.woff2') format('woff2');font-weight:600;font-display:block;}
+
+:root{
+  /* mundo expressivo derivado da fotografia: sombra de umbra, contraluz de
+     marfim quente. o acento é azul de tinta — a cor do registro, fria de
+     proposito contra a cena quente. paleta oficial da Datta nao selecionada. */
+  --umbra:#14110E;
+  --umbra-2:#1D1915;
+  --ivory:#EFE7DA;
+  --ink:#1A1611;
+  --ink-inv:#F3ECE0;
+  --support:#6A5F53;
+  --support-inv:#A79A8B;
+  --accent:#2440C8;
+  --accent-inv:#8FA4FF;
+  --line:rgba(26,22,17,.18);
+  --line-inv:rgba(243,236,224,.22);
+
+  --display:'Clash Display',system-ui,sans-serif;
+  --body:'General Sans',system-ui,sans-serif;
+  --mono:Consolas,'Cascadia Mono',ui-monospace,monospace;
+
+  --safe-x:80px; --safe-y:96px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;}
+body{background:#0A0B0D;padding:48px;display:flex;flex-direction:column;gap:48px;width:max-content;
+     font-family:var(--body);text-rendering:geometricPrecision;-webkit-font-smoothing:antialiased;}
+h1,h2,p,ol,ul{margin:0;}
+img{display:block;}
+
+.canvas{position:relative;width:1080px;height:1440px;overflow:hidden;isolation:isolate;
+        background:var(--ivory);color:var(--ink);}
+.grain{position:absolute;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:.10;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");}
+
+/* tipografia: escala unica — display 88 / titulo 62 / corpo 30 / rotulo 19 */
+.display{font-family:var(--display);font-weight:600;letter-spacing:-.036em;word-spacing:.07em;line-height:.99;}
+.title{font-family:var(--display);font-weight:600;letter-spacing:-.026em;word-spacing:.05em;line-height:1.03;font-size:62px;}
+.support{font-family:var(--body);font-weight:400;font-size:30px;line-height:1.46;}
+.label{font-family:var(--mono);font-size:19px;letter-spacing:.10em;text-transform:uppercase;}
+.fine{font-family:var(--mono);font-size:18px;letter-spacing:.07em;text-transform:uppercase;}
+
+.mark{position:absolute;width:60px;height:60px;object-fit:contain;}
+.lockup{position:absolute;width:200px;height:auto;object-fit:contain;}
+
+/* recorte fotografico: uma familia de ativo, quatro enquadramentos */
+.frame{position:absolute;overflow:hidden;}
+.frame img{position:absolute;}
+
+/* artefato proprio de ensino — construido no layout, nunca capturado */
+.ficha{position:absolute;background:#F7F2E9;border:1px solid var(--line);}
+.ficha .head{display:flex;justify-content:space-between;align-items:center;padding:0 30px;height:64px;
+             border-bottom:1px solid var(--line);}
+.ficha .row{display:grid;grid-template-columns:300px 1fr;align-items:center;height:82px;padding:0 30px;
+            border-top:1px solid var(--line);}
+.ficha .row:first-of-type{border-top:none;}
+.ficha .k{font-family:var(--mono);font-size:20px;letter-spacing:.05em;text-transform:uppercase;color:var(--support);}
+.ficha .v{height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 14px,transparent 14px 24px);}
+
+/* passagens: escada de lista */
+.step{position:absolute;display:grid;grid-template-columns:76px 1fr 260px;align-items:baseline;
+      padding-bottom:24px;border-bottom:1px solid var(--line);}
+.step .n{font-family:var(--mono);font-size:20px;letter-spacing:.06em;color:var(--support);}
+.step .t{font-family:var(--body);font-weight:500;font-size:36px;line-height:1.1;}
+.step .o{font-family:var(--mono);font-size:19px;letter-spacing:.07em;text-transform:uppercase;text-align:right;color:var(--support);}
+</style>
+</head>
+<body>
+
+<!-- ══ S01 — capa · sangria total · image-led ══════════════════════════════ -->
+<section class="canvas" data-slide="s01" data-composition="full-bleed" data-job="tensao" data-mode="image-led" data-over-image
+         style="background:var(--umbra);color:var(--ink-inv);">
+  <div class="frame" data-bleed style="inset:0;">
+    <img src="assets/mao-caneta-pexels-6830862.jpg" alt="" style="width:1180px;left:-50px;top:-210px;">
+  </div>
+  <!-- grade: escurece o campo inteiro um passo, sem matar o contraluz -->
+  <div style="position:absolute;inset:0;background:rgba(20,17,14,.30);"></div>
+  <!-- scrim direcional medido: forte na base, zero sobre a mao -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,17,14,.97) 0%,rgba(20,17,14,.93) 30%,rgba(20,17,14,.58) 48%,rgba(20,17,14,0) 66%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,17,14,.80) 0%,rgba(20,17,14,.30) 14%,rgba(20,17,14,0) 26%);"></div>
+  <div class="grain"></div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent-inv);">Observação</p>
+  <img class="mark" src="../../../assets/datta/datta-simbolo-branco.png" alt="" style="right:80px;top:96px;">
+
+  <h1 class="display" style="position:absolute;left:80px;top:836px;width:920px;font-size:88px;">
+    Uma indicação passa<br>por quatro mãos.<br>Só uma é a sua.
+  </h1>
+  <div style="position:absolute;left:80px;top:1152px;width:220px;height:2px;background:var(--accent-inv);"></div>
+  <p class="support" style="position:absolute;left:80px;top:1192px;width:760px;color:var(--ink-inv);">
+    Quem indica decide o volume do seu mês. Você decide o que fica registrado dele.
+  </p>
+</section>
+
+<!-- ══ S02 — as quatro passagens · escada de lista · type-led ══════════════ -->
+<section class="canvas" data-slide="s02" data-composition="list-ladder" data-job="paga-a-capa" data-mode="type-led">
+  <div class="grain"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent);">Modelo · como a indicação anda</p>
+
+  <h2 class="title" style="position:absolute;left:80px;top:168px;width:880px;">
+    As quatro passagens<br>de uma indicação.
+  </h2>
+
+  <div class="step" style="left:80px;top:420px;width:920px;">
+    <span class="n" style="color:var(--accent);">01</span>
+    <span class="t">O atendimento</span>
+    <span class="o" style="color:var(--accent);">Sua</span>
+  </div>
+  <div class="step" style="left:80px;top:568px;width:920px;">
+    <span class="n">02</span>
+    <span class="t" style="color:var(--support);">A conversa lá fora</span>
+    <span class="o">De quem indica</span>
+  </div>
+  <div class="step" style="left:80px;top:716px;width:920px;">
+    <span class="n">03</span>
+    <span class="t" style="color:var(--support);">O nome dito</span>
+    <span class="o">De quem indica</span>
+  </div>
+  <div class="step" style="left:80px;top:864px;width:920px;">
+    <span class="n">04</span>
+    <span class="t" style="color:var(--support);">O primeiro contato</span>
+    <span class="o">De quem chega</span>
+  </div>
+
+  <!-- colchete de medida: o trecho que a clinica nao opera -->
+  <div style="position:absolute;left:44px;top:568px;width:16px;height:340px;border-left:2px solid var(--accent);border-top:2px solid var(--accent);border-bottom:2px solid var(--accent);"></div>
+
+  <div style="position:absolute;left:80px;top:1030px;width:300px;height:1px;background:var(--accent);"></div>
+  <p class="support" style="position:absolute;left:80px;top:1064px;width:820px;">
+    Você opera a primeira. As outras três acontecem onde você não está — e é ali que o mês é decidido.
+  </p>
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1274px;color:var(--support);">
+    Modelo de trabalho da Datta · não é dado de pesquisa
+  </p>
+</section>
+
+<!-- ══ S03 — o que falta · macro extremo · recorrencia da imagem ══════════ -->
+<section class="canvas" data-slide="s03" data-composition="extreme-macro" data-job="diagnostico" data-mode="image-led" data-over-image
+         style="background:var(--umbra);color:var(--ink-inv);">
+  <div class="frame" data-bleed style="inset:0;">
+    <img src="assets/mao-caneta-pexels-6830862.jpg" alt="" style="width:2280px;left:-120px;top:-1573px;">
+  </div>
+  <div style="position:absolute;inset:0;background:rgba(20,17,14,.34);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(20,17,14,.96) 0%,rgba(20,17,14,.90) 34%,rgba(20,17,14,.50) 52%,rgba(20,17,14,0) 70%);"></div>
+  <div class="grain"></div>
+
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent-inv);">Diagnóstico</p>
+
+  <!-- colchete de medida sobre o papel em branco -->
+  <div style="position:absolute;left:150px;top:588px;width:430px;height:18px;border-bottom:2px solid var(--accent-inv);border-left:2px solid var(--accent-inv);border-right:2px solid var(--accent-inv);"></div>
+  <p class="fine" data-fine style="position:absolute;left:150px;top:526px;width:430px;text-align:center;color:#DCE3FF;
+     background:rgba(20,17,14,.78);padding:10px 0 12px;">Nada escrito aqui</p>
+
+  <h2 class="display" style="position:absolute;left:80px;top:836px;width:900px;font-size:74px;color:var(--ink-inv);">
+    Nenhuma delas deixa<br>rastro sozinha.
+  </h2>
+  <div style="position:absolute;left:80px;top:1042px;width:220px;height:2px;background:var(--accent-inv);"></div>
+  <p class="support" style="position:absolute;left:80px;top:1082px;width:850px;color:var(--ink-inv);">
+    Sem data, sem quem indicou e sem canal, a variação do mês vira memória.
+    E memória não se audita: ela se discute.
+  </p>
+</section>
+
+<!-- ══ S04 — artefato · ficha anotada · artifact-led ══════════════════════ -->
+<section class="canvas" data-slide="s04" data-composition="annotated-artifact" data-job="instrumento" data-mode="artifact-led">
+  <div class="grain"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent);">Modelo ilustrativo</p>
+
+  <h2 class="title" style="position:absolute;left:80px;top:168px;width:860px;">
+    Uma linha na ficha<br>transforma indicação<br>em dado.
+  </h2>
+
+  <div class="ficha" style="left:80px;top:452px;width:920px;">
+    <div class="head">
+      <span class="fine" data-fine style="color:var(--support);">Origem do paciente</span>
+      <span class="fine" data-fine style="color:var(--accent);">Exemplo ilustrativo</span>
+    </div>
+    <div class="row"><span class="k">Indicado por</span><span class="v"></span></div>
+    <div class="row"><span class="k">Data da indicação</span><span class="v"></span></div>
+    <div class="row"><span class="k">Já é paciente?</span><span class="v"></span></div>
+    <div class="row"><span class="k">Retorno avisado?</span><span class="v"></span></div>
+  </div>
+
+  <div style="position:absolute;left:80px;top:900px;width:920px;height:1px;background:var(--accent);"></div>
+  <p class="support" style="position:absolute;left:80px;top:936px;width:860px;">
+    Quatro campos preenchidos na recepção respondem, em trinta dias, quem indica,
+    com que frequência e o que acontece depois. Sem eles, a resposta é opinião.
+  </p>
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1274px;width:860px;color:var(--support);">
+    Ficha construída para ensino · sem dado de paciente e sem captura de sistema
+  </p>
+</section>
+
+<!-- ══ S05 — metodo · rota vertical ═══════════════════════════════════════ -->
+<section class="canvas" data-slide="s05" data-composition="vertical-route" data-job="metodo" data-mode="type-led"
+         style="background:var(--umbra);color:var(--ink-inv);">
+  <div class="grain"></div>
+  <p class="label" data-fine style="position:absolute;left:80px;top:96px;color:var(--accent-inv);">Decisão</p>
+
+  <h2 class="title" style="position:absolute;left:80px;top:168px;width:860px;color:var(--ink-inv);">
+    Três passagens voltam<br>a ser suas.
+  </h2>
+
+  <!-- linha de sinal com nós esparsos e um ponto final marcado -->
+  <div style="position:absolute;left:112px;top:452px;width:2px;height:600px;background:var(--line-inv);"></div>
+  <div style="position:absolute;left:100px;top:444px;width:26px;height:26px;border:2px solid var(--accent-inv);border-radius:50%;"></div>
+  <div style="position:absolute;left:100px;top:668px;width:26px;height:26px;border:2px solid var(--accent-inv);border-radius:50%;"></div>
+  <div style="position:absolute;left:100px;top:892px;width:26px;height:26px;background:var(--accent-inv);border-radius:50%;"></div>
+
+  <p class="fine" data-fine style="position:absolute;left:196px;top:440px;color:var(--accent-inv);">Pedir</p>
+  <p class="support" style="position:absolute;left:196px;top:478px;width:790px;color:var(--ink-inv);">
+    No fim do atendimento, com uma frase combinada — não no boleto, não no grupo.
+  </p>
+
+  <p class="fine" data-fine style="position:absolute;left:196px;top:664px;color:var(--accent-inv);">Registrar</p>
+  <p class="support" style="position:absolute;left:196px;top:702px;width:790px;color:var(--ink-inv);">
+    Quem indicou, quando e em qual ficha. Um campo, preenchido sempre, vale mais
+    que um relatório trimestral.
+  </p>
+
+  <p class="fine" data-fine style="position:absolute;left:196px;top:888px;color:var(--accent-inv);">Devolver</p>
+  <p class="support" style="position:absolute;left:196px;top:926px;width:790px;color:var(--ink-inv);">
+    Avise quem indicou que a pessoa chegou. A segunda indicação nasce dessa
+    devolutiva.
+  </p>
+
+  <div style="position:absolute;left:80px;top:1178px;width:300px;height:1px;background:var(--accent-inv);"></div>
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1212px;width:860px;color:var(--support-inv);">
+    Nenhuma das três depende de aumentar verba
+  </p>
+</section>
+
+<!-- ══ S06 — retorno transformado · split assimétrico ═════════════════════ -->
+<section class="canvas" data-slide="s06" data-composition="asymmetric-split" data-job="fecho" data-mode="image-led">
+  <div class="frame" data-bleed style="left:0;top:0;width:1080px;height:700px;">
+    <img src="assets/mao-caneta-pexels-6830862.jpg" alt="" style="width:1420px;left:-100px;top:-753px;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,17,14,.55) 0%,rgba(20,17,14,.12) 30%,rgba(20,17,14,.05) 100%);"></div>
+  </div>
+  <div class="grain"></div>
+
+  <!-- ponto final marcado na ponta da caneta: onde o dado passa a existir -->
+  <div data-bleed style="position:absolute;left:400px;top:514px;width:22px;height:22px;background:var(--accent);border-radius:50%;"></div>
+  <div data-bleed style="position:absolute;left:422px;top:524px;width:158px;height:2px;background:var(--accent);"></div>
+  <p class="label" data-fine data-over-image style="position:absolute;left:596px;top:512px;color:#F3ECE0;">Registro</p>
+
+  <h2 class="display" style="position:absolute;left:80px;top:812px;width:900px;font-size:72px;color:var(--ink);">
+    Indicação medida<br>continua sendo indicação.
+  </h2>
+  <p class="support" style="position:absolute;left:80px;top:1010px;width:820px;">
+    Ela só deixa de ser sorte. O que muda não é o paciente que confia em você —
+    é a sua capacidade de saber quando isso acontece, e por quê.
+  </p>
+  <div style="position:absolute;left:80px;top:1188px;width:920px;height:1px;background:var(--line);"></div>
+  <p class="fine" data-fine style="position:absolute;left:80px;top:1220px;width:640px;color:var(--accent);">
+    Proposta de CTA · salve para a próxima reunião de agenda
+  </p>
+  <img class="lockup" src="../../../assets/datta/datta-lockup-mono-preto.png" alt="" style="right:80px;bottom:96px;">
+</section>
+
+</body>
+</html>

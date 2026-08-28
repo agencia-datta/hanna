@@ -2,6 +2,15 @@
 
 Avaliação: **pass**, com um desvio de protocolo que o próprio cenário provoca.
 
+> **Resolvido: o cenário 13 foi aposentado.** Este registro é o que estabeleceu
+> que ele não testa nada — a skill monta, exporta e roda o preflight no mesmo
+> turno em que planeja, então o pedido de acompanhamento não provoca execução.
+> A montagem a partir de um plano que a skill não escreveu já é coberta pelo
+> cenário 9, que parte de uma fixture. A disciplina de preflight que era
+> exclusiva daqui virou o critério `Preflight honesty`, pontuado em todo
+> cenário que produz arte. O número foi mantido em `skill-evals.md` para os
+> registros existentes seguirem apontando para o cenário certo.
+
 ## Cenário
 
 > Monte e exporte o carrossel de cinco lâminas que você acabou de planejar,

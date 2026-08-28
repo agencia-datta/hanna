@@ -1,0 +1,648 @@
+{
+  "tool": "hanna/scripts/render.cjs",
+  "generatedAt": "2026-08-28T05:25:50.179Z",
+  "input": {
+    "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\carrossel-corrente-indicacao.html",
+    "sha256": "a9005008dffcbcbe0b82de1d9938422b314c5f36588a67f0470eb9d570f79f98"
+  },
+  "browser": {
+    "version": "151.0.7922.174",
+    "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "origin": "sistema"
+  },
+  "settings": {
+    "safeArea": {
+      "x": 80,
+      "top": 96,
+      "bottom": 96
+    },
+    "minBodyPx": 27,
+    "minFinePx": 16,
+    "minContrast": 4.5,
+    "exportScale": 1,
+    "previewScale": 0.4
+  },
+  "rhythm": {
+    "declared": 6,
+    "distinct": 6,
+    "slides": 6
+  },
+  "slides": [
+    {
+      "index": 1,
+      "id": "s01",
+      "composition": "full-bleed",
+      "job": "tensao",
+      "mode": "image-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Observação",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Uma indicação passa por quatro mãos. Só uma é a sua.",
+          "sizePx": 88,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Quem indica decide o volume do seu mês. Você decide o que fica registrado dele.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/mao-caneta-pexels-6830862.jpg",
+          "natural": [
+            2333,
+            3500
+          ],
+          "rendered": [
+            1180,
+            1770
+          ]
+        },
+        {
+          "src": "../../../assets/datta/datta-simbolo-branco.png",
+          "natural": [
+            512,
+            512
+          ],
+          "rendered": [
+            60,
+            60
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": null,
+      "contrastPendingVisualCheck": 3,
+      "findings": [
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Observação"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Uma indicação passa por quatro mãos. Só uma é a sua."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Quem indica decide o volume do seu mês. Você decide o que fi"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "s02",
+      "composition": "list-ladder",
+      "job": "paga-a-capa",
+      "mode": "type-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Modelo · como a indicação anda",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "As quatro passagens de uma indicação.",
+          "sizePx": 62,
+          "family": "Clash Display"
+        },
+        {
+          "text": "01",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "O atendimento",
+          "sizePx": 36,
+          "family": "General Sans"
+        },
+        {
+          "text": "Sua",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "02",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "A conversa lá fora",
+          "sizePx": 36,
+          "family": "General Sans"
+        },
+        {
+          "text": "De quem indica",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "03",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "O nome dito",
+          "sizePx": 36,
+          "family": "General Sans"
+        },
+        {
+          "text": "De quem indica",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "04",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "O primeiro contato",
+          "sizePx": 36,
+          "family": "General Sans"
+        },
+        {
+          "text": "De quem chega",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Você opera a primeira. As outras três acontecem onde você não está — e é ali que o mês é decidido.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Modelo de trabalho da Datta · não é dado de pesquisa",
+          "sizePx": 18,
+          "family": "Consolas"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "500",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.07,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 3,
+      "id": "s03",
+      "composition": "extreme-macro",
+      "job": "diagnostico",
+      "mode": "image-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Diagnóstico",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Nada escrito aqui",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Nenhuma delas deixa rastro sozinha.",
+          "sizePx": 74,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Sem data, sem quem indicou e sem canal, a variação do mês vira memória. E memória não se audita: ela se discute.",
+          "sizePx": 30,
+          "family": "General Sans"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/mao-caneta-pexels-6830862.jpg",
+          "natural": [
+            2333,
+            3500
+          ],
+          "rendered": [
+            2280,
+            3420
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": null,
+      "contrastPendingVisualCheck": 4,
+      "findings": [
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Diagnóstico"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Nada escrito aqui"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Nenhuma delas deixa rastro sozinha."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Sem data, sem quem indicou e sem canal, a variação do mês vi"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "id": "s04",
+      "composition": "annotated-artifact",
+      "job": "instrumento",
+      "mode": "artifact-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Modelo ilustrativo",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Uma linha na ficha transforma indicação em dado.",
+          "sizePx": 62,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Origem do paciente",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Exemplo ilustrativo",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Indicado por",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "Data da indicação",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "Já é paciente?",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "Retorno avisado?",
+          "sizePx": 20,
+          "family": "Consolas"
+        },
+        {
+          "text": "Quatro campos preenchidos na recepção respondem, em trinta dias, quem indica, com que frequência e o que acontece depois. Sem eles, a resposta é opinião.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Ficha construída para ensino · sem dado de paciente e sem captura de sistema",
+          "sizePx": 18,
+          "family": "Consolas"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 30,
+      "worstContrast": 5.07,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 5,
+      "id": "s05",
+      "composition": "vertical-route",
+      "job": "metodo",
+      "mode": "type-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Decisão",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Três passagens voltam a ser suas.",
+          "sizePx": 62,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Pedir",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "No fim do atendimento, com uma frase combinada — não no boleto, não no grupo.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Registrar",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Quem indicou, quando e em qual ficha. Um campo, preenchido sempre, vale mais que um relatório trimestral.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Devolver",
+          "sizePx": 18,
+          "family": "Consolas"
+        },
+        {
+          "text": "Avise quem indicou que a pessoa chegou. A segunda indicação nasce dessa devolutiva.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Nenhuma das três depende de aumentar verba",
+          "sizePx": 18,
+          "family": "Consolas"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [],
+      "smallestBodyPx": 30,
+      "worstContrast": 6.84,
+      "contrastPendingVisualCheck": 0,
+      "findings": []
+    },
+    {
+      "index": 6,
+      "id": "s06",
+      "composition": "asymmetric-split",
+      "job": "fecho",
+      "mode": "image-led",
+      "canvas": {
+        "width": 1080,
+        "height": 1440
+      },
+      "text": [
+        {
+          "text": "Registro",
+          "sizePx": 19,
+          "family": "Consolas"
+        },
+        {
+          "text": "Indicação medida continua sendo indicação.",
+          "sizePx": 72,
+          "family": "Clash Display"
+        },
+        {
+          "text": "Ela só deixa de ser sorte. O que muda não é o paciente que confia em você — é a sua capacidade de saber quando isso acontece, e por quê.",
+          "sizePx": 30,
+          "family": "General Sans"
+        },
+        {
+          "text": "Proposta de CTA · salve para a próxima reunião de agenda",
+          "sizePx": 18,
+          "family": "Consolas"
+        }
+      ],
+      "fonts": [
+        {
+          "family": "Consolas",
+          "weight": "400",
+          "available": true
+        },
+        {
+          "family": "Clash Display",
+          "weight": "600",
+          "available": true
+        },
+        {
+          "family": "General Sans",
+          "weight": "400",
+          "available": true
+        }
+      ],
+      "images": [
+        {
+          "src": "assets/mao-caneta-pexels-6830862.jpg",
+          "natural": [
+            2333,
+            3500
+          ],
+          "rendered": [
+            1420,
+            2130
+          ]
+        },
+        {
+          "src": "../../../assets/datta/datta-lockup-mono-preto.png",
+          "natural": [
+            1600,
+            422
+          ],
+          "rendered": [
+            200,
+            53
+          ]
+        }
+      ],
+      "smallestBodyPx": 30,
+      "worstContrast": null,
+      "contrastPendingVisualCheck": 4,
+      "findings": [
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Registro"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Indicação medida continua sendo indicação."
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Ela só deixa de ser sorte. O que muda não é o paciente que c"
+        },
+        {
+          "level": "inspect",
+          "check": "contraste",
+          "message": "Contraste sobre imagem/gradiente: confirmar na inspeção visual",
+          "detail": "Proposta de CTA · salve para a próxima reunião de agenda"
+        }
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "slide": "s01",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\exports\\carrossel-corrente-indicacao-s01-1080x1440.png",
+      "sha256": "514f9587c63995bc2b5bfaeacfa94fdfa969977b3e9e33b937ab40e9aac67100"
+    },
+    {
+      "slide": "s02",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\exports\\carrossel-corrente-indicacao-s02-1080x1440.png",
+      "sha256": "6a2913227267c9d75f14c33bb7db8bd49eb217ecda69547de3ed6eb4968eb2c5"
+    },
+    {
+      "slide": "s03",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\exports\\carrossel-corrente-indicacao-s03-1080x1440.png",
+      "sha256": "175d59d163cd4c09d738b5a69442b8972d7e225ba1495a0048d184ba074a72d4"
+    },
+    {
+      "slide": "s04",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\exports\\carrossel-corrente-indicacao-s04-1080x1440.png",
+      "sha256": "01009ad1c4b15dea351a4035e569c58d65f0fb017857a4026d28e2fe93200669"
+    },
+    {
+      "slide": "s05",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\exports\\carrossel-corrente-indicacao-s05-1080x1440.png",
+      "sha256": "020c8fd2661100d745a606497592efbb437127fe0b905f7f92e61a203a2baa98"
+    },
+    {
+      "slide": "s06",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\exports\\carrossel-corrente-indicacao-s06-1080x1440.png",
+      "sha256": "97975b70a5e67551457eaef73b94057a9bbcad2442f401bd659912c92f2dbed3"
+    },
+    {
+      "slide": "contact-sheet",
+      "path": "C:\\Users\\lucas\\dev\\hanna\\tests\\artifacts\\eval-16\\exports\\carrossel-corrente-indicacao-contact-sheet.png",
+      "sha256": "8faed9ca7580481d18546578344426055f0be6a30546fff797808045120e2873"
+    }
+  ],
+  "pageErrors": [],
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "inspect": 11
+  },
+  "verdict": "PENDENTE DE INSPEÇÃO VISUAL"
+}
