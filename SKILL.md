@@ -112,7 +112,7 @@ must not be described as ready to publish or launch while those fields remain.
 | Path | Purpose |
 | --- | --- |
 | `scripts/render.cjs` | Renders a production HTML to 1080 × 1440 PNGs, runs automated preflight, writes a contact sheet and a manifest with SHA-256 |
-| `scripts/fetch-stock.cjs` | Runs the bounded bank search and writes the provenance record the gates require; falls back to printing the exact search and licence pages |
+| `scripts/fetch-stock.cjs` | Runs the bounded bank search and writes the provenance record the gates require; `--select` records the gate decision, fires Unsplash's download trigger, and emits the credit line; falls back to printing the exact search and licence pages |
 | `assets/templates/canvas-starter.html` | Structural scaffolding: exact canvas, safe-area guides, font loading, scrim and grain utilities, renderer annotations |
 | `assets/datta/` | Exact brand files: logos, fonts, tokens. Never redraw or approximate |
 

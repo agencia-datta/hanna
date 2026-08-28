@@ -31,8 +31,10 @@ labelled as such. See [Direction questions](direction-questions.md).
 | Profundidade | Média, 5–7 lâminas | Seven slides complete the argument without padding |
 | Ação | Salvar | The last slide has to leave a reusable audit behind |
 
-When the user declines the round, this block still appears — as
-`PREMISSAS ASSUMIDAS`, with each decision attributed to the agent.
+When the user declines the round, the same five decisions still appear, under a
+heading that reads clearly for the piece, each attributed to the agent and each
+marked reversible. The heading's wording is free; leaving a decision implicit is
+not.
 
 ## Concept
 

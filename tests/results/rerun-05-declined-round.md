@@ -1,6 +1,13 @@
-# GREEN 15 — rodada de direção recusada
+# RERUN 05 — rodada de direção recusada, depois da correção do rótulo
 
 Avaliação: **pass**.
+
+> **Não substitui [green-15-declined-round.md](green-15-declined-round.md).** Aquele
+> é o registro original, de 2026-08-24, que passou em 4 de 5 — o parcial era o
+> rótulo literal `PREMISSAS ASSUMIDAS`, que a referência prescrevia e o agente
+> não usou. O PR #15 trocou a exigência de rótulo por exigência de substância.
+> Esta é uma reexecução depois daquela correção, com executor novo e contexto
+> limpo, para ver se o critério 2 fecha. Fecha.
 
 ## Cenário
 

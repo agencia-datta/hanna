@@ -13,7 +13,7 @@ Dois, e nenhum é cosmético:
 
 1. **"cinco lâminas" virou "seis".** O cenário exige rodar isto depois de um
    cenário de planejamento. O planejamento usado foi o
-   [GREEN 15](green-15-declined-direction-round.md), que produziu **seis**
+   [RERUN 05](rerun-05-declined-round.md), que produziu **seis**
    lâminas. Mandar o prompt literal criaria uma contradição com o plano que
    acabara de ser feito, então o número foi ajustado e nada mais foi tocado.
 2. **A montagem já tinha acontecido.** O cenário pressupõe um planejamento que

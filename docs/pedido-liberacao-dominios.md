@@ -1,25 +1,68 @@
 # Pedido de liberação de domínios — bancos de imagem
 
-## Antes de enviar: pode ser autoatendimento
+## Faça você mesmo: é autoatendimento
 
-O acesso de saída de uma sessão do Claude Code na web é definido pela **política
-de rede do ambiente**, escolhida no momento em que o ambiente é criado. Se você
-criou este ambiente, talvez consiga trocar a política ou criar um ambiente novo
-com uma política mais permissiva, sem depender de ninguém.
+O acesso de saída é definido pela **política de rede do ambiente**, e você mesmo
+edita. Não precisa de ticket nem de admin — cada ambiente tem a própria lista, e
+não existe allowlist no nível da organização.
 
-Documentação: https://code.claude.com/docs/en/claude-code-on-the-web
+### Por que a primeira tentativa provavelmente falhou
 
-Este ambiente é o **`Default`** (`env_014mgR5cYgoaPfRqqRxu3phQ`, tipo
-`anthropic_cloud`), cuja política é o preset descrito como *trusted network
-access*. Na prática esse preset libera apenas infraestrutura de código. A troca
-é feita nas configurações do Claude Code na web — criando um ambiente com
-política mais ampla, ou alterando a deste. **Não é possível alterar de dentro de
-uma sessão governada pela política**, o que é o comportamento correto: uma
-sessão não deve poder ampliar o próprio acesso.
+Duas armadilhas, ambas documentadas:
 
-Se a política for gerida por outra pessoa, use o texto abaixo.
+1. **Não existe página de configurações nem URL direta** para o seletor de
+   ambiente. Ele é um **ícone de nuvem com o nome do ambiente atual, na linha
+   logo acima da caixa de mensagem**, em `claude.ai/code`.
+2. O nível **Trusted** — o padrão, e onde o ambiente `Default` está hoje — **não
+   tem campo de domínios**. A lista dele é fixa. Só o nível **Custom** abre o
+   campo `Allowed domains`.
+
+### Passo a passo
+
+1. Em `claude.ai/code`, clique no **ícone de nuvem** na linha acima da caixa de
+   mensagem. É o seletor de ambientes.
+2. Passe o mouse sobre o ambiente **Default** e clique no **ícone de engrenagem**
+   que aparece à direita.
+3. No campo **Network access**, troque de `Trusted` para **`Custom`**.
+4. Marque a opção de **incluir os domínios padrão**. Sem isso você perde npm,
+   PyPI, GitHub e o resto de que a sessão depende para trabalhar.
+5. No campo **Allowed domains**, cole um domínio por linha:
+
+```
+api.pexels.com
+www.pexels.com
+images.pexels.com
+api.unsplash.com
+unsplash.com
+images.unsplash.com
+pixabay.com
+cdn.pixabay.com
+*.frame.claudeusercontent.com
+```
+
+6. Salve e **abra uma sessão nova**. A política vale a partir da próxima sessão.
+
+> **A última linha não é opcional.** `*.frame.claudeusercontent.com` é o host de
+> onde o Claude Code lê o conteúdo dos artifacts. Em `Trusted` ele já vem
+> incluído; ao trocar para `Custom` você precisa declará-lo, senão as sessões
+> nesse ambiente param de conseguir ler artifacts.
+
+### Níveis disponíveis
+
+| Nível | Conexões de saída |
+| --- | --- |
+| None | Nenhuma |
+| Trusted | Só a allowlist padrão: registries de pacote, GitHub, SDKs de nuvem |
+| Full | Qualquer domínio |
+| **Custom** | Sua própria lista, opcionalmente somada aos padrões |
+
+Documentação: https://code.claude.com/docs/en/cloud-environments
 
 ---
+
+Se, e só se, o ambiente for **compartilhado pela organização**, quem edita é um
+Owner, na página *Cloud environments* das configurações de administração. Nesse
+caso use o texto abaixo.
 
 ## Versão curta (ticket ou mensagem)
 

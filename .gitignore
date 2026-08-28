@@ -1,0 +1,4 @@
+# Saída do sourcing de banco de imagem (scripts/fetch-stock.cjs).
+# Imagens baixadas e o registro de proveniência local não entram no repo.
+stock/
+stock-teste/

@@ -20,7 +20,19 @@ Sem chave, ou com `--manual`, imprime as páginas exatas de busca e de licença
 para trabalhar à mão.
 
 Ele **não seleciona** candidato: os cinco gates continuam sendo julgamento seu, e
-direitos seguem sendo gate rígido. No ambiente remoto do Claude Code os
+direitos seguem sendo gate rígido. Depois de aplicar os gates, registre a decisão:
+
+```bash
+node scripts/fetch-stock.cjs --select "ZhCOcbnvSvU,pexels-30285468.jpg" --out peca/assets
+```
+
+O `--select` aceita id do ativo ou nome do arquivo, marca os escolhidos como
+`selected` e todo o resto como `rejected`, e — para os do Unsplash — dispara o
+endpoint `download_location`, que as API Guidelines exigem quando a foto é de
+fato usada. O disparo mora na seleção, não na busca, porque é a escolha humana
+que caracteriza uso. O registro também traz a linha de crédito pronta em
+`attribution`, e os links do Unsplash já saem com os parâmetros UTM de
+atribuição. No ambiente remoto do Claude Code os
 provedores respondem 403 por política de rede — o script diagnostica isso e
 indica rodar onde a rede alcança.
 

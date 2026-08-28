@@ -2,6 +2,13 @@
 
 Avaliação: **pass**, com um critério **não exercitado** (ver abaixo).
 
+> **Substitui o registro de 2026-08-24.** Aquele registro declarou o cenário
+> `NÃO EXECUTÁVEL NESTE ARRANJO`: rodado em subagente, sem a ferramenta de
+> pergunta de múltipla escolha, sete dos nove critérios não podiam ser
+> exercidos. Ele terminava pedindo uma sessão interativa com interlocutor
+> humano e deixava o prompt pronto para colar. É exatamente essa execução que
+> este arquivo registra.
+
 ## Cenário
 
 > Quero um carrossel para o Instagram da Agência Datta sobre clínicas que
