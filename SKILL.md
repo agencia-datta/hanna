@@ -122,6 +122,10 @@ node scripts/render.cjs peca.html --guides        # also export safe-area overla
 node scripts/render.cjs peca.html --check-only    # preflight without exporting
 ```
 
+For a paid placement set, put every placement and variant in one HTML with
+`data-placement` on each canvas; the preflight applies the per-placement safe
+area and checks the ad naming convention against the canvas.
+
 The preflight measures safe areas, WCAG contrast, text collision, overflow,
 minimum type size, font loading, image resolution, and macro-composition
 distinctness. It is a floor, not a verdict: items marked `INSPEÇÃO` are text

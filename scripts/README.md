@@ -71,8 +71,50 @@ HANNA_BROWSER_PATH="/usr/bin/google-chrome" node scripts/render.cjs peca.html
 | `data-bleed` | Autoriza o elemento a sangrar fora da safe area |
 | `data-fine` | Autoriza rótulo/fonte/período abaixo do corpo mínimo (piso absoluto: 16 px) |
 | `data-over-image` | Texto sobre foto: contraste vai para inspeção visual |
+| `data-placement="story"` | Marca a lâmina como anúncio; aplica o envelope da colocação e confere o nome |
+| `data-safe="80 270 384"` | Safe area explícita desta lâmina (lateral, topo, base), em px |
 
 Sem `[data-slide]` nem `[data-slide-id]`, o script cai para `.canvas`.
+
+### Safe area por lâmina
+
+A safe area é resolvida para cada lâmina, nesta ordem: `data-safe` da lâmina →
+`--safe-x/--safe-top/--safe-bottom` passados na linha de comando → colocação
+paga em `data-placement` → canvas. Valores de trabalho:
+
+| Origem | Lateral / topo / base |
+| --- | --- |
+| Canvas 1080 × 1440 e 1080 × 1350 | 80 / 96 / 96 |
+| Canvas 1080 × 1080 | 80 / 80 / 80 |
+| Canvas 1080 × 1920 (story orgânico) | 80 / 120 / 240 |
+| `data-placement="story"`, `"stories"` ou `"reels"` (anúncio) | 80 / 270 / 384 |
+
+O envelope pago é ~14% do topo e ~20% da base de 1920, onde a interface do
+anúncio fica. São valores de trabalho das referências, não regra da Meta:
+confira na documentação atual antes de assinar um launch. A safe area aplicada e
+a origem dela saem no console e em `slides[].safeArea` do manifest.
+
+### Conjunto de anúncios
+
+Feed, story e variantes podem morar no mesmo HTML. Quando **todas** as lâminas
+têm `data-placement`, o arquivo é tratado como conjunto de anúncios:
+
+- cada lâmina usa a safe area da sua colocação, sem precisar de flag;
+- o id segue `[objetivo]_[público]_[ângulo]_[formato]_[variante]`
+  (ex.: `MSG_frio_problema_9x16_v1`). Nome fora da convenção é `ATENÇÃO`; token
+  de formato (`3x4`, `4x5`, `1x1`, `9x16`) que não bate com o canvas é `FALHA`,
+  porque sobe o arquivo errado na colocação errada;
+- a regra de três macro-composições de carrossel não se aplica — variantes de
+  um eixo mantêm a arte constante de propósito;
+- a mesma variante em canvases diferentes com a mesma `data-composition` gera
+  `ATENÇÃO`: colocação se recompõe, não se estica.
+
+```html
+<section data-slide="MSG_frio_problema_3x4_v1" data-placement="feed"
+         data-composition="annotated-artifact">…</section>
+<section data-slide="MSG_frio_problema_9x16_v1" data-placement="story"
+         data-composition="vertical-route">…</section>
+```
 
 Prévias e folhas de contato construídas no próprio HTML costumam clonar as
 lâminas e reduzi-las por `transform: scale(...)`. Essas cópias são descartadas
@@ -129,7 +171,8 @@ Saída: um PNG por lâmina, uma folha de contato na escala de prévia, um
 --preview-scale <n>    escala da folha de contato (padrão: 0.4)
 --no-contact-sheet     não gerar a folha de contato
 --guides               exportar também as versões com guias de safe area
---safe-x/--safe-top/--safe-bottom <px>   safe area (padrão: 80 / 96 / 96)
+--safe-x/--safe-top/--safe-bottom <px>   força a safe area em todas as lâminas
+                       (sem flag: por lâmina, ver "Safe area por lâmina")
 --min-body-px <n>      corpo mínimo no canvas 1080 (padrão: 27)
 --min-fine-px <n>      piso absoluto para rótulos (padrão: 16)
 --min-contrast <n>     contraste mínimo para texto (padrão: 4.5)

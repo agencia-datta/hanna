@@ -16,9 +16,11 @@
  *   --preview-scale <n>    escala da prévia de celular (padrão: 0.4)
  *   --no-contact-sheet     não gerar a folha de contato
  *   --guides               exportar também uma versão com as guias de safe area
- *   --safe-x <px>          safe area lateral (padrão: 80)
- *   --safe-top <px>        safe area superior (padrão: 96)
- *   --safe-bottom <px>     safe area inferior (padrão: 96)
+ *   --safe-x <px>          força a safe area lateral em todas as lâminas
+ *   --safe-top <px>        força a safe area superior em todas as lâminas
+ *   --safe-bottom <px>     força a safe area inferior em todas as lâminas
+ *                          (sem as três, a safe area sai do canvas e da
+ *                          colocação de cada lâmina — ver SAFE_BY_CANVAS)
  *   --min-body-px <n>      corpo mínimo em px no canvas 1080 (padrão: 27)
  *   --min-fine-px <n>      piso absoluto para rótulo/fonte/ID (padrão: 16)
  *   --min-contrast <n>     contraste WCAG mínimo para texto (padrão: 4.5)
@@ -33,6 +35,10 @@
  *   data-bleed              elemento autorizado a sangrar fora da safe area
  *   data-fine               texto fino autorizado abaixo do corpo mínimo
  *   data-over-image         texto sobre foto: contraste vai para inspeção visual
+ *   data-placement="..."    colocação paga (feed, square, story, reels...):
+ *                           marca a lâmina como anúncio, aplica o envelope
+ *                           da colocação e confere o nome contra o canvas
+ *   data-safe="x top bottom" safe area explícita desta lâmina, em px
  *   ?guides=1               o template do starter mostra as guias de safe area
  */
 
@@ -108,6 +114,28 @@ function findBrowser() {
   return { executablePath: null, origin: "bundle do playwright" };
 }
 
+/* ── safe area por canvas e por colocação ───────────────────────────────── */
+
+/* Valores de trabalho das referências (datta-brand.md, instagram-mechanics.md,
+   paid-ads.md). Não são regra de plataforma: conferir na documentação atual da
+   Meta antes de assinar um launch. */
+const SAFE_BY_CANVAS = {
+  "1080x1440": { x: 80, top: 96, bottom: 96 },
+  "1080x1350": { x: 80, top: 96, bottom: 96 },
+  "1080x1080": { x: 80, top: 80, bottom: 80 },
+  "1080x1920": { x: 80, top: 120, bottom: 240 }
+};
+const SAFE_FALLBACK = { x: 80, top: 96, bottom: 96 };
+/* Em Stories/Reels pagos a interface do anúncio (nome, patrocinado, CTA) ocupa
+   faixas maiores que no orgânico: ~14% do topo e ~20% da base de 1920. */
+const SAFE_BY_PLACEMENT = {
+  story: { x: 80, top: 270, bottom: 384 },
+  stories: { x: 80, top: 270, bottom: 384 },
+  reels: { x: 80, top: 270, bottom: 384 }
+};
+/* Token de formato da convenção [objetivo]_[público]_[ângulo]_[formato]_[variante]. */
+const FORMAT_TOKENS = { "3x4": "1080x1440", "4x5": "1080x1350", "1x1": "1080x1080", "9x16": "1080x1920" };
+
 /* ── argumentos ─────────────────────────────────────────────────────────── */
 
 function parseArgs(argv) {
@@ -119,9 +147,9 @@ function parseArgs(argv) {
     previewScale: 0.4,
     contactSheet: true,
     guides: false,
-    safeX: 80,
-    safeTop: 96,
-    safeBottom: 96,
+    safeX: null,
+    safeTop: null,
+    safeBottom: null,
     minBodyPx: 27,
     minFinePx: 16,
     minContrast: 4.5,
@@ -176,9 +204,26 @@ const sha256 = (file) => crypto.createHash("sha256").update(fs.readFileSync(file
 /* ── auditoria executada dentro da página ───────────────────────────────── */
 
 function auditInPage(config) {
-  const SAFE_X = config.safeX;
-  const SAFE_TOP = config.safeTop;
-  const SAFE_BOTTOM = config.safeBottom;
+  /* Precedência: data-safe da lâmina > flag explícita > colocação > canvas. */
+  const resolveSafe = (slide, key) => {
+    const declared = (slide.getAttribute("data-safe") || "").trim().split(/\s+/).map(Number);
+    if (declared.length === 3 && declared.every(Number.isFinite)) {
+      return { x: declared[0], top: declared[1], bottom: declared[2], origin: "data-safe" };
+    }
+    const placement = (slide.getAttribute("data-placement") || "").toLowerCase();
+    const base = config.safeByPlacement[placement]
+      ? { ...config.safeByPlacement[placement], origin: `colocação ${placement}` }
+      : config.safeByCanvas[key]
+        ? { ...config.safeByCanvas[key], origin: `canvas ${key}` }
+        : { ...config.safeFallback, origin: "padrão" };
+    const forced = { x: config.safeX, top: config.safeTop, bottom: config.safeBottom };
+    const overridden = Object.keys(forced).filter((side) => forced[side] !== null);
+    overridden.forEach((side) => {
+      base[side] = forced[side];
+    });
+    if (overridden.length) base.origin = overridden.length === 3 ? "flag" : `${base.origin} + flag ${overridden.join("/")}`;
+    return base;
+  };
   const MIN_BODY = config.minBodyPx;
   const MIN_FINE = config.minFinePx;
   const MIN_CONTRAST = config.minContrast;
@@ -340,18 +385,34 @@ function auditInPage(config) {
 
     const width = Math.round(slideBox.width);
     const height = Math.round(slideBox.height);
+    const canvasKey = `${width}x${height}`;
     const knownCanvases = ["1080x1440", "1080x1350", "1080x1080", "1080x1920", "1200x628"];
-    if (!knownCanvases.includes(`${width}x${height}`)) {
+    if (!knownCanvases.includes(canvasKey)) {
       add("warn", "canvas", `Canvas ${width} × ${height} fora dos formatos usuais`, knownCanvases.join(", "));
+    }
+
+    const id = slide.getAttribute("data-slide") || slide.getAttribute("data-slide-id") || slide.id || `s${String(index + 1).padStart(2, "0")}`;
+    const placement = slide.getAttribute("data-placement") || null;
+    if (placement) {
+      /* O nome é o que sobrevive no Gerenciador. Um token de formato que não
+         bate com o canvas sobe o arquivo errado na colocação errada. */
+      const parts = id.split("_");
+      const token = parts.find((part) => config.formatTokens[part.toLowerCase()]);
+      if (parts.length < 5 || !token) {
+        add("warn", "nome-anuncio", "Nome fora da convenção [objetivo]_[público]_[ângulo]_[formato]_[variante]", id);
+      } else if (config.formatTokens[token.toLowerCase()] !== canvasKey) {
+        add("fail", "nome-anuncio", `Formato "${token}" no nome não corresponde ao canvas ${width} × ${height}`, id);
+      }
     }
 
     const scale = width / 1080;
     const minBody = MIN_BODY * scale;
+    const safeArea = resolveSafe(slide, canvasKey);
     const safe = {
-      left: slideBox.left + SAFE_X * scale,
-      right: slideBox.right - SAFE_X * scale,
-      top: slideBox.top + SAFE_TOP * scale,
-      bottom: slideBox.bottom - SAFE_BOTTOM * scale
+      left: slideBox.left + safeArea.x * scale,
+      right: slideBox.right - safeArea.x * scale,
+      top: slideBox.top + safeArea.top * scale,
+      bottom: slideBox.bottom - safeArea.bottom * scale
     };
 
     const textElements = Array.from(slide.querySelectorAll("*")).filter(
@@ -524,7 +585,9 @@ function auditInPage(config) {
 
     return {
       index: index + 1,
-      id: slide.getAttribute("data-slide") || slide.getAttribute("data-slide-id") || slide.id || `s${String(index + 1).padStart(2, "0")}`,
+      id,
+      placement,
+      safeArea,
       composition: slide.getAttribute("data-composition") || null,
       job: slide.getAttribute("data-job") || null,
       mode: slide.getAttribute("data-mode") || null,
@@ -577,6 +640,10 @@ function auditInPage(config) {
     safeX: options.safeX,
     safeTop: options.safeTop,
     safeBottom: options.safeBottom,
+    safeByCanvas: SAFE_BY_CANVAS,
+    safeByPlacement: SAFE_BY_PLACEMENT,
+    safeFallback: SAFE_FALLBACK,
+    formatTokens: FORMAT_TOKENS,
     minBodyPx: options.minBodyPx,
     minFinePx: options.minFinePx,
     minContrast: options.minContrast
@@ -591,7 +658,31 @@ function auditInPage(config) {
     distinct: distinctCompositions,
     slides: slides.length
   };
-  if (slides.length >= 5 && compositions.length === slides.length && distinctCompositions < 3) {
+  /* Um conjunto de anúncios não é carrossel: variantes de um mesmo eixo mantêm
+     a arte constante de propósito. O que se exige é que colocações diferentes
+     sejam recompostas, não a mesma peça esticada para outro canvas. */
+  const adSet = slides.every((slide) => slide.placement);
+  if (adSet) {
+    const byVariant = new Map();
+    slides.forEach((slide) => {
+      const variant = slide.id.split("_").filter((part) => !FORMAT_TOKENS[part.toLowerCase()]).join("_");
+      if (!byVariant.has(variant)) byVariant.set(variant, []);
+      byVariant.get(variant).push(slide);
+    });
+    byVariant.forEach((group) => {
+      const canvases = new Set(group.map((slide) => `${slide.canvas.width}x${slide.canvas.height}`));
+      const shapes = new Set(group.map((slide) => slide.composition));
+      if (canvases.size > 1 && shapes.size === 1 && group[0].composition) {
+        group[0].findings.push({
+          level: "warn",
+          check: "colocacao",
+          message: `Mesma macro-composição "${group[0].composition}" em ${canvases.size} canvases: recompor por colocação, não esticar`,
+          detail: group.map((slide) => slide.id).join(", ")
+        });
+      }
+    });
+  }
+  if (!adSet && slides.length >= 5 && compositions.length === slides.length && distinctCompositions < 3) {
     slides[0].findings.push({
       level: "fail",
       check: "ritmo",
@@ -599,7 +690,7 @@ function auditInPage(config) {
       detail: compositions.join(", ")
     });
   }
-  if (slides.length > 1 && compositions.length !== slides.length) {
+  if (!adSet && slides.length > 1 && compositions.length !== slides.length) {
     slides[0].findings.push({
       level: "warn",
       check: "ritmo",
@@ -627,8 +718,9 @@ function auditInPage(config) {
     }
 
     if (options.guides) {
-      await page.evaluate((safe) => {
-        document.querySelectorAll("[data-hanna-export]").forEach((slide) => {
+      await page.evaluate((areas) => {
+        document.querySelectorAll("[data-hanna-export]").forEach((slide, index) => {
+          const safe = areas[index];
           const overlay = document.createElement("div");
           const scale = slide.getBoundingClientRect().width / 1080;
           overlay.setAttribute("data-guide-overlay", "");
@@ -636,7 +728,7 @@ function auditInPage(config) {
           if (getComputedStyle(slide).position === "static") slide.style.position = "relative";
           slide.appendChild(overlay);
         });
-      }, { x: options.safeX, top: options.safeTop, bottom: options.safeBottom });
+      }, slides.map((slide) => slide.safeArea));
       for (let index = 0; index < slides.length; index += 1) {
         const file = path.join(options.out, `${options.prefix}-${slides[index].id}-guides.png`);
         await locators.nth(index).screenshot({ path: file, scale: "css" });
@@ -694,14 +786,14 @@ function auditInPage(config) {
     input: { path: options.input, sha256: sha256(options.input) },
     browser: { version, executablePath: browserPath.executablePath, origin: browserPath.origin },
     settings: {
-      safeArea: { x: options.safeX, top: options.safeTop, bottom: options.safeBottom },
+      safeAreaOverride: { x: options.safeX, top: options.safeTop, bottom: options.safeBottom },
       minBodyPx: options.minBodyPx,
       minFinePx: options.minFinePx,
       minContrast: options.minContrast,
       exportScale: options.scale,
       previewScale: options.previewScale
     },
-    rhythm,
+    rhythm: { ...rhythm, adSet },
     slides,
     exports,
     pageErrors: consoleErrors,
@@ -725,6 +817,7 @@ function auditInPage(config) {
       const marks = slide.findings.length ? "" : "  sem apontamentos";
       console.log(
         `\n  ${slide.id}${slide.composition ? ` [${slide.composition}]` : ""} — ${slide.canvas.width}×${slide.canvas.height}` +
+          ` · safe ${slide.safeArea.x}/${slide.safeArea.top}/${slide.safeArea.bottom} (${slide.safeArea.origin})` +
           `${slide.worstContrast ? ` · contraste mínimo ${slide.worstContrast}:1` : ""}` +
           `${slide.smallestBodyPx ? ` · menor corpo ${slide.smallestBodyPx}px` : ""}${marks}`
       );
