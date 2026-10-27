@@ -58,6 +58,16 @@ Verify the current safe-area figures before a launch sign-off. Never place the
 offer, the price, the destination, or the brand mark inside a band you have not
 verified.
 
+Build the placement set as one production HTML. Mark every canvas with
+`data-placement` and name it with the convention under
+[Variant matrix](#variant-matrix); `scripts/render.cjs` then applies each
+placement's working envelope (paid Stories/Reels: 270 px top, 384 px bottom),
+fails a name whose format token does not match its canvas, and warns when one
+variant keeps the same macro-composition across canvases. See
+`scripts/README.md`. Paid Stories use a stricter envelope than the organic
+120 / 240 in [Instagram mechanics](instagram-mechanics.md), because the ad
+interface is larger.
+
 ## Creative craft for paid
 
 What changes relative to organic:
